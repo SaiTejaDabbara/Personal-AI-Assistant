@@ -1,0 +1,103 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buddy dashboard</title>
+  <desc id="desc">Dashboard-style Buddy command center mockup.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#07172b"/>
+      <stop offset="100%" stop-color="#0d2745"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" x2="1">
+      <stop offset="0%" stop-color="#69e7ff"/>
+      <stop offset="100%" stop-color="#1f81ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="980" fill="url(#bg2)"/>
+  <rect x="30" y="30" width="1540" height="920" rx="28" fill="#0a1d2f" stroke="#2f8cff" stroke-opacity="0.4"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="60" y="70" width="260" height="820" rx="22" fill="#0d2441"/>
+    <text x="95" y="120" font-size="28" font-weight="700" fill="#ebf9ff">Buddy</text>
+    <text x="95" y="150" font-size="16" fill="#7cb4d5">Your Personal Desktop Assistant</text>
+
+    <g fill="#cbecff">
+      <rect x="84" y="200" width="210" height="46" rx="12" fill="#12395c"/>
+      <text x="118" y="231" font-size="18">Command Center</text>
+      <rect x="84" y="260" width="210" height="46" rx="12" fill="#113151"/>
+      <text x="118" y="291" font-size="18">AI Chat</text>
+      <rect x="84" y="320" width="210" height="46" rx="12" fill="#113151"/>
+      <text x="118" y="351" font-size="18">Agents</text>
+      <rect x="84" y="380" width="210" height="46" rx="12" fill="#113151"/>
+      <text x="118" y="411" font-size="18">Tasks</text>
+      <rect x="84" y="440" width="210" height="46" rx="12" fill="#113151"/>
+      <text x="118" y="471" font-size="18">Memory</text>
+    </g>
+
+    <g transform="translate(350,70)">
+      <text x="0" y="30" font-size="22" fill="#dff7ff">SYSTEM STATUS</text>
+      <rect x="220" y="0" width="160" height="44" rx="12" fill="#143b5f"/>
+      <circle cx="250" cy="22" r="7" fill="#63f0af"/>
+      <text x="270" y="30" font-size="18" fill="#79f8c4">ONLINE</text>
+
+      <g transform="translate(40,90)">
+        <rect x="0" y="0" width="760" height="230" rx="24" fill="#0d2b4f"/>
+        <text x="32" y="54" font-size="38" font-weight="700" fill="#f3faff">Hi Developer!</text>
+        <text x="32" y="94" font-size="22" fill="#bceaf9">I’m Buddy, your personal desktop assistant.</text>
+        <text x="32" y="126" font-size="22" fill="#bceaf9">Ask me anything, automate your work, and get things done faster.</text>
+        <g transform="translate(30,155)">
+          <rect x="0" y="0" width="110" height="42" rx="12" fill="#153b61" stroke="#45d5ff"/>
+          <text x="55" y="28" text-anchor="middle" font-size="16" fill="#dffaff">Ask</text>
+          <rect x="132" y="0" width="128" height="42" rx="12" fill="#153b61" stroke="#45d5ff"/>
+          <text x="196" y="28" text-anchor="middle" font-size="16" fill="#dffaff">Automate</text>
+          <rect x="282" y="0" width="120" height="42" rx="12" fill="#153b61" stroke="#45d5ff"/>
+          <text x="342" y="28" text-anchor="middle" font-size="16" fill="#dffaff">Manage</text>
+          <rect x="424" y="0" width="110" height="42" rx="12" fill="#153b61" stroke="#45d5ff"/>
+          <text x="479" y="28" text-anchor="middle" font-size="16" fill="#dffaff">Create</text>
+        </g>
+      </g>
+
+      <g transform="translate(830,90)">
+        <circle cx="90" cy="120" r="84" fill="url(#cyan)" opacity="0.12"/>
+        <circle cx="90" cy="120" r="64" fill="#dff8ff"/>
+        <circle cx="90" cy="120" r="30" fill="#74d9ff"/>
+        <path d="M68 116l10 10 24-28" stroke="#0d1f36" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <g transform="translate(40,350)">
+        <rect x="0" y="0" width="420" height="250" rx="20" fill="#0d2b4f"/>
+        <text x="28" y="38" font-size="18" fill="#dff7ff">AI CORE MODULES</text>
+        <g transform="translate(28,58)">
+          <rect x="0" y="0" width="160" height="72" rx="16" fill="#143b61"/>
+          <text x="25" y="34" font-size="20" fill="#dffaff">Core AI</text>
+          <text x="25" y="54" font-size="15" fill="#7fe7b4">Active</text>
+          <rect x="180" y="0" width="160" height="72" rx="16" fill="#143b61"/>
+          <text x="205" y="34" font-size="20" fill="#dffaff">Memory</text>
+          <text x="205" y="54" font-size="15" fill="#7fe7b4">3.2 GB Used</text>
+        </g>
+      </g>
+
+      <g transform="translate(480,350)">
+        <rect x="0" y="0" width="520" height="250" rx="20" fill="#0d2b4f"/>
+        <text x="28" y="38" font-size="18" fill="#dff7ff">QUICK COMMANDS</text>
+        <g transform="translate(28,68)">
+          <rect x="0" y="0" width="110" height="52" rx="12" fill="#143b61"/>
+          <text x="55" y="33" text-anchor="middle" font-size="15" fill="#dffaff">Open Folder</text>
+          <rect x="128" y="0" width="110" height="52" rx="12" fill="#143b61"/>
+          <text x="183" y="33" text-anchor="middle" font-size="15" fill="#dffaff">Search Web</text>
+          <rect x="256" y="0" width="110" height="52" rx="12" fill="#143b61"/>
+          <text x="311" y="33" text-anchor="middle" font-size="15" fill="#dffaff">Write Code</text>
+          <rect x="384" y="0" width="110" height="52" rx="12" fill="#143b61"/>
+          <text x="439" y="33" text-anchor="middle" font-size="15" fill="#dffaff">Summarize</text>
+        </g>
+      </g>
+
+      <g transform="translate(40,632)">
+        <rect x="0" y="0" width="960" height="130" rx="20" fill="#0d2b4f"/>
+        <text x="28" y="38" font-size="18" fill="#dff7ff">LIVE INTELLIGENCE FEED</text>
+        <g transform="translate(28,58)">
+          <text x="0" y="0" font-size="16" fill="#dffaff">• Searching latest AI news...</text>
+          <text x="0" y="34" font-size="16" fill="#dffaff">• Reading and analyzing content...</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

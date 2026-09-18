@@ -1,0 +1,89 @@
+<svg width="1400" height="880" viewBox="0 0 1400 880" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buddy workflow</title>
+  <desc id="desc">A workflow showing how Buddy handles search, classification, AI processing, and response generation.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#6de1ff"/>
+      <stop offset="100%" stop-color="#2d7eff"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0d1f34"/>
+      <stop offset="100%" stop-color="#0d2f55"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="#0c88ff" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="1400" height="880" fill="#f5fbff"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <g transform="translate(80,120)">
+      <rect x="0" y="0" width="270" height="180" rx="28" fill="#ecfaff" stroke="#48c6ff" stroke-width="2"/>
+      <text x="28" y="58" font-size="28" font-weight="700" fill="#123557">Can you find the</text>
+      <text x="28" y="92" font-size="28" font-weight="700" fill="#123557">latest AI news and</text>
+      <text x="28" y="126" font-size="28" font-weight="700" fill="#123557">summarize it for me?</text>
+    </g>
+
+    <g transform="translate(380,80)">
+      <circle cx="80" cy="120" r="52" fill="#eaf9ff" stroke="#49c8ff" stroke-width="3"/>
+      <path d="M64 140h32M80 124v32M50 80q30-18 60 0" fill="none" stroke="#0d73ff" stroke-width="5" stroke-linecap="round"/>
+      <text x="-10" y="214" font-size="26" text-anchor="middle" fill="#123557">Search</text>
+      <text x="-10" y="246" font-size="26" text-anchor="middle" fill="#123557">Internet</text>
+    </g>
+
+    <g transform="translate(620,80)">
+      <rect x="0" y="0" width="170" height="150" rx="22" fill="#f4fbff" stroke="#48c6ff" stroke-width="2"/>
+      <g stroke="#2d7eff" stroke-width="5" fill="none" stroke-linecap="round">
+        <path d="M35 70h100"/>
+        <path d="M38 48v42M95 48v42M70 30v70M52 90h70"/>
+      </g>
+      <text x="85" y="150" text-anchor="middle" font-size="26" fill="#123557">Find Relevant</text>
+      <text x="85" y="180" text-anchor="middle" font-size="26" fill="#123557">Information</text>
+    </g>
+
+    <g transform="translate(840,60)">
+      <circle cx="120" cy="120" r="82" fill="#edfaff" stroke="#45c7ff" stroke-width="3"/>
+      <circle cx="120" cy="120" r="54" fill="#e7f7ff"/>
+      <g fill="#0d73ff" opacity="0.85">
+        <circle cx="120" cy="55" r="9"/>
+        <circle cx="165" cy="98" r="9"/>
+        <circle cx="76" cy="98" r="9"/>
+        <circle cx="145" cy="156" r="9"/>
+        <circle cx="95" cy="156" r="9"/>
+      </g>
+      <text x="120" y="220" text-anchor="middle" font-size="26" fill="#123557">Process &amp;</text>
+      <text x="120" y="252" text-anchor="middle" font-size="26" fill="#123557">Understand</text>
+    </g>
+
+    <g transform="translate(1090,75)">
+      <rect x="0" y="0" width="200" height="160" rx="26" fill="#ecfdff" stroke="#49c8ff" stroke-width="2"/>
+      <path d="M48 72h98M48 52h98M48 92h64" stroke="#1b73e5" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <circle cx="140" cy="92" r="18" fill="#71f4c9"/>
+      <path d="M132 92l7 7 14-17" stroke="#0d2445" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <text x="100" y="150" text-anchor="middle" font-size="26" fill="#123557">Generate</text>
+      <text x="100" y="180" text-anchor="middle" font-size="26" fill="#123557">Response</text>
+    </g>
+
+    <g transform="translate(30,420)">
+      <rect x="0" y="0" width="1300" height="360" rx="28" fill="url(#dark)"/>
+      <g fill="#ffffff" font-family="Segoe UI, Arial, sans-serif">
+        <text x="50" y="70" font-size="30" font-weight="700">Buddy</text>
+        <text x="50" y="108" font-size="22" fill="#bce7ff">Your Personal Desktop Assistant</text>
+      </g>
+
+      <g transform="translate(40,150)" filter="url(#shadow)">
+        <rect x="0" y="0" width="1020" height="120" rx="22" fill="#0e2d52"/>
+        <text x="30" y="44" font-size="22" fill="#9ae3ff">Status</text>
+        <text x="30" y="82" font-size="26" font-weight="700" fill="#7ff7d2">Searching web...</text>
+        <rect x="380" y="38" width="420" height="22" rx="11" fill="#143d62"/>
+        <rect x="380" y="38" width="300" height="22" rx="11" fill="url(#g1)"/>
+        <text x="840" y="82" font-size="24" font-weight="700" fill="#bfeeff">Ready!</text>
+      </g>
+
+      <g transform="translate(1060,140)">
+        <rect x="0" y="0" width="180" height="180" rx="20" fill="#0e2d52"/>
+        <circle cx="90" cy="90" r="52" fill="url(#g1)" opacity="0.15"/>
+        <circle cx="90" cy="90" r="32" fill="#78d9ff"/>
+        <path d="M76 90l11 11 22-28" stroke="#10253d" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

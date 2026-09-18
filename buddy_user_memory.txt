@@ -1,0 +1,14 @@
+date=today
+song=https://www.saregama.com/song/yeshanagula_239900
+fact=first search in computer is for apps then websites
+subject=chatGPT Astra backend|
+preference=a d
+command=copy CopyTest folder into Destination folder
+folder=buddutest9
+task=move backip folder into Movetest
+file=javatest1.java
+name=Alice
+action=move MoveTest folder into Backup folder
+topic=chat gpt
+location=None
+key=value

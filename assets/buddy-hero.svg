@@ -1,0 +1,98 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buddy hero illustration</title>
+  <desc id="desc">Stylized cartoon desktop assistant and developer workspace.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#edf7ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" x2="1">
+      <stop offset="0%" stop-color="#18d0ff"/>
+      <stop offset="100%" stop-color="#2f7cff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0b1833"/>
+      <stop offset="100%" stop-color="#0a2447"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1d7bf5" flood-opacity="0.15"/></filter>
+  </defs>
+  <rect width="1400" height="820" fill="url(#bg)"/>
+
+  <g opacity="0.5">
+    <circle cx="145" cy="120" r="20" fill="#dff7ff"/>
+    <circle cx="320" cy="120" r="14" fill="#dff7ff"/>
+    <circle cx="1040" cy="120" r="18" fill="#dff7ff"/>
+    <circle cx="1260" cy="120" r="14" fill="#dff7ff"/>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#1d2a3e">
+    <text x="70" y="120" font-size="30" font-weight="700">Buddy</text>
+    <text x="70" y="155" font-size="18" fill="#4e6c88">Your Personal Desktop Assistant</text>
+  </g>
+
+  <g transform="translate(0,40)" filter="url(#shadow)">
+    <rect x="50" y="140" width="240" height="150" rx="18" fill="#0d1f34"/>
+    <rect x="55" y="145" width="230" height="24" rx="8" fill="#111f34"/>
+    <circle cx="86" cy="158" r="6" fill="#ff6b6b"/>
+    <circle cx="107" cy="158" r="6" fill="#f6c86a"/>
+    <circle cx="128" cy="158" r="6" fill="#61d38d"/>
+    <g fill="#7ad8ff" font-family="Consolas, monospace" font-size="12">
+      <text x="70" y="200">&gt; javac Buddy.java</text>
+      <text x="70" y="220">&gt; run Buddy</text>
+      <text x="70" y="240">&gt; open folder</text>
+      <text x="70" y="260">&gt; search web</text>
+    </g>
+  </g>
+
+  <g transform="translate(0,40)">
+    <rect x="323" y="140" width="200" height="150" rx="18" fill="#0d1f34"/>
+    <rect x="340" y="160" width="75" height="90" rx="12" fill="#0f2c53"/>
+    <rect x="430" y="160" width="75" height="90" rx="12" fill="#0f2c53"/>
+    <g fill="#7ad8ff" font-size="18" font-weight="700" font-family="Segoe UI, Arial, sans-serif">
+      <text x="350" y="210">&lt;/&gt;</text>
+      <text x="445" y="210">AI</text>
+    </g>
+  </g>
+
+  <g transform="translate(280,20)">
+    <g>
+      <circle cx="350" cy="240" r="110" fill="url(#neon)" opacity="0.18"/>
+      <circle cx="350" cy="240" r="86" fill="#dfeeff"/>
+      <path d="M285 250c20-65 90-95 140-52 21 18 34 50 34 86 0 58-40 102-96 102-59 0-103-46-103-103 0-17 4-34 12-49" fill="none" stroke="#1a7df0" stroke-width="6" opacity="0.5"/>
+      <g fill="#1d2a3e">
+        <circle cx="323" cy="222" r="28"/>
+        <circle cx="380" cy="222" r="28"/>
+        <circle cx="311" cy="242" r="18" fill="#f0faff"/>
+        <circle cx="390" cy="242" r="18" fill="#f0faff"/>
+      </g>
+    </g>
+    <g transform="translate(70,200)">
+      <rect x="0" y="0" width="220" height="120" rx="18" fill="#ffffff" stroke="#65c8ff" stroke-width="2"/>
+      <text x="24" y="46" font-size="22" font-weight="700" fill="#183154">Buddy</text>
+      <text x="24" y="76" font-size="16" fill="#4f6785">Voice + actions + memory</text>
+      <rect x="24" y="88" width="170" height="14" rx="7" fill="#9fe5ff"/>
+    </g>
+  </g>
+
+  <g transform="translate(950,120)">
+    <rect x="0" y="0" width="360" height="240" rx="22" fill="url(#panel)"/>
+    <text x="28" y="52" font-size="30" font-weight="700" fill="#f0fbff">AI Command Center</text>
+    <g fill="#90e8ff" font-size="18" font-family="Segoe UI, Arial, sans-serif">
+      <text x="28" y="104">• Open folders</text>
+      <text x="28" y="138">• Search the web</text>
+      <text x="28" y="172">• Voice control</text>
+      <text x="28" y="206">• Memory and tasks</text>
+    </g>
+  </g>
+
+  <g transform="translate(80,560)">
+    <rect x="0" y="0" width="1240" height="180" rx="26" fill="#0d1d2e" opacity="0.97"/>
+    <text x="44" y="62" font-size="38" font-weight="700" fill="#f2fbff">Build ideas. Learn faster. Automate work.</text>
+    <text x="44" y="106" font-size="22" fill="#9fc7d8">Buddy is a desktop assistant for coding, file work, web search, voice commands, and automation.</text>
+    <g transform="translate(930,35)">
+      <rect x="0" y="0" width="250" height="90" rx="18" fill="#0e2a4d" stroke="#4ad2ff"/>
+      <text x="30" y="38" font-size="15" fill="#a9dfff">Status</text>
+      <text x="30" y="66" font-size="32" font-weight="700" fill="#71f4c9">ONLINE</text>
+    </g>
+  </g>
+</svg>

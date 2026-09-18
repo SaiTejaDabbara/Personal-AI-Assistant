@@ -1,0 +1,830 @@
+01-09-2026 02:31:53 pm | Command: what is the time on youtube | Result: The current time is 02:31 pm
+01-09-2026 02:53:33 pm | Command: launch notepad | Result: Opening application...
+01-09-2026 07:25:15 pm | Command: remember website github https://github.com | Result: I learned the website github.
+01-09-2026 07:26:07 pm | Command: open github | Result: Opening website...
+01-09-2026 07:28:24 pm | Command: open instagram on google | Result: Opening website...
+01-09-2026 07:29:24 pm | Command: open java tutorials on youtube | Result: Opening website...
+01-09-2026 07:30:17 pm | Command: open instagram on google | Result: Opening website...
+01-09-2026 07:31:13 pm | Command: remember website instagram https://instagram.com | Result: I learned the website instagram.
+01-09-2026 07:31:24 pm | Command: open instagram | Result: Opening website...
+01-09-2026 07:31:50 pm | Command: show me history | Result: Searching Google for history
+01-09-2026 07:32:14 pm | Command: show me what you did | Result: Searching Google for what you did
+01-09-2026 07:41:48 pm | Command: show me history | Result: Searching Google for history
+02-09-2026 07:54:03 am | Command: remember website github https://github.com | Result: I learned the website github.
+02-09-2026 07:54:50 am | Command: remember website github https://github.com | Result: I learned the website github.
+02-09-2026 07:55:06 am | Command: open github | Result: Opening website...
+02-09-2026 07:55:49 am | Command: open github | Result: Opening website...
+02-09-2026 10:03:40 am | Command: open chrome | Result: Opening application...
+02-09-2026 10:04:49 am | Command: what is time | Result: The current time is 10:04 am
+02-09-2026 10:05:09 am | Command: search for our tutorials | Result: Searching Google for our tutorials
+02-09-2026 10:07:32 am | Command: open chrome | Result: Opening application...
+02-09-2026 10:13:30 am | Command: open chrome | Result: Opening application...
+02-09-2026 10:35:52 am | Command: ah  opened google | Result: Opening website...
+02-09-2026 10:37:41 am | Command: open google | Result: Opening website...
+02-09-2026 10:38:08 am | Command: open google | Result: Opening website...
+02-09-2026 10:39:23 am | Command: but you can get arbor open been google  opened google | Result: Opening website...
+02-09-2026 10:39:50 am | Command: open yoyoutube | Result: Opening website...
+03-09-2026 11:39:52 am | Command: open youtube | Result: Opening website...
+03-09-2026 12:07:19 pm | Command: open instagram | Result: I couldn't find a saved app or website for instagram. Searching for its official website. Opening website...
+03-09-2026 12:07:45 pm | Command: open instagram | Result: I couldn't find a saved app or website for instagram. Searching for its official website. Opening website...
+03-09-2026 12:23:16 pm | Command: open instagram | Result: Opening application...
+03-09-2026 12:26:02 pm | Command: open spotify | Result: Opening application...
+03-09-2026 12:26:41 pm | Command: open outlook | Result: Opening application...
+03-09-2026 12:28:13 pm | Command: search teems | Result: Searching Google for teems
+03-09-2026 12:28:35 pm | Command: open teems | Result: I couldn't find an installed application or saved website for teems. Searching for it online. Opening website...
+03-09-2026 12:29:19 pm | Command: open microsoft teams | Result: Opening application...
+03-09-2026 12:31:01 pm | Command: open ollama | Result: Opening application...
+03-09-2026 12:33:34 pm | Command: closewsups | Result: I don't know how to close wsups yet.
+03-09-2026 12:39:48 pm | Command: close whatsapp | Result: Closing whatsapp...
+03-09-2026 03:26:20 pm | Command: open google | Result: Opening website...
+03-09-2026 03:26:52 pm | Command: open hotspot troubleshooting | Result: I couldn't find an installed application or saved website for hotspot troubleshooting. Searching for it online. Opening website...
+03-09-2026 03:28:16 pm | Command: open chat | Result: Opening application...
+03-09-2026 08:18:04 pm | Command: open command | Result: Opening application...
+03-09-2026 10:29:14 pm | Command: open chrome | Result: Opening application...
+03-09-2026 10:33:01 pm | Command: open me | Result: Opening application...
+03-09-2026 10:37:22 pm | Command: open camera | Result: Opening application...
+03-09-2026 10:37:57 pm | Command: search best keyboard | Result: Searching Google for best keyboard
+03-09-2026 10:38:28 pm | Command: open llm | Result: I couldn't find an installed application or saved website for llm. Searching for it online. Opening website...
+03-09-2026 10:42:40 pm | Command: open chat gpt prompt \ | Result: I couldn't find an installed application or saved website for chat gpt prompt \. Searching for it online. Opening website...
+03-09-2026 10:46:06 pm | Command: open cmd | Result: Opening application...
+03-09-2026 10:50:26 pm | Command: open spotify | Result: Opening application...
+03-09-2026 10:50:47 pm | Command: open jio savan | Result: I couldn't find an installed application or saved website for jio savan. Searching for it online. Opening website...
+03-09-2026 10:51:21 pm | Command: close spotify | Result: Closing spotify...
+03-09-2026 10:51:39 pm | Command: open whatsup | Result: I couldn't find an installed application or saved website for whatsup. Searching for it online. Opening website...
+03-09-2026 10:52:47 pm | Command: close whatsapp | Result: Closing whatsapp...
+03-09-2026 10:53:23 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 10:53:53 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 10:54:25 pm | Command: close mail | Result: I could not find a running application named mail.
+03-09-2026 11:00:12 pm | Command: open outlook | Result: Opening application...
+03-09-2026 11:00:24 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 11:04:40 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 11:05:13 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 11:05:35 pm | Command: open outlook | Result: Opening application...
+03-09-2026 11:05:49 pm | Command: close outlook | Result: I could not find a running application named outlook.
+03-09-2026 11:06:55 pm | Command: close outlook | Result: Closing outlook...
+03-09-2026 11:07:07 pm | Command: open outlook | Result: Opening application...
+03-09-2026 11:07:19 pm | Command: close outlook | Result: Closing outlook...
+03-09-2026 11:07:35 pm | Command: open copoilet | Result: I couldn't find an installed application or saved website for copoilet. Searching for it online. Opening website...
+03-09-2026 11:08:27 pm | Command: open microsoft copilot | Result: I couldn't find an installed application or saved website for microsoft copilot. Searching for it online. Opening website...
+03-09-2026 11:09:07 pm | Command: close outlook | Result: Closing outlook...
+03-09-2026 11:09:48 pm | Command: open copilot | Result: Opening application...
+03-09-2026 11:11:47 pm | Command: open instagram | Result: Opening application...
+03-09-2026 11:15:57 pm | Command: open copilot | Result: Opening application...
+03-09-2026 11:16:12 pm | Command: close copilot | Result: Closing copilot...
+03-09-2026 11:16:30 pm | Command: open caluculator | Result: I couldn't find an installed application or saved website for caluculator. Searching for it online. Opening website...
+03-09-2026 11:17:16 pm | Command: open calculator | Result: Opening application...
+04-09-2026 12:04:27 am | Command: search when janmastami festival | Result: Searching Google for when janmastami festival
+04-09-2026 12:05:26 am | Command: search when janmastami festival | Result: Searching Google for when janmastami festival
+04-09-2026 12:06:15 am | Command: open instagram | Result: Opening application...
+04-09-2026 12:07:27 am | Command: close instagram | Result: Closing instagram...
+05-09-2026 11:43:55 pm | Command: OPEN spotify | Result: Opening application...
+05-09-2026 11:45:08 pm | Command: CLOSE spotify | Result: Closing spotify...
+06-09-2026 12:56:51 pm | Command: OPEN buddytest folder | Result: Opening website...
+06-09-2026 12:57:29 pm | Command: OPEN buddytest folder on my desktop | Result: Opening website...
+06-09-2026 12:58:07 pm | Command: OPEN instagram | Result: Opening application...
+06-09-2026 01:13:20 pm | Command: CREATE A FOLDER BUDDYTEST | Result: Folder BuddyTest created successfully.
+06-09-2026 01:14:08 pm | Command: where is it | Result: Searching Google for it
+06-09-2026 01:14:48 pm | Command: open it | Result: Opening application...
+06-09-2026 01:16:04 pm | Command: create a folder tejatest1 on desktop | Result: Folder tejatest1 created successfully.
+06-09-2026 01:16:22 pm | Command: open it | Result: Opening application...
+06-09-2026 02:08:30 pm | Command: CREATE A FOLDER BUDDYTEST | Result: That folder already exists.
+06-09-2026 02:12:47 pm | Command: You: | Result: Opening BuddyTest folder.
+06-09-2026 02:13:00 pm | Command: I just want it on my desktop C:\Users\dabba\OneDrive\Desktop | Result: I could not find that folder.
+06-09-2026 02:13:10 pm | Command: Buddy: | Result: I could not find that folder.
+06-09-2026 09:57:00 pm | Command: create a folder called BuddyTest on my desktop | Result: Folder BuddyTest created successfully.
+06-09-2026 09:58:34 pm | Command: open it | Result: Opening BuddyTest folder.
+06-09-2026 10:06:36 pm | Command: create a folder called BuddyTest1 on my desktop | Result: Folder BuddyTest1 created successfully.
+06-09-2026 10:17:06 pm | Command: where is it and open it | Result: Opening BuddyTest1 folder.
+06-09-2026 10:19:23 pm | Command: create buddytest2 folder and where is it and open it and send a random photo in to it | Result: Folder buddytest2 created successfully.
+06-09-2026 10:19:24 pm | Command: create buddytest2 folder and where is it and open it and send a random photo in to it | Result: Opening buddytest2 folder.
+06-09-2026 10:37:48 pm | Command: create buddytest5 folder and where is it and open it and download a random mp3 | Result: Folder buddytest5 created successfully.
+06-09-2026 10:37:49 pm | Command: create buddytest5 folder and where is it and open it and download a random mp3 | Result: Opening buddytest5 folder.
+06-09-2026 10:40:45 pm | Command: download yeshnagula mp3 song and keep it in buddytest5 folder | Result: Folder BuddyTest5 created successfully.
+06-09-2026 10:56:42 pm | Command: create buddytest6 folder and where is it and open it and download a random mp3 | Result: Folder buddytest6 created successfully.
+06-09-2026 10:56:42 pm | Command: create buddytest6 folder and where is it and open it and download a random mp3 | Result: buddytest6 is located at C:\Users\dabba\OneDrive\Desktop\buddytest6.
+06-09-2026 10:56:43 pm | Command: create buddytest6 folder and where is it and open it and download a random mp3 | Result: Opening buddytest6 folder.
+06-09-2026 10:56:46 pm | Command: create buddytest6 folder and where is it and open it and download a random mp3 | Result: Downloaded 1200 to C:\Users\dabba\OneDrive\Desktop\buddytest6.
+06-09-2026 11:03:18 pm | Command: download a paradise telugu songs in to buddytest6 folder | Result: I need a download source or URL for that file.
+06-09-2026 11:12:18 pm | Command: https://www.saregama.com/song/yeshanagula_239900 | Result: Searching Google for yeshanagula_239900
+06-09-2026 11:16:43 pm | Command: open it | Result: Opening application...
+06-09-2026 11:30:08 pm | Command: download https://www.saregama.com/song/yeshanagula_239900 this song in buddytest6 folder | Result: Downloaded yeshanagula_239900 to C:\Users\dabba\Downloads.
+07-09-2026 01:11:42 pm | Command: download a random mp3 in buddytest6 | Result: I need a download source or URL for that file.
+07-09-2026 02:39:47 pm | Command: create a folder buddytest7 on desktop | Result: Folder buddytest7 created successfully.
+07-09-2026 02:40:53 pm | Command: open buddytest7 folder | Result: Opening buddytest7 folder.
+07-09-2026 03:00:58 pm | Command: open buddytest6 folder | Result: Opening buddytest6 folder.
+07-09-2026 08:11:59 pm | Command: create buddytest10 folder on desktop | Result: Folder buddytest10 created successfully.
+07-09-2026 08:12:52 pm | Command: Confirmed: yes | Result: Deleted buddytest10.
+07-09-2026 08:13:35 pm | Command: create buddytest9 and open it | Result: Opening website...
+07-09-2026 08:17:07 pm | Command: create buddutest9  folder on desktop and open it | Result: Folder buddutest9 created successfully.
+07-09-2026 08:17:08 pm | Command: create buddutest9  folder on desktop and open it | Result: Opening buddutest9 folder.
+07-09-2026 08:18:13 pm | Command: delete buddytest9 folder | Result: Deleted buddutest9.
+07-09-2026 08:19:10 pm | Command: yes | Result: Opening website...
+07-09-2026 08:38:27 pm | Command: search for mounika sirisila on instagram | Result: Searching Google for mounika sirisila
+07-09-2026 08:40:22 pm | Command: search for mounikasirisala in instagram | Result: Searching Google for mounikasirisala in instagram
+07-09-2026 08:41:10 pm | Command: open instagram | Result: Opening application...
+07-09-2026 09:55:08 pm | Command: WEB SEARCH today's news | Result: It looks like you've already checked for today's news! However, I can help you summarize the important points from the current search results. Here are the top news headlines:
+
+* A building collapse in Delhi has led to the arrest of the PG owner, his wife, and son, with the court also taking responsibility from DU and MCD.
+* In Mumbai, a new coastline safety audit has been launched to mitigate the risk of submergence due to climate change.
+* A Bihar man has been spotted lifting his new SUV to a 2nd-floor rooftop using a crane to protect it from theft.
+* The Delhi HC will hear a PIL today regarding the Satya Niketan building collapse.
+* Nepal's President is seeking "climate justice" as deaths rise to 1,355.
+
+Let me know if you'd like to explore any of these topics further!
+07-09-2026 09:57:10 pm | Command: WEB SEARCH techcrunch | Result: It seems like you're looking for news and updates from TechCrunch. Let me summarize the current search results for you:
+
+- Krafton has invested $250M in India, expanding their gaming presence.
+- Apple's upcoming launch has some expectations being discussed.
+- Atoms, founded by Travis Kalanick, is potentially entering the robotaxi business.
+- India's richest person wants to convert old computers to AI-ready PCs.
+- Google has launched AI voice features in Gmail, Docs, and Keep.
+- Adobe has acquired Indian market intelligence startup Rilo.
+- XDOF, a stealth company, is in talks for a $1.2B funding round.
+
+That's a quick rundown of the latest news from TechCrunch.
+07-09-2026 10:00:22 pm | Command: create a folder called Test123 on my desktop | Result: Folder Test123 created successfully.
+07-09-2026 10:00:46 pm | Command: where is Test123 | Result: Test123 is located at C:\Users\dabba\OneDrive\Desktop\Test123.
+07-09-2026 10:01:13 pm | Command: delete Test123 folder | Result: Deleted Test123.
+07-09-2026 10:03:07 pm | Command: WEB SEARCH chat gpt | Result: It seems you're interested in learning more about ChatGPT. Here are some key points from the current search results:
+
+* ChatGPT Astra is rolling out to a $20 Plus subscription, according to BleepingComputer.
+* You can gain lifetime access to ChatGPT, Gemini, and Claude for $70, as reported by Mashable.
+* OpenAI has released a new generation of intelligence called GPT-6 Astra, which can be found on their website.
+* There's been an issue with Microsoft's Outlook and ChatGPT, which both broke on the same day, as reported by Yahoo Finance.
+* Sam Altman, the CEO of OpenAI, claims that ChatGPT uses as much water as an almond, but this is being questioned by others, according to The Times of India.
+* Getting your product into ChatGPT isn't the hard part, but getting it through checkout is, according to Search Engine Journal.
+* ReBid has added ChatGPT ads to its AI marketing platform, as reported by afaqs!
+
+I hope this information helps you understand more about ChatGPT! Is there anything else I can help you with?
+07-09-2026 10:06:02 pm | Command: what is date today | Result: The current time is 10:06 pm
+07-09-2026 10:07:40 pm | Command: WEB SEARCH date today | Result: Today is the demerger record date for HEG, according to NDTV Profit and Livemint. This means that shareholders who wish to sell their shares must do so by the close of business on this day. The SGB premature redemption date is also today, turning an investment of Rs 1 lakh into nearly Rs 3.28 lakh, as per The Economic Times.
+07-09-2026 10:36:22 pm | Command: create a folder called SpeedTest on desktop | Result: Folder SpeedTest created successfully.
+07-09-2026 10:39:58 pm | Command: package buddy.commands; | Result: Opening website...
+07-09-2026 10:45:20 pm | Command: create a folder called SpeedTest3 on desktop | Result: Folder SpeedTest3 created successfully.
+07-09-2026 10:46:29 pm | Command: create a folder called SpeedTest4 on desktop | Result: Folder SpeedTest4 created successfully.
+07-09-2026 10:50:38 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: Folder MultiTest created successfully.
+07-09-2026 10:50:38 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: MultiTest is located at C:\Users\dabba\OneDrive\Desktop\MultiTest.
+07-09-2026 10:50:38 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: Opening MultiTest folder.
+07-09-2026 10:51:57 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: That folder already exists.
+07-09-2026 10:51:57 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: MultiTest is located at C:\Users\dabba\OneDrive\Desktop\MultiTest.
+07-09-2026 10:51:57 pm | Command: create a folder called MultiTest on desktop and locate it and open it | Result: Opening MultiTest folder.
+07-09-2026 11:00:54 pm | Command: create a folder called SpeedTest10 on desktop | Result: Folder SpeedTest10 created successfully.
+07-09-2026 11:02:29 pm | Command: create a folder called SpeedTest11 on desktop | Result: Folder SpeedTest11 created successfully.
+07-09-2026 11:08:19 pm | Command: let me do laugh | Result: I found  but could not close it.
+07-09-2026 11:08:19 pm | Command: let me do laugh | Result: SpeedTest11 is located at C:\Users\dabba\OneDrive\Desktop\SpeedTest11.
+07-09-2026 11:10:42 pm | Command: WEB SEARCH make me laugh | Result: I've got just the thing to put a smile on your face!
+
+Here are some funny articles and jokes to make you laugh:
+
+1. A Kerala CM's hilarious comments about media ethics in Kerala made us laugh.
+2. Did you know your surname can be a funny research tool? 
+3. Want to join a challenge to make us laugh every week? Check out the #52WeekChallenge!
+4. 35 hilarious texts that will make you laugh uncontrollably are waiting for you on BuzzFeed!
+5. A Yahoo News Singapore article about funny pictures woke up an entire family!
+
+If jokes and articles aren't your thing, I can also try to find you a funny video or meme. Just let me know!
+
+(Sorry, I couldn't find a song to make you laugh, but I can try to find one for you to download later, if you'd like!)
+07-09-2026 11:14:01 pm | Command: i am going to complaint on you | Result: I found  but could not close it.
+07-09-2026 11:57:58 pm | Command: create a folder called FastTest on desktop | Result: Folder FastTest created successfully.
+08-09-2026 12:16:57 am | Command: create a folder called QwenTest on desktop | Result: Folder QwenTest created successfully.
+08-09-2026 12:17:46 am | Command: open it | Result: Opening QwenTest folder.
+08-09-2026 12:31:24 pm | Command: create a folder called ContextTest on desktop | Result: Folder ContextTest created successfully.
+08-09-2026 12:32:16 pm | Command: open it | Result: Opening ContextTest folder.
+08-09-2026 12:38:27 pm | Command: create a folder called Movies on desktop | Result: Folder Movies created successfully.
+08-09-2026 12:38:38 pm | Command: create another folder inside it called Telugu | Result: Folder Telugu created successfully.
+08-09-2026 12:38:48 pm | Command: open it | Result: Opening Telugu folder.
+08-09-2026 12:39:11 pm | Command: open it | Result: Opening Telugu folder.
+08-09-2026 12:47:15 pm | Command: create a folder called Movies on desktop | Result: That folder already exists.
+08-09-2026 12:47:27 pm | Command: create another folder inside it called Telugu | Result: That folder already exists.
+08-09-2026 12:47:39 pm | Command: rename it to Telugu Movies | Result: Renamed Telugu to Telugu Movies.
+08-09-2026 12:47:54 pm | Command: open it | Result: Opening Telugu Movies folder.
+08-09-2026 12:54:11 pm | Command: create a folder called Work on desktop | Result: Folder Work created successfully.
+08-09-2026 12:54:32 pm | Command: create a folder called Backup on desktop | Result: Folder Backup created successfully.
+08-09-2026 01:48:00 pm | Command: move Work folder into Backup folder | Result: Moved Work to C:\Users\dabba\Documents.
+08-09-2026 05:43:53 pm | Command: create a folder called MoveTest on desktop | Result: Folder MoveTest created successfully.
+08-09-2026 05:45:05 pm | Command: create a folder called Backup on desktop | Result: Folder Backup created successfully.
+08-09-2026 05:45:50 pm | Command: move backip folder in to Movetest | Result: Moved Backup to C:\Users\dabba\OneDrive\Desktop\Movetest.
+08-09-2026 05:49:19 pm | Command: create a folder called TestBackup on desktop | Result: Folder TestBackup created successfully.
+08-09-2026 05:49:36 pm | Command: move MoveTest folder into TestBackup folder | Result: Moved MoveTest to C:\Users\dabba\OneDrive\Desktop\TestBackup.
+08-09-2026 05:54:18 pm | Command: create a folder called ContextAllTest on desktop | Result: Folder ContextAllTest created successfully.
+08-09-2026 05:54:38 pm | Command: rename it to ContextAllTest2 | Result: Renamed ContextAllTest to ContextAllTest2.
+08-09-2026 05:54:55 pm | Command: ope it | Result: Opening website...
+08-09-2026 06:00:18 pm | Command: open it | Result: Opening application...
+08-09-2026 06:00:38 pm | Command: create a folder called TestA on desktop | Result: Folder TestA created successfully.
+08-09-2026 06:00:51 pm | Command: open it | Result: Opening TestA folder.
+08-09-2026 06:01:13 pm | Command: rename it to TestB | Result: Renamed TestA to TestB.
+08-09-2026 06:01:29 pm | Command: open it | Result: Opening TestB folder.
+08-09-2026 06:04:46 pm | Command: create a folder called CopyTest on desktop | Result: Folder CopyTest created successfully.
+08-09-2026 06:05:00 pm | Command: create a folder called Destination on desktop | Result: Folder Destination created successfully.
+08-09-2026 06:05:14 pm | Command: copy CopyTest folder into Destination folder | Result: Copied CopyTest to C:\Users\dabba\OneDrive\Desktop\Destination.
+08-09-2026 06:08:11 pm | Command: open destination | Result: Opening Destination folder.
+08-09-2026 06:09:31 pm | Command: open CopyTest | Result: Opening CopyTest folder.
+08-09-2026 06:10:48 pm | Command: open CopyTest folder on desktop | Result: Opening CopyTest folder.
+08-09-2026 06:12:58 pm | Command: open CopyTest folder on desktop | Result: Opening CopyTest folder.
+08-09-2026 06:14:27 pm | Command: create a folder called Project on desktop | Result: Folder Project created successfully.
+08-09-2026 06:14:35 pm | Command: create a folder called Archive on desktop | Result: Folder Archive created successfully.
+08-09-2026 06:14:50 pm | Command: rename it to MyProject | Result: Renamed Archive to MyProject.
+08-09-2026 06:18:50 pm | Command: create a folder called Project on desktop | Result: That folder already exists.
+08-09-2026 06:19:12 pm | Command: open Project | Result: Opening Project folder.
+08-09-2026 06:19:22 pm | Command: rename it to MyProject | Result: Renamed Project to MyProject.
+08-09-2026 06:20:06 pm | Command: copy it into Archive | Result: Opening MyProject folder.
+08-09-2026 06:20:56 pm | Command: create a folder archive | Result: Folder Archive created successfully.
+08-09-2026 06:22:15 pm | Command: create a folder project | Result: Folder Project created successfully.
+08-09-2026 06:22:40 pm | Command: copy project folder in to archive | Result: Opening Project folder.
+08-09-2026 10:34:24 pm | Command: Confirmed: yes | Result: Copied MyProject to C:\Users\dabba\Documents.
+08-09-2026 10:39:35 pm | Command: Confirmed: yes | Result: Copied MyProject to C:\Users\dabba\OneDrive\Desktop\MyProject\Archive.
+08-09-2026 10:42:00 pm | Command: Confirmed: yes | Result: Copied MyProject to C:\Users\dabba\OneDrive\Desktop\MyProject\Archive.
+08-09-2026 10:44:36 pm | Command: create a folder called DeleteTest on desktop | Result: Folder DeleteTest created successfully.
+08-09-2026 10:46:47 pm | Command: Confirmed: yes | Result: Deleted DeleteTest.
+08-09-2026 10:47:53 pm | Command: create a file called notes.txt on desktop | Result: File notes.txt created successfully.
+08-09-2026 10:48:57 pm | Command: create a Java file called Test.java on desktop | Result: File Test.java created successfully.
+08-09-2026 10:49:09 pm | Command: create a text file inside MyProject called todo.txt | Result: File todo.txt created successfully.
+08-09-2026 10:54:16 pm | Command: open todo.txt | Result: Opened todo.txt
+08-09-2026 10:57:19 pm | Command: Confirmed: yes | Result: Deleted todo.txt.
+08-09-2026 10:58:56 pm | Command: search for all Java files on desktop | Result: Searching Google for Java files
+08-09-2026 11:11:02 pm | Command: search for all Java files on desktop | Result: I could not find any matching items in C:\Users\dabba\OneDrive\Desktop.
+08-09-2026 11:11:46 pm | Command: create javatest1.java file on desktop | Result: File javatest1.java created successfully.
+08-09-2026 11:15:38 pm | Command: ducuments | Result: Opened javatest1.java
+08-09-2026 11:34:23 pm | Command: WEB SEARCH read the latest headlines from TechCrunch | Result: The user wants to read the latest headlines from TechCrunch. Here are the current search results:
+
+1. Google News
+2. Google gives publishers a new way to fight AI-driven traffic losses - TechCrunch
+3. HiddenLayer nabs $100M as enterprises rush to secure their AI deployments - TechCrunch
+4. Google Search as you know it is over - TechCrunch
+5. Google is testing AI-powered article overviews on select publications’ Google News pages - TechCrunch
+6. Monday.com is the latest tech company to blame AI for layoffs — here are 20 others - TechCrunch
+7. Former Pinterest team redesigns email with Extra — and it’s actually good - TechCrunch
+8. SpaceX is public: Everything you need to know post-IPO - TechCrunch
+
+These are the latest articles available on TechCrunch.
+08-09-2026 11:37:10 pm | Command: WEB SEARCH read the latest headlines from TechCrunch | Result: Here are the latest headlines from TechCrunch:
+
+TechCrunch has reported on several significant developments in the tech industry. Here are some of the recent headlines:
+
+- Google gives publishers a new way to fight AI-driven traffic losses through TechCrunch.
+- HiddenLayer has secured $100M to secure their AI deployments, as reported by TechCrunch.
+- TechCrunch has also covered the story of Google Search as you know it being over.
+- Google is testing AI-powered article overviews on select publications' Google News pages, according to TechCrunch.
+- Monday.com has been blamed for AI-related layoffs, with 20 other companies also reported to be affected, as per TechCrunch.
+- Former Pinterest's team has redesigned their email with "Extra", as stated by TechCrunch.
+- SpaceX has become a publicly traded company, with everything you need to know post-IPO reported by TechCrunch.
+08-09-2026 11:40:54 pm | Command: WEB SEARCH - HiddenLayer has secured $100M to secure their AI deployments, as reported by TechCrunch. | Result: That's correct, HiddenLayer has secured $100M to secure their AI deployments, as reported by TechCrunch. According to the search results, this investment is part of a trend in the industry, with other companies also receiving significant funding for their AI-related ventures.
+08-09-2026 11:44:48 pm | Command: WEB SEARCH read the latest headlines from TechCrunch | Result: The user has requested the latest headlines from TechCrunch. Here are the current search results:
+
+1. Google News
+2. Google gives publishers a new way to fight AI-driven traffic losses - TechCrunch
+3. HiddenLayer nabs $100M as enterprises rush to secure their AI deployments - TechCrunch
+4. Google Search as you know it is over - TechCrunch
+5. Google is testing AI-powered article overviews on select publications’ Google News pages - TechCrunch
+6. Monday.com is the latest tech company to blame AI for layoffs — here are 20 others - TechCrunch
+7. Former Pinterest team redesigns email with Extra — and it’s actually good - TechCrunch
+8. SpaceX is public: Everything you need to know post-IPO - TechCrunch
+
+These headlines offer a range of topics, including AI, Google, and tech companies.
+08-09-2026 11:45:55 pm | Command: WEB SEARCH read the latest headlines from TechCrunch today news | Result: I'd be happy to help you with the latest headlines from TechCrunch today!
+
+Here are some of the top headlines from TechCrunch today:
+
+* What we expect from the upcoming Apple launch
+* HiddenLayer nabs $100M as enterprises rush to secure their AI deployments
+* Will TikTok and YouTube follow Meta’s new rules for teens?
+* All the important news from the ongoing India AI Impact Summit
+* Google is testing AI-powered article overviews on select publications’ Google News pages
+
+That's the latest from TechCrunch today!
+08-09-2026 11:57:12 pm | Command: create a bunnytest.txt on desktop | Result: File bunnytest.txt created successfully.
+08-09-2026 11:58:33 pm | Command: what is the date 3 weeks from now? | Result: The requested date is Tuesday, September 22, 2026.
+08-09-2026 11:59:46 pm | Command: what date is 13 days after today? | Result: The requested date is Monday, September 21, 2026.
+09-09-2026 12:00:38 am | Command: what date is 10 days after today? | Result: The requested date is Saturday, September 19, 2026.
+09-09-2026 12:00:52 am | Command: what date is 10 days after today? | Result: The requested date is Saturday, September 19, 2026.
+09-09-2026 12:01:38 am | Command: what date is tomorrow | Result: The requested date is Thursday, September 10, 2026.
+09-09-2026 12:05:57 am | Command: which month is this | Result: The requested date is Wednesday, September 9, 2026.
+09-09-2026 12:07:47 am | Command: WEB SEARCH searc for latest news on techcrunch now | Result: It seems like you're looking for the latest news on TechCrunch. Here are some of the top results:
+
+* Google Search as you know it is over
+* Google’s AI search is rapidly becoming the default
+* Google packs Search and Gemini with new AI study tools
+* Google now lets you explore the web side-by-side with AI Mode
+* Six search engines worth trying now that Google isn’t really Google anymore
+* Otter’s new feature lets users search across their enterprise tools
+* You can now talk to your Gmail inbox
+
+These results show that there have been recent developments in Google's search capabilities and other search engines.
+09-09-2026 12:10:49 am | Command: open spotify | Result: Opening application...
+09-09-2026 12:11:14 am | Command: open ypotube | Result: Opening website...
+09-09-2026 01:31:35 am | Command: WEB SEARCH What is the latest AI news? | Result: It seems like you're looking for the latest updates on Artificial Intelligence (AI). Let me summarize the key points for you.
+
+There are several recent developments in the AI space. For instance, Mu0026T Bank has been expanding its enterprise AI capabilities, while Arm has launched a new framework for Physical AI and robotics. Additionally, Coca-Cola has been using AI in various ways, such as in their manufacturing processes.
+
+Another interesting development is the latest update from Goldman Sachs, where they announced that Evan Kotsovinos has joined the company as a partner and head of asset and wealth management engineering.
+
+Furthermore, there have been updates on new AI models, such as a cheap Chinese AI model that's catching up with other top players like Anthropic and OpenAI.
+
+Lastly, there have been some notable events in the world of AI, such as the release of GPT-6 Astra by a certain firm, which they claim is their most powerful product yet.
+
+That's a quick summary of the latest AI news.
+09-09-2026 01:38:33 am | Command: WEB SEARCH What is Java virtual machine? | Result: The Java Virtual Machine (JVM) is an abstract computer that defines a runtime environment for Java applications. It allows Java code to run on any operating system, without the need for recompilation. The JVM acts as an interpreter between the Java programming language and the underlying hardware, converting bytecode into native code. This enables platform independence, meaning Java code can run on multiple operating systems with minimal modifications. The JVM is a critical component of the Java Runtime Environment, and its primary function is to execute Java bytecode and provide a platform-independent environment for Java applications.
+09-09-2026 10:52:29 am | Command: What is Java virtual machine? | Result: Searching Google for Java virtual machine
+09-09-2026 11:43:46 am | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+09-09-2026 12:26:37 pm | Command: create a folder called Test | Result: Folder Test created successfully.
+09-09-2026 12:33:16 pm | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+09-09-2026 12:40:54 pm | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+09-09-2026 02:49:20 pm | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+09-09-2026 02:49:50 pm | Command: open instagram | Result: Opening application...
+09-09-2026 03:09:21 pm | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+10-09-2026 10:06:43 am | Command: WEB SEARCH What is Java Virtual Machine? | Result: I could not retrieve the latest information right now.
+10-09-2026 10:07:45 am | Command: WEB SEARCH hi | Result: I could not retrieve the latest information right now.
+10-09-2026 11:46:06 am | Command: open instagram | Result: Opening application...
+10-09-2026 12:00:55 pm | Command: open instagram | Result: Opening application...
+10-09-2026 12:01:21 pm | Command: open spotify | Result: Opening application...
+10-09-2026 12:01:51 pm | Command: open calculator | Result: Opening application...
+10-09-2026 12:03:59 pm | Command: open notepad | Result: Opening application...
+10-09-2026 12:05:26 pm | Command: what is date today | Result: The current time is 12:05 pm
+10-09-2026 12:15:31 pm | Command: what is date today | Result: The current time is 12:15 pm
+10-09-2026 12:15:48 pm | Command: hi | Result: The current time is 12:15 pm
+10-09-2026 12:19:12 pm | Command: hi | Result: Hi! How can I help?
+10-09-2026 12:19:26 pm | Command: what is my name | Result: Opening website...
+10-09-2026 12:20:10 pm | Command: open instagram | Result: Opening application...
+10-09-2026 12:20:51 pm | Command: create bunnytestA folder on desktop | Result: File bunnytestA created successfully.
+10-09-2026 12:21:02 pm | Command: open it | Result: Opening application...
+10-09-2026 12:21:49 pm | Command: create buddytesta folder on desktop | Result: File buddytesta folder on desktop created successfully.
+10-09-2026 12:21:57 pm | Command: open it | Result: Opening application...
+10-09-2026 12:24:37 pm | Command: hi | Result: Hi! How can I help?
+10-09-2026 12:24:46 pm | Command: what is my name | Result: Opening website...
+10-09-2026 12:31:45 pm | Command: hi | Result: Hi! How can I help?
+10-09-2026 12:31:51 pm | Command: how are you | Result: I'm doing great! How can I help?
+10-09-2026 12:31:59 pm | Command: what is my name | Result: Your name is Bunny.
+10-09-2026 12:32:38 pm | Command: create a folder called btest on my desktop | Result: File btest created successfully.
+10-09-2026 12:33:51 pm | Command: create a ctest folder on my desktop | Result: File CTest created successfully.
+10-09-2026 12:34:02 pm | Command: open ctest folder | Result: Opening website...
+10-09-2026 12:35:38 pm | Command: what is date today | Result: Today is September 10, 2026.
+10-09-2026 12:36:11 pm | Command: search for latest news on techcrunch | Result: Opening website...
+10-09-2026 12:38:57 pm | Command: create fellow1 folder on my desktop | Result: File fellow1 created successfully.
+10-09-2026 04:51:07 pm | Command: create a folder called sai on desktop | Result: Folder Sai created successfully.
+10-09-2026 04:51:14 pm | Command: open it | Result: Opening Sai folder.
+10-09-2026 04:52:21 pm | Command: WEB SEARCH what is llm | Result: I could not retrieve the latest information right now.
+10-09-2026 04:53:46 pm | Command: WEB SEARCH what is llm | Result: I could not retrieve the latest information right now.
+10-09-2026 05:34:02 pm | Command: WEB SEARCH search for latest AI news | Result: I could not retrieve the latest information right now.
+10-09-2026 05:38:25 pm | Command: what is llm | Result: LLM stands for Large Language Model, which refers to a type of artificial intelligence that can generate human-like language.
+10-09-2026 05:38:44 pm | Command: open instagram | Result: Opening application...
+10-09-2026 05:39:05 pm | Command: close instagram | Result: Closing instagram...
+10-09-2026 05:40:03 pm | Command: WEB SEARCH search for latest news on techcrunch | Result: I could not retrieve the latest information right now.
+10-09-2026 05:40:25 pm | Command: WEB SEARCH search for latest news | Result: I could not retrieve the latest information right now.
+10-09-2026 05:44:13 pm | Command: WEB SEARCH search for latest news | Result: I could not retrieve the latest information right now.
+10-09-2026 05:54:36 pm | Command: WEB SEARCH search for latest news | Result: The user's question is about Trump's efforts to turn the post-9/11 security state inward to domestic targets. To answer this question, I will search the web for relevant information.
+
+After searching, I found the following information:
+
+1. **Trump's Efforts to Turn Security State Inward**: The post-9/11 security state in the United States has been a focus of
+10-09-2026 05:57:45 pm | Command: WEB SEARCH search for news on techcrunch today | Result: The user's question is unclear. Could you please provide more context or clarify your question?
+10-09-2026 05:58:23 pm | Command: WEB SEARCH search for latest news in techcrunch | Result: I'm sorry, but I don't see any specific question or topic related to the given URL. Could you please provide more context or a specific question?
+10-09-2026 06:07:27 pm | Command: WEB SEARCH search for latest news in techcrunch | Result: 1. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: Wed, 09 Sep 2026 20:24:48 GMT
+URL: https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNkR3SzVtSXFOcEpOMmwtTHlrTEpJdTB2d0pNY3JVY0dKUVp1R21rMmg0eU4yak5yM1lZTGVvazJzbl9Da3Z6VWl2Y1ZvN2hOaDI3NTQ1VFNIN2d4NWh3SjF3QlVGWnA0WUZMUXJuYk5KMjlLcTdBQXFSV3JPeEliUXhpeXk3WFkzWnJLdVd5V0tvUmlDWnotZFBYb1Fnb0p2XzljWGFXRmREREVUM0hMYk5SbkEwV2t6SFpKeWl6VXJ1QQ?oc=5
+2. Cognition hits $48B valuation, signaling investors believe AI coding is far from a winner-take-all market - TechCrunch
+Published: Tue, 08 Sep 2026 21:04:06 GMT
+URL: https://news.google.com/rss/articles/CBMi1AFBVV95cUxQWEFoTXVjOGFFdlJ6bG9BSGZXb0FPUGl6d1NJQkFxT01PUS1IUFdjN3IwaWFYRXJMTF8tQVM5SWJJWkE0ODcyU0xHLUxKb25Rb05SalpOZUpYZkc4b2dIWHhGYjJLZENJS0hsSUlqXzF0ajlrNTNlejZiSG1oQ1R6TXpEU3BCaGRuNVZZUVVhalFMbERmT3VtSmU2X1VPTU0xM29Pb01Yb09lV1VkcmhlQ0RicDIyN295Tm51MUlIZ2RpblpTaHJaWUlta085TWR5ZEl5Wg?oc=5
+3. Automattic’s board forces CEO Matt Mullenweg into leave of absence - TechCrunch
+Published: Wed, 09 Sep 2026 23:14:29 GMT
+URL: https://news.google.com/rss/articles/CBMiogFBVV95cUxPbm5RdjR3NGMwT0MySTdGYWQyd0dtMWlWTVh5N0hRbkJTMjhweW5DZkVycnB4SlNVSEFITzFKa3pyYU9hTEtjOHFiVGE4UjdBb09mYzFrd0pvLWw5MTBWek50VHNVUzd4TGx1a1hyU1FxV3IxQWdGel9YOV9wajlqN1R2Tklmd0N6V1FBdGpjVl9uZk9samlZZ0VlSE5KdU1Wcnc?oc=5
+4. AI research startup Listen Labs scrubbed a $1.5B funding round for Salesforce talks - TechCrunch
+Published: Thu, 10 Sep 2026 00:00:37 GMT
+URL: https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMUQwT1FwQUpRVkhOQ2gzYTRaRW9PZC1nWEloVVZTaXFoUnFhaUFwd2hJWVo3Si1EV2p3Z0c2c2dZTDdMOUFDNGdMeTJaTjV4TXEwSkhRRHU5NWhpTnd5Ui16aG9vQ3gtdFRtVWN5TE9XUFNRWmtpUTBjbHUzdUd2QTNGdHdMLUxYSG52Z1lBci1pQWVHTklsd2hsVS01ZXJYek1WWGxaeXlscVljM3dqYWttZHgwR3BT?oc=5
+5. Apple’s new CEO is reviving a Steve Jobs strategy from 25 years ago - TechCrunch
+Published: Wed, 09 Sep 2026 20:58:09 GMT
+URL: https://news.google.com/rss/articles/CBMiowFBVV95cUxONjJWSjBDLUMza25kUHRYNHNjVEhFcUZMdG8tWnFiZlZPX0MzM1hJNEVFZHUyMnZrMjRMaG5TanAxWFN6U09aZmZJcDJOb1FxLW9hN3RZVld6STIwLVNDTUFISzlkc184ZU02UWJoY3hWTXlLcXB6dllUaS1nVkZLZDcxSWxUeVRhV01EVlBXSloxSTU5ZVowX1BCSUVVVFRDSmM4?oc=5
+6. Massachusetts hits data centers with new clean power rules - TechCrunch
+Published: Wed, 09 Sep 2026 21:43:34 GMT
+URL: https://news.google.com/rss/articles/CBMimAFBVV95cUxPRFVqSF9UMzZ2akpONjZtWXU3SG9zdHRoQl9CSVU2WUkxaVNiVWhmQzdSTHREZmVCVFIyZTUyRzZ5aHJRZ3VHZUhOcnhFNkhyMmVYMlkyRUo4TDNhN1U2aVFlbzNvaEd0bXVpLTBuR0dhQTNES2tyeVFTQ21nUnJuaThjYTZwVnNfamR1cmJBZEE1bVF2U2dyNA?oc=5
+7. The hinge for Apple’s new foldable phone was built with AI - TechCrunch
+Published: Wed, 09 Sep 2026 19:21:48 GMT
+URL: https://news.google.com/rss/articles/CBMilwFBVV95cUxObXQwcWU3aGU5ODlULTJpaU1aV0FpX2lZTUdPOFcweEM4YS1mRnZzalBoRjU0LURSTllWNkx2X3V1cjJ1WE1NY2NtZ29hdkF1NV8xNVBkX0NPbzBfb1BPMlQ2QzRKT1hwLVYzdFlJNmlOdjhiM3NTV2xRdlhiMDlnQkt2NWhpZm9QQmliMU9rTTg1SklwM2Z3?oc=5
+8. Suno replaces its AI models with a new one trained on licensed music as copyright suits pile up - TechCrunch
+Published: Wed, 09 Sep 2026 12:05:34 GMT
+URL: https://news.google.com/rss/articles/CBMiygFBVV95cUxPZGtmQ0NUV3J2bVZrZHhRaGlzVHZCNWpjaVc3bGlUTGNKbF9iNk5MNVBFU1ZmN053cFJ5Qmk0RnEwWDVoY2txRGtzY3V4UWZLelY1OHA1azV3cEZxSGdtdkxZNGoxRjV6MlVNYW9qZUYtZV9xTXptM3FBcXVJbDR3Sm1ST1BvOTYwSm5XcjZIb05rLTRfX256YjJJbHA0Y3Q1UTJPS2dialcxUV9BOGw4SVFLR0E4NUdmdmlVTUJFemhjWkZqazctZVZB?oc=5
+10-09-2026 06:09:49 pm | Command: WEB SEARCH search for today news in techcrunch | Result: 1. AI research startup Listen Labs scrubbed a $1.5B funding round for Salesforce talks - TechCrunch
+Published: Thu, 10 Sep 2026 00:00:37 GMT
+URL: https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMUQwT1FwQUpRVkhOQ2gzYTRaRW9PZC1nWEloVVZTaXFoUnFhaUFwd2hJWVo3Si1EV2p3Z0c2c2dZTDdMOUFDNGdMeTJaTjV4TXEwSkhRRHU5NWhpTnd5Ui16aG9vQ3gtdFRtVWN5TE9XUFNRWmtpUTBjbHUzdUd2QTNGdHdMLUxYSG52Z1lBci1pQWVHTklsd2hsVS01ZXJYek1WWGxaeXlscVljM3dqYWttZHgwR3BT?oc=5
+2. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: Wed, 09 Sep 2026 20:24:48 GMT
+URL: https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNkR3SzVtSXFOcEpOMmwtTHlrTEpJdTB2d0pNY3JVY0dKUVp1R21rMmg0eU4yak5yM1lZTGVvazJzbl9Da3Z6VWl2Y1ZvN2hOaDI3NTQ1VFNIN2d4NWh3SjF3QlVGWnA0WUZMUXJuYk5KMjlLcTdBQXFSV3JPeEliUXhpeXk3WFkzWnJLdVd5V0tvUmlDWnotZFBYb1Fnb0p2XzljWGFXRmREREVUM0hMYk5SbkEwV2t6SFpKeWl6VXJ1QQ?oc=5
+3. OpenAI adds a prominent AI doomer to its board of directors - TechCrunch
+Published: Wed, 09 Sep 2026 22:25:22 GMT
+URL: https://news.google.com/rss/articles/CBMimgFBVV95cUxPWXA2ZGdXaWlfVkhjb0dpX2o0alQ4akZIYnBYVEpRYWJwWWFKcUdiM3VIZXludzI5Nm53NDhYVlNDWUJIc3J4dGVBZ0g1OUhwTDF4TU5qUnZuWW5LUlAtTnd5eU8tdUp2S1djTEZlcHNyQlF2NGJHSVZpaHRCbFAtdGFLWUZ1WUV5V3FmQ2lnXzQ5ZGRsYzJzVTB3?oc=5
+4. Everything Apple announced at its fall iPhone event, from the foldable iPhone Duo to an always-listening Apple Watch - TechCrunch
+Published: Wed, 09 Sep 2026 20:03:43 GMT
+URL: https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZkZwaGlvODYwemRZNEEwazJoQzh0cFFtS3gzZk5PcGozOXI1SkRvOVBLZjNHMDdSeF9fc2lfcWlJX0tuRkFiRVFoOXZuNk1qbTN2ZmZBMHNGN3phRmJPemxfb2hka1V5Rk1kSDdQc2g0MlFsVG53Mm1XYjdPTGNLckJjS08wOGxNT1cxZkY1eFE4eWttWUNrbS05dExoUk1kRWs4anppQkxfSzhnSm5IZnZXUEh2b1h4c0puOTZLWWhDYzJQMmJMTkp0emhHck5mYlB0eGVFZnZWWkdQMUhseEFESnU?oc=5
+5. Automattic’s board forces CEO Matt Mullenweg into leave of absence - TechCrunch
+Published: Wed, 09 Sep 2026 23:14:29 GMT
+URL: https://news.google.com/rss/articles/CBMiogFBVV95cUxPbm5RdjR3NGMwT0MySTdGYWQyd0dtMWlWTVh5N0hRbkJTMjhweW5DZkVycnB4SlNVSEFITzFKa3pyYU9hTEtjOHFiVGE4UjdBb09mYzFrd0pvLWw5MTBWek50VHNVUzd4TGx1a1hyU1FxV3IxQWdGel9YOV9wajlqN1R2Tklmd0N6V1FBdGpjVl9uZk9samlZZ0VlSE5KdU1Wcnc?oc=5
+6. Harvey hits $15.5B valuation, months after reaching $11B - TechCrunch
+Published: Wed, 09 Sep 2026 18:34:24 GMT
+URL: https://news.google.com/rss/articles/CBMikgFBVV95cUxOVl8zZER4OXh2dmtjNURqcTAwNW9CTkVfUEZ4ajVRZDdZSXllQUhVTzN6X2NZQ0YtUzN4NDZZQUMwNUdvMXhhWXI2ck8xNXdSZV9ucTB0ME5KZDVBVzNqYVVsMk9scmZTRm56OFhrOXpocVFiRlVEekNMOTRVRDlFa0o3QmFETUxGRlNyaVdHLWhXQQ?oc=5
+7. Shipt becomes the latest delivery app with an AI shopping assistant - TechCrunch
+Published: Wed, 09 Sep 2026 14:51:45 GMT
+URL: https://news.google.com/rss/articles/CBMipAFBVV95cUxPTTVlUjI3cTFrQU8tbk1OT3hZeGFsVm9LeThmVGFDb1BEMlA0RUdHcS0xT2ZzTWU3eEVYZUpKbWZZZTdkaFgwNUc1aFl1WjRHN2lhZ0ozZm1nMFQ4X05sUzcxOG5jZDA0ZUVWczNtMWZBbHY0NXRQZmRnNXhveEU0ZUNJUnhleEFybTQ4X1VNa2k5X05BQ1lyU2RHY3Q4a1hyTldKVQ?oc=5
+8. Massachusetts hits data centers with new clean power rules - TechCrunch
+Published: Wed, 09 Sep 2026 21:43:34 GMT
+URL: https://news.google.com/rss/articles/CBMimAFBVV95cUxPRFVqSF9UMzZ2akpONjZtWXU3SG9zdHRoQl9CSVU2WUkxaVNiVWhmQzdSTHREZmVCVFIyZTUyRzZ5aHJRZ3VHZUhOcnhFNkhyMmVYMlkyRUo4TDNhN1U2aVFlbzNvaEd0bXVpLTBuR0dhQTNES2tyeVFTQ21nUnJuaThjYTZwVnNfamR1cmJBZEE1bVF2U2dyNA?oc=5
+10-09-2026 09:15:29 pm | Command: WEB SEARCH search for today news in techcrunch | Result: 1. Everything Apple announced at its fall iPhone event, from the foldable iPhone Duo to an always-listening Apple Watch - TechCrunch
+Published: 10 Sep 2026, 01:33 AM
+
+2. Harvey hits $15.5B valuation, months after reaching $11B - TechCrunch
+Published: 10 Sep 2026, 12:04 AM
+
+3. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: 10 Sep 2026, 01:54 AM
+
+4. There are new shiny iPhones, so Apple is making you pay more for older models - TechCrunch
+Published: 10 Sep 2026, 01:26 AM
+
+5. AI research startup Listen Labs scrubbed a $1.5B funding round for Salesforce talks - TechCrunch
+Published: 10 Sep 2026, 05:30 AM
+
+6. Maven Robotics wants to steal your robot deployment deal - TechCrunch
+Published: 10 Sep 2026, 07:47 PM
+
+7. Snapchat takes aim at Partiful with new event-planning features - TechCrunch
+Published: 10 Sep 2026, 06:30 PM
+
+8. The hinge for Apple’s new foldable phone was built with AI - TechCrunch
+Published: 10 Sep 2026, 12:51 AM
+10-09-2026 09:17:46 pm | Command: open spotify | Result: Opening application...
+10-09-2026 09:18:02 pm | Command: close application | Result: Closing application...
+10-09-2026 09:18:15 pm | Command: close spotify | Result: Closing Spotify...
+10-09-2026 09:18:50 pm | Command: what date is today | Result: The current time is 09:18 pm
+10-09-2026 09:26:11 pm | Command: WEB SEARCH search for latest news in techcrunch | Result: 1. Shipt becomes the latest delivery app with an AI shopping assistant - TechCrunch
+Published: 09 Sep 2026, 08:21 PM
+
+2. Superintelligence is coming. Should we let it? - TechCrunch
+Published: 09 Sep 2026, 09:35 PM
+
+3. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+4. AI News & Artificial Intelligence - TechCrunch
+Published: 17 Jun 2016, 12:44 AM
+
+5. Apple unveils its first foldable, the iPhone Duo - TechCrunch
+Published: 09 Sep 2026, 11:28 PM
+
+6. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: 10 Sep 2026, 01:54 AM
+
+7. The hinge for Apple’s new foldable phone was built with AI - TechCrunch
+Published: 10 Sep 2026, 12:51 AM
+
+8. A secret new Elizabeth Holmes documentary stuns Telluride - TechCrunch
+Published: 07 Sep 2026, 11:32 PM
+10-09-2026 09:26:33 pm | Command: WEB SEARCH search for latest news in inadutelugu | Result: I could not find useful information from the web.
+10-09-2026 09:27:18 pm | Command: WEB SEARCH search for eenadu telugu news paper today | Result: I could not find any news published today for that topic.
+10-09-2026 09:30:09 pm | Command: WEB SEARCH Deccan Chronicle’s latest coverage for September 10, 2026 | Result: 1. TVK-Led Alliance Named But PM Candidate Question Remains Open - Deccan Chronicle
+Published: 10 Sep 2026, 12:57 PM
+
+2. SC Seeks Warning Labels For High-Salt, Sugar, Fat Foods - Deccan Chronicle
+Published: 10 Sep 2026, 01:19 PM
+
+3. Gujarat Collects DNA Samples From Kin of 29 Missing in Nepal Floods - Deccan Chronicle
+Published: 10 Sep 2026, 05:32 PM
+
+4. Develop Structured Land Bank Portal With Government Land Details: Naidu - Deccan Chronicle
+Published: 10 Sep 2026, 05:56 PM
+
+5. Amid Challenges, Shivakumar Marks 100 Days in Office - Deccan Chronicle
+Published: 10 Sep 2026, 10:08 AM
+
+6. TVK Nominates Those Who Caused By-Elections As Candidates - Deccan Chronicle
+Published: 10 Sep 2026, 09:26 PM
+
+7. Suspense Over: Chinese President Xi to Visit India for BRICS Summit - Deccan Chronicle
+Published: 10 Sep 2026, 04:14 PM
+
+8. Naidu to Chair Two-Day District Collectors’ Conference on Thursday, Friday - Deccan Chronicle
+Published: 10 Sep 2026, 09:52 AM
+10-09-2026 09:40:40 pm | Command: You: My favorite browser is brave | Result: Opening website...
+10-09-2026 09:43:58 pm | Command: WEB SEARCH My favorite browser is brave | Result: 1. 3 hidden Brave settings every user should turn on right now - Android Police
+Published: 31 Aug 2026, 12:30 PM
+
+2. I ditched Chrome, Firefox, and Samsung Internet for this underrated Android browser - Android Authority
+Published: 02 May 2026, 12:30 PM
+
+3. I tried every major Android browser, and the one I kept wasn't Chrome, Firefox, or Opera - MakeUseOf
+Published: 05 Jun 2026, 12:30 PM
+
+4. Brave, Chrome, Edge, Firefox, or Safari? We Pick the Best Browser for 2026 - PCMag Middle East
+Published: 27 May 2026, 12:30 PM
+
+5. I tried Brave’s new stripped down Origin browser, and now it’s my top Chromium-based pick - ZDNET
+Published: 02 Jul 2026, 12:30 PM
+
+6. Enhance your Online Efficiency with our Guide to the Best Web Browser for 2026 - TechRadar
+Published: 21 Aug 2026, 12:30 PM
+
+7. Chrome is my default browser, but I've outsourced the heavy lifting to Brave and Firefox - Android Police
+Published: 04 Jul 2026, 12:30 PM
+
+8. 10 Hacks Every Brave Browser User Should Know - Lifehacker
+Published: 22 Apr 2026, 12:30 PM
+10-09-2026 09:44:15 pm | Command: My favorite browser is brave | Result: Got it. I'll remember that your favorite browser is brave.
+10-09-2026 09:44:47 pm | Command: what is my favoritte browser | Result: I don't have your favoritte browser saved yet.
+10-09-2026 09:45:17 pm | Command: what is my favotite browser | Result: I don't have your favotite browser saved yet.
+10-09-2026 09:49:04 pm | Command: what browser do i like | Result: Opening application...
+10-09-2026 09:49:25 pm | Command: Your favorite browser is brave. | Result: Opening application...
+10-09-2026 09:52:01 pm | Command: my favorite browser is brave | Result: Got it. I'll remember that your favorite browser is brave.
+10-09-2026 09:52:18 pm | Command: what is my favorite browser | Result: Your favorite browser is brave.
+10-09-2026 09:52:27 pm | Command: what is my name | Result: Your name is Bunny.
+10-09-2026 09:52:41 pm | Command: open instagram | Result: Opening application...
+10-09-2026 09:53:06 pm | Command: close instagram | Result: Closing instagram...
+10-09-2026 09:54:05 pm | Command: open instagram and search for techcrunch instagram page | Result: Opening application...
+10-09-2026 09:54:58 pm | Command: my hand is paining while typing keuboard can u give tips | Result: Got it. I'll remember that your hand is paining while typing keuboard can u give tips.
+10-09-2026 10:09:19 pm | Command: my hand is paining while typing keuboard can u give tips | Result: Opening website...
+10-09-2026 10:21:13 pm | Command: open notepad | Result: Opening application...
+10-09-2026 10:23:09 pm | Command: WEB SEARCH while typing the keboard it is paining left hand can u guess the what reason | Result: I could not find useful information from the web.
+10-09-2026 10:24:57 pm | Command: can you search for season 10 big boss contestants telugu | Result: Searching Google for Season 10 Big Boss Contestants Telugu
+10-09-2026 10:34:17 pm | Command: i am tired today | Result: The current time is 10:34 pm
+10-09-2026 10:41:20 pm | Command: ii am tired today bye | Result: I could not find a running application named ii am tired today bye.
+10-09-2026 11:06:48 pm | Command: open Notepad and open Calculator | Result: Opening application...
+10-09-2026 11:06:48 pm | Command: open Notepad and open Calculator | Result: Opening application...
+10-09-2026 11:39:12 pm | Command: open youtube and search for figurit out in youtube | Result: Opening website...
+10-09-2026 11:39:12 pm | Command: open youtube and search for figurit out in youtube | Result: Searching Google for figure
+11-09-2026 04:05:49 pm | Command: WEB SEARCH what's the latest on OpenAI? | Result: 1. GPT-6 Astra: A new generation of intelligence - OpenAI
+Published: 11 Sep 2026, 03:58 PM
+
+2. GPT-6 Astra: The next generation in intelligence for work - OpenAI
+Published: 11 Sep 2026, 01:59 PM
+
+3. What OpenAI’s latest controversy tells us about the future of math - MIT Technology Review
+Published: 09 Sep 2026, 08:40 AM
+
+4. The OpenAI-Hugging Face hack was just the beginning, experts say: "Even more powerful" AI is coming - CBS News
+Published: 10 Sep 2026, 07:47 PM
+
+5. Opinion | I Worked on Safety at OpenAI. The Fix Isn’t Hard. - nytimes.com
+Published: 10 Sep 2026, 02:30 AM
+
+6. Amazon pilots ad services in ChatGPT: What marketers need to know - Marketing Dive
+Published: 10 Sep 2026, 06:41 PM
+
+7. What's Going On With OpenAI And The Navier-Stokes Controversy? - Engadget
+Published: 09 Sep 2026, 03:41 AM
+
+8. Investigating three real-world incidents in our cybersecurity evaluations - Anthropic
+Published: 30 Jul 2026, 12:30 PM
+11-09-2026 04:06:28 pm | Command: open Notepad and open Calculator | Result: Opening application...
+11-09-2026 04:06:59 pm | Command: open calculator | Result: Opening application...
+11-09-2026 04:45:33 pm | Command: open spotify | Result: Opening application...
+11-09-2026 05:49:58 pm | Command: open instagram | Result: Opening application...
+11-09-2026 06:03:29 pm | Command: open instagram | Result: Opening application...
+11-09-2026 06:13:45 pm | Command: open chrome | Result: Opening application...
+11-09-2026 06:28:08 pm | Command: WEB SEARCH search for latest news in techcrunch | Result: 1. Instagram’s latest feature lets you add tagged posts to your profile grid - TechCrunch
+Published: 10 Sep 2026, 10:01 PM
+
+2. Shipt becomes the latest delivery app with an AI shopping assistant - TechCrunch
+Published: 09 Sep 2026, 08:21 PM
+
+3. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: 10 Sep 2026, 01:54 AM
+
+4. Superintelligence is coming. Should we let it? - TechCrunch
+Published: 09 Sep 2026, 09:35 PM
+
+5. The hinge for Apple’s new foldable phone was built with AI - TechCrunch
+Published: 10 Sep 2026, 12:51 AM
+
+6. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+7. AI News & Artificial Intelligence - TechCrunch
+Published: 17 Jun 2016, 12:44 AM
+
+8. Apple launches iPhone 18 Pro with upgraded camera - TechCrunch
+Published: 09 Sep 2026, 10:56 PM
+11-09-2026 06:29:02 pm | Command: WEB SEARCH search for continues in the | Result: 1. Nepal: Rescue efforts continue in the aftermath of a flash flooding disaster - Reporters - France 24
+Published: 11 Sep 2026, 03:11 PM
+
+2. Rain and storms continues in the forecast for the coming days across South Florida - CBS News
+Published: 11 Sep 2026, 04:59 AM
+
+3. One month after the Colombia earthquake, PAHO/WHO continues to support response and stabilization - Pan American Health Organization (PAHO)
+Published: 11 Sep 2026, 01:47 AM
+
+4. Rowe Creek Complex / September 9, 2026 - centraloregonfire.org
+Published: 09 Sep 2026, 08:57 PM
+
+5. 🤝 Van Persie heritage continues in the Champions League - Yahoo Sports
+Published: 09 Sep 2026, 11:58 PM
+
+6. New technology may bring more 9/11 victims' families closure - BBC
+Published: 10 Sep 2026, 10:43 PM
+
+7. If the Lindsay Clancy murder trial jury can't reach a verdict, what happens next? - PBS
+Published: 02 Sep 2026, 12:30 PM
+
+8. Supreme Court allows construction on White House ballroom to continue - SCOTUSblog
+Published: 31 Aug 2026, 12:30 PM
+11-09-2026 06:30:04 pm | Command: WEB SEARCH search for latest today news in the techcrunch | Result: 1. OpenAI puts Pro subscriptions on hold due to Astra demand - TechCrunch
+Published: 11 Sep 2026, 02:29 AM
+
+2. Anthropic details distillation campaigns from Alibaba, Moonshot AI, and DeepSeek - TechCrunch
+Published: 11 Sep 2026, 02:27 AM
+
+3. Jensen Huang explains why Nvidia will grow an astounding 70% next year - TechCrunch
+Published: 11 Sep 2026, 03:21 AM
+
+4. Thrive Capital led VCs into pro sports ownership; Collaborative Fund just upped that play - TechCrunch
+Published: 11 Sep 2026, 04:00 AM
+
+5. Proxima Fusion bets €140M on a critical fusion ingredient dominated by Asian suppliers - TechCrunch
+Published: 11 Sep 2026, 12:08 AM
+
+6. Mark Wahlberg is coming to Disrupt 2026 - TechCrunch
+Published: 11 Sep 2026, 03:05 AM
+11-09-2026 06:32:52 pm | Command: what is the date today | Result: Today is Sep 11, 2026.
+11-09-2026 08:37:32 pm | Command: open spotify | Result: Opening application...
+11-09-2026 09:26:17 pm | Command: create a folder called chartgpt.file | Result: File folder created successfully.
+11-09-2026 10:51:29 pm | Command: can you open third gpt for me | Result: Opening website...
+11-09-2026 10:52:54 pm | Command: WEB SEARCH okay, search the latest news in tech | Result: 1. Juul gets OK to sell updated vaping device with age-gating technology - Pittsburgh Post-Gazette
+Published: 06 Sep 2026, 04:47 AM
+
+2. Is Google's new AI search killing the internet? | On Point with Meghna Chakrabarti - WBUR
+Published: 27 May 2026, 12:30 PM
+
+3. Juul gets OK to sell updated vaping device with age-gating technology - Bangor Daily News
+Published: 28 Aug 2026, 12:30 PM
+
+4. Tech workers built the AI boom. Now their therapists are helping them cope with the fallout. - businessinsider.com
+Published: 13 Aug 2026, 12:30 PM
+
+5. Shorts: 2026 graduates boo commencement speeches on AI - PBS
+Published: 27 May 2026, 12:30 PM
+
+6. Tech Tip Tuesday: Brown OK's Search of Cell Phones - roundtable.io
+Published: 03 Sep 2026, 08:51 AM
+
+7. Trump gives Nvidia the OK to sell advanced AI chips to China - BBC
+Published: 09 Dec 2025, 01:30 PM
+
+8. Everything is not okay with DuckDuckGo and its AI - Digital Trends
+Published: 26 Jun 2026, 12:30 PM
+11-09-2026 11:07:31 pm | Command: WEB SEARCH latest news in techcrunch | Result: 1. Instagram’s latest feature lets you add tagged posts to your profile grid - TechCrunch
+Published: 10 Sep 2026, 10:01 PM
+
+2. Shipt becomes the latest delivery app with an AI shopping assistant - TechCrunch
+Published: 09 Sep 2026, 08:21 PM
+
+3. Apple Watch’s new AI features are normalizing the idea that technology is always listening - TechCrunch
+Published: 10 Sep 2026, 01:54 AM
+
+4. Superintelligence is coming. Should we let it? - TechCrunch
+Published: 09 Sep 2026, 09:35 PM
+
+5. The hinge for Apple’s new foldable phone was built with AI - TechCrunch
+Published: 10 Sep 2026, 12:51 AM
+
+6. Suno replaces its AI models with a new one trained on licensed music as copyright suits pile up - TechCrunch
+Published: 09 Sep 2026, 05:35 PM
+
+7. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+8. AI News & Artificial Intelligence - TechCrunch
+Published: 17 Jun 2016, 12:44 AM
+11-09-2026 11:29:28 pm | Command: buddy, can you open chargept and youtube and spotify for me | Result: Opening website...
+13-09-2026 11:20:37 pm | Command: open chrome | Result: Opening application...
+13-09-2026 11:21:04 pm | Command: close chrome | Result: Closing chrome...
+13-09-2026 11:21:31 pm | Command: WEB SEARCH what is the latest news | Result: 1. Fighting continues between Yemen gov’t forces, Houthis: What is the latest? - Al Jazeera
+Published: 13 Sep 2026, 04:19 PM
+
+2. Vance "extremely skeptical" U.S. strike hit Iran wedding party, says he wouldn't call conflict a war - cbsnews.com
+Published: 04 Sep 2026, 12:30 PM
+
+3. Top 50 US news websites: Biggest traffic drops at Newsweek, Daily Mail and Business Insider in August - Press Gazette
+Published: 09 Sep 2026, 12:30 PM
+
+4. The Friday Five: The Latest Child Care and Early Learning News - First Five Years Fund
+Published: 28 Aug 2026, 12:30 PM
+
+5. Trump Administration Updates: Pentagon Fires Top Journalists at Military News Outlet - The New York Times
+Published: 29 Aug 2026, 12:30 PM
+
+6. Untested in court, Trump's new tariffs on Canada raise legal questions - PBS
+Published: 29 Aug 2026, 12:30 PM
+
+7. Current Status of New World Screwworm | Screwworm.gov - aphis.usda.gov
+Published: 01 Sep 2026, 12:30 PM
+
+8. Vance says war in "new phase" of economic pressure as Iran dismisses Trump threat - cbsnews.com
+Published: 21 Aug 2026, 12:30 PM
+16-09-2026 11:31:12 pm | Command: can you open chart gpt for me | Result: Opening website...
+16-09-2026 11:42:06 pm | Command: what is my number d | Result: I don't have your number d saved yet.
+16-09-2026 11:42:06 pm | Command: what is my number d | Result: I don't have your number d saved yet.
+16-09-2026 11:48:42 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is alice.
+16-09-2026 11:48:42 pm | Command: what is my name | Result: Hi, your name is Bunny.
+16-09-2026 11:53:43 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is alice.
+16-09-2026 11:53:43 pm | Command: what is my name | Result: Hi, your name is alice.
+16-09-2026 11:56:32 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+16-09-2026 11:56:32 pm | Command: what is my name | Result: Hi, your name is Alice.
+16-09-2026 11:57:15 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+16-09-2026 11:57:15 pm | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 12:06:57 am | Command: remember my name is Alice | Result: Got it. I'll remember that your name is alice.
+17-09-2026 12:08:07 am | Command: what is my name | Result: Your name is Alice.
+17-09-2026 12:08:12 am | Command: what is my name | Result: Your name is Alice.
+17-09-2026 12:08:13 am | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+17-09-2026 12:08:13 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 12:17:12 am | Command: WEB SEARCH latest news | Result: 1. Iran War Updates: White House backs Hegseth amid impeachment effort as new details come out about war's cost - CBS News
+Published: 16 Sep 2026, 10:59 PM
+
+2. Live Updates: Warsh and Fed Officials Are Expected to Raise Interest Rates Despite Trump's Demands - The New York Times
+Published: 16 Sep 2026, 11:06 PM
+
+3. Fed raises interest rates for the first time since 2023 - CNN
+Published: 17 Sep 2026, 12:03 AM
+
+4. NFL Week 2 latest intel, buzz questions, news, fantasy tips - ESPN
+Published: 16 Sep 2026, 08:00 PM
+
+5. Iran war live: Israel shells southern Lebanon as Yemen combat escalates - Al Jazeera
+Published: 16 Sep 2026, 10:22 PM
+
+6. 3 dead after news helicopter crashes while covering deadly Los Angeles bus collision - NBC News
+Published: 16 Sep 2026, 10:22 PM
+
+7. There's one issue where Republicans and Democrats are unified before the midterms, a new poll finds - apnews.com
+Published: 16 Sep 2026, 09:58 PM
+
+8. GOP lawmakers blindsided by new revelations about Trump Butler shooter: 'Awfully strange' - Fox News
+Published: 16 Sep 2026, 11:04 PM
+17-09-2026 12:17:48 am | Command: i love a d | Result: Got it. I'll remember that your preference is a d.
+17-09-2026 12:18:11 am | Command: WEB SEARCH latest news in techcrunch today | Result: I could not find any news published today for that topic.
+17-09-2026 10:38:52 am | Command: Buddy started | Result: System ready
+17-09-2026 10:40:13 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 10:49:40 am | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+17-09-2026 10:49:41 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 10:49:41 am | Command: whay is my name | Result: Hi, your name is Alice.
+17-09-2026 10:52:58 am | Command: Buddy started | Result: System ready
+17-09-2026 10:54:14 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 10:54:14 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 11:00:13 am | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+17-09-2026 11:00:13 am | Command: what is my name | Result: Hi, your name is Alice.
+17-09-2026 11:00:13 am | Command: whay is my name | Result: Hi, your name is Alice.
+17-09-2026 12:55:43 pm | Command: Buddy started | Result: System ready
+17-09-2026 01:17:05 pm | Command: Buddy started | Result: System ready
+17-09-2026 01:29:37 pm | Command: Buddy started | Result: System ready
+17-09-2026 03:53:40 pm | Command: WEB SEARCH latest news in techcrunch today | Result: 1. Al Gore says the real AI risk isn’t data centers - techcrunch.com
+Published: 17 Sep 2026, 05:13 AM
+
+2. Co-founder Max Hodak joins the agenda lineup on Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 12:15 AM
+
+3. Learn about AI in HR at Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 09:00 AM
+
+4. Musk’s long-time backer is giving SpaceX stock to its investors - techcrunch.com
+Published: 17 Sep 2026, 05:20 AM
+17-09-2026 03:53:40 pm | Command: WEB SEARCH latest news in techcrunch today | Result: 1. Al Gore says the real AI risk isn’t data centers - techcrunch.com
+Published: 17 Sep 2026, 05:13 AM
+
+2. Co-founder Max Hodak joins the agenda lineup on Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 12:15 AM
+
+3. Learn about AI in HR at Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 09:00 AM
+
+4. Musk’s long-time backer is giving SpaceX stock to its investors - techcrunch.com
+Published: 17 Sep 2026, 05:20 AM
+17-09-2026 03:53:40 pm | Command: WEB SEARCH latest news in techcrunch today | Result: 1. Al Gore says the real AI risk isn’t data centers - techcrunch.com
+Published: 17 Sep 2026, 05:13 AM
+
+2. Co-founder Max Hodak joins the agenda lineup on Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 12:15 AM
+
+3. Learn about AI in HR at Disrupt 2026 - techcrunch.com
+Published: 17 Sep 2026, 09:00 AM
+
+4. Musk’s long-time backer is giving SpaceX stock to its investors - techcrunch.com
+Published: 17 Sep 2026, 05:20 AM
+18-09-2026 07:40:08 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+18-09-2026 07:40:08 pm | Command: what is my name | Result: Hi, your name is Alice.
+18-09-2026 07:40:08 pm | Command: whay is my name | Result: Hi, your name is Alice.
+18-09-2026 07:41:10 pm | Command: what is the time | Result: The current time is 7:41 PM.
+18-09-2026 07:41:46 pm | Command: what is the date | Result: Today is Sep 18, 2026.
+18-09-2026 07:41:46 pm | Command: what is the time | Result: The current time is 7:41 PM.
+18-09-2026 07:41:51 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+18-09-2026 07:41:51 pm | Command: what is my name | Result: Hi, your name is Alice.
+18-09-2026 07:41:51 pm | Command: whay is my name | Result: Hi, your name is Alice.
+18-09-2026 07:49:58 pm | Command: what is the date | Result: Today is Sep 18, 2026.
+18-09-2026 07:49:58 pm | Command: what is the time | Result: The current time is 7:49 PM.
+18-09-2026 07:50:03 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+18-09-2026 07:50:03 pm | Command: what is my name | Result: Hi, your name is Alice.
+18-09-2026 07:50:03 pm | Command: whay is my name | Result: Hi, your name is Alice.
+18-09-2026 07:51:22 pm | Command: what is the date | Result: Today is Sep 18, 2026.
+18-09-2026 07:51:22 pm | Command: what is the time | Result: The current time is 7:51 PM.
+18-09-2026 07:51:26 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+18-09-2026 07:51:27 pm | Command: what is my name | Result: Hi, your name is Alice.
+18-09-2026 07:51:27 pm | Command: whay is my name | Result: Hi, your name is Alice.
+18-09-2026 07:51:54 pm | Command: what is the date | Result: Today is Sep 18, 2026.
+18-09-2026 07:51:54 pm | Command: what is the time | Result: The current time is 7:51 PM.
+18-09-2026 07:51:59 pm | Command: remember my name is Alice | Result: Got it. I'll remember that your name is Alice.
+18-09-2026 07:51:59 pm | Command: what is my name | Result: Hi, your name is Alice.
+18-09-2026 07:51:59 pm | Command: whay is my name | Result: Hi, your name is Alice.
