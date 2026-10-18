@@ -2,11 +2,9 @@
 setlocal
 cd /d "%~dp0"
 
-if not exist "%~dp0out\buddy\Main.class" (
-    echo Buddy classes not found. Building once before startup...
-    if not exist "%~dp0out" mkdir "%~dp0out"
-    javac -cp "%~dp0src" -d "%~dp0out" "%~dp0src\buddy\Main.java"
-    for /r "%~dp0src" %%f in (*.java) do @javac -cp "%~dp0src" -d "%~dp0out" "%%f"
+if not exist "%~dp0\.dist\Buddy.jar" (
+    echo Buddy jar not found. Building once before startup...
+    powershell -ExecutionPolicy Bypass -File "%~dp0build.ps1"
 )
 
 set "JAVA_CMD="
@@ -21,4 +19,10 @@ if not defined JAVA_CMD (
     exit /b 1
 )
 
-start "" "%JAVA_CMD%" -cp "%~dp0out" buddy.Main --autostart
+if exist "%~dp0\.dist\Buddy.jar" (
+    start "" "%JAVA_CMD%" -jar "%~dp0\.dist\Buddy.jar" --autostart
+    exit /b 0
+)
+
+echo Buddy startup failed because .dist\Buddy.jar was not generated successfully.
+exit /b 1

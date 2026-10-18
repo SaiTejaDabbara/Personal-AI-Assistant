@@ -1,342 +1,254 @@
-# Buddy
-
-<p align="center">
-  <img src="assets/buddy-hero.svg" alt="Buddy overview" width="100%" />
-</p>
-
-<p align="center">
-  <a href="#features"><img src="https://img.shields.io/badge/Java-17%2B-orange" alt="Java 17+" /></a>
-  <a href="#windows-support"><img src="https://img.shields.io/badge/Platform-Windows-5DADE2" alt="Windows" /></a>
-  <a href="#voice"><img src="https://img.shields.io/badge/AI-Ollama-8B5CF6" alt="Ollama" /></a>
-  <a href="#quick-start"><img src="https://img.shields.io/badge/Status-Working-green" alt="Working" /></a>
-</p>
-
-Your Personal Desktop Assistant for coding, productivity, voice, web search, file actions, and AI-driven task automation.
-
-## Overview
-
-Buddy is a desktop AI assistant built in Java for Windows. It helps you work faster by turning natural language into actions on your machine.
-
-Instead of manually opening apps, managing files, searching the web, or writing repetitive commands, Buddy tries to do the task for you.
-
-### What it can do
-
-- Open websites, folders, and desktop apps
-- Create, rename, move, copy, and delete files or folders
-- Search the web and summarize useful information
-- Answer natural-language questions with local AI planning
-- Remember key user facts and preferences
-- Listen for voice commands and act on them
-- Launch automatically when Windows starts
-
-### Why it exists
-
-Buddy brings together three things into one workflow:
-
-- AI command understanding
-- desktop automation
-- a clean command-center interface
-
-This project is meant to feel like a personal digital assistant running on your machine, not just a chatbot in a terminal.
-
-![Buddy workflow](assets/buddy-workflow.svg)
-
-## Features
-
-Buddy was created to reduce friction between a user and their desktop. Instead of opening multiple tools manually, the assistant tries to handle the task directly:
-
-- Open applications, websites, files, or folders
-- Create, rename, copy, move, and delete folders/files
-- Search the web for current news and relevant information
-- Answer natural-language questions using chat and planning logic
-- Keep short-term conversational memory and user-specific facts
-- Listen for voice commands and process them through a bridge system
-- Minimize cleanly on Windows startup so it runs without manual launch
-
-The assistant is not only a chat bot — it is a workflow assistant that can execute tasks in context.
-
-A sample of the aim of the project looks like this:
-
-- Ask Buddy to create a folder
-- Ask Buddy to open a document
-- Ask Buddy to search the latest AI news
-- Ask Buddy to open a website or app
-- Ask Buddy to remember your name or preferences
-- Ask Buddy what time or date it is
-- Ask Buddy to do a task in plain English without writing commands
-
-Buddy tries to translate intent into actions and then report the result clearly to the user.
-
-### Desktop AI assistant
-Buddy includes a Java Swing command center and a live dashboard experience. The interface shows:
-
-- status indicators
-- recent activity
-- quick actions
-- memory view
-- files and folders
-- web intelligence
-- system health details
-
-### Voice support
-The voice layer uses a Python-based speech bridge and listens for spoken instructions. The Java side receives command events and executes tasks through the same command processor used for typed input.
-
-### Action execution system
-The project contains a strong command/action layer. Commands are processed through a central routing system that can decide whether the request is:
-
-- a file operation
-- an app open action
-- a folder operation
-- a search task
-- a web intelligence task
-- a chat answer
-- a memory lookup/write action
-
-### Web and AI intelligence
-The assistant uses planner-based logic and web search integration to support web requests such as:
-
-- latest news
-- recent updates
-- search analysis
-- summarization flows
-
-### Memory and context
-Buddy stores useful information such as:
-
-- user name
-- preferences
-- last action
-- last object and location
-- conversational context for follow-up requests
-
-That makes interactions feel more natural and allows commands like “open it”, “rename it”, or “where is it?” to work in a more human way.
-
-![Buddy dashboard](assets/buddy-dashboard.svg)
-
-## Project structure
-
-The repository is organized into a few main sections:
-
-- src/buddy/Main.java — entry point
-- src/buddy/brain/ — planning, LLM routes, memory context, and chat logic
-- src/buddy/commands/ — the command routing and action execution engine
-- src/buddy/actions/ — open/close/download tasks and helpers
-- src/buddy/files/ — file and folder management helpers
-- src/buddy/memory/ — user memory and memory extraction system
-- src/buddy/ui/ — Swing dashboard and command center UI
-- src/buddy/web/ — web server, search, and web intelligence
-- src/buddy/resolver/ — target resolution for apps, locations, processes, and windows items
-- src/voice/ — voice bridge scripts and Python speech helpers
-- tests/ — smoke tests and behavior checks
-
-### Main package overview
-
-#### buddy.brain
-This package contains the intelligence layer:
-
-- BuddyBrain — app controller and lifecycle manager
-- BuddyActionPlanner — determines action intent
-- BuddyChat — chat response handling
-- ConversationContext — tracks what happened recently
-- OllamaBrain — model integration layer
-
-#### buddy.commands
-This package owns the execution core:
-
-- Commands — main command dispatcher
-- Command — command abstraction and routing support
-
-#### buddy.ui
-This contains the desktop UI and visual status panel:
-
-- BuddyUI
-- BuddyState
-- BuddyUIEvent
-
-#### buddy.web
-This contains web-related functionality:
-
-- BuddyWebServer
-- WebSearchManager
-- WebIntelligence
-
-#### buddy.voice
-This connects the Java app with the Python speech pipeline:
-
-- BuddyVoiceBridge
-
-## Technologies and packages used
-
-The project is primarily Java-based, with a few supporting components.
-
-### Java packages
-The main application is written in Java, including:
-
-- Java Swing for the desktop user interface
-- AWT desktop integration for opening websites and apps
-- Java NIO for file operations
-- Java Preferences for local memory persistence
-- Java regex and date/time utilities
-
-### Python voice layer
-The voice system uses Python scripts for:
-
-- microphone capture
-- speech recognition or wake-word processing
-- command forwarding to the Java process
-
-### Local AI integration
-Buddy interacts with Ollama for the model-based planning layer:
-
-- local LLM reasoning
-- prompt routing
-- natural-language task decoding
-
-### Windows integration
-The app also targets Windows app behavior for:
-
-- file system tasks
-- launching apps or websites
-- closing processes
-- desktop folder actions
-- startup registration
-
-## Prerequisites
-
-Before running Buddy, make sure these are installed:
-
-- Java JDK 17 or newer
-- Python 3.x
-- Ollama installed and running locally
-- A working microphone if you want to use voice input
-- Windows operating system for full desktop integration support
-
-### Optional setup
-You may also want:
-
-- Vosk model files for offline voice processing
-- A microphone on the machine
-- Internet access for web search features
-
-## Quick start
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-user/buddy.git
-cd buddy
-```
-
-### 2. Compile the Java project
-
-From the project root, run:
-
-```bash
-javac -cp src -d out $(find src -name "*.java")
-```
-
-On Windows PowerShell, use:
-
-```powershell
-javac -cp src -d out $(Get-ChildItem -Recurse -Filter *.java | Select-Object -Expand FullName)
-```
-
-### 3. Start Buddy
-
-```bash
-java -cp out buddy.Main
-```
-
-This starts the desktop assistant and its dashboard.
-
-### 4. Autostart on Windows login
-
-Buddy includes an automatic startup option. From the project root:
-
-```bash
-java -cp out buddy.Main --install-autostart
-```
-
-This copies the startup script into the Windows Startup folder so Buddy launches automatically when the user logs in.
-
-The startup script is located in:
-
-- buddy-startup.cmd
-
-This approach keeps Buddy ready without requiring manual launch each time.
-
-## Run modes
-
-There are a few supported modes:
-
-### Standard run
-
-```bash
-java -cp out buddy.Main
-```
-
-### Autostart run
-
-```bash
-java -cp out buddy.Main --autostart
-```
-
-### Help screen
-
-```bash
-java -cp out buddy.Main --help
-```
-
-## Example commands
-
-Try commands such as:
-
-```text
-what is the date
-what is the time
-open desktop
-open documents
-create a folder called Projects
-search latest AI news
-open youtube
-remember my name is Alice
-what is my name
-```
-
-The assistant handles many of these directly through the command processor and UI backend.
-
-## Current status
-
-This project is a working desktop assistant prototype with:
-
-- Java-based core logic
-- desktop UI
-- AI planning layer
-- voice bridge support
-- file and folder tasks
-- web search support
-- startup registration support
-
-It is ready for further improvement, polishing, and packaging for real release use.
-
-## Next improvements
-
-The next steps for the project could include:
-
-- packaging into an EXE or installer
-- improved voice recognition tuning
-- better summarization workflow
-- richer memory system
-- cleaner system tray mode
-- user profile management
-- GitHub release automation
-
-## Conclusion
-
-Buddy was built as a personal assistant for the desktop, designed to make everyday digital work feel faster and more natural. It combines file actions, AI reasoning, voice commands, web intelligence, and a clean UI in one system. The goal is simple: help the user do more with less manual work.
-
-This project is a practical example of applying local AI, desktop automation, and workflow design into a single assistant experience.
+# Buddy AI Command Center
+
+## Terminology used in this project
+
+Before diving into the project itself, it helps to understand the key technologies and names used throughout the codebase and the system design.
+
+- Ollama: a local AI model runtime used for natural-language reasoning and task planning. In this project, Buddy uses local model-based intelligence to interpret requests and help decide what action should happen next.
+- Java: the main application runtime for the desktop assistant. It owns the command engine, app logic, workflow orchestration, and the Swing-based desktop UI.
+- Python: used for the voice stack, transcription, wake detection, and text-to-speech functions. It acts as the speech layer connected to the Java application.
+- Whisper / faster-whisper: a speech-to-text engine used to transcribe spoken commands and wake-word audio into readable text for processing.
+- Vosk: an offline speech recognition model bundle used in the project for voice-related experimentation and local processing.
+- Buddy voice bridge: the Python-to-Java communication layer that passes commands, voice events, and speech output between the assistant’s voice system and the main Java app.
+- Web dashboard: the local browser-based control panel served by the Java app on localhost:8080 for interacting with the assistant via a browser.
+- Action planner: the component that determines whether a request should be treated as a direct action, a conversation, or a confirmation-required step.
+- Memory: user and system memory used to retain contextual information and help make future interactions more relevant.
+- Wake word: the trigger phrase used to activate listening, such as “Buddy.”
+- TTS: text-to-speech, the process of converting the assistant’s response text into spoken audio.
+
+This project combines these pieces into one assistant that can listen, reason, act, and respond in a desktop environment.
 
 ---
 
-Built with Java, Python, Windows desktop automation, AI planning, and a focus on practical productivity.
+Buddy is a desktop-style AI assistant project that combines a Java command system, a Swing-based user interface, a local web dashboard, and a voice-driven interaction layer. The project is designed to behave like an intelligent desktop helper: it can accept natural language instructions, route them through action planning, launch apps or files, browse the web, and respond through both text and voice.
+
+This repository contains the working implementation, supporting scripts, Python voice bridge, and test files used to validate the system. The project evolved as a practical assistant that is focused on being useful in real desktop workflows rather than only demonstrating a toy chat loop.
+
+---
+
+## 1. Project overview
+
+The central idea behind Buddy is simple: take a command from the user, understand the intent, decide whether it is a normal conversation or an actionable task, and then perform the request in the most direct way possible.
+
+At the application level, the project is organized into a few clear layers:
+
+- Java application core and command processing
+- Swing-based desktop UI for status, actions, and system feedback
+- Local web dashboard for browser-based interaction
+- Python voice stack for wake-word detection, speech recognition, and text-to-speech
+- Memory, file, app, and target resolution helpers for real-world actions
+
+The main runtime entry point is [src/buddy/Main.java](src/buddy/Main.java), which starts the assistant and handles common startup flags such as autostart, command execution, and help mode.
+
+---
+
+## 2. What was created in this project
+
+The project includes both the software itself and the supporting operating pieces that allow it to run in a real environment.
+
+### Java application core
+
+The Java portion is the heart of the assistant. It handles the command pipeline, conversations, app launching, file actions, web tasks, and user interaction processing.
+
+Key files:
+
+- [src/buddy/Main.java](src/buddy/Main.java) – entry point and startup configuration
+- [src/buddy/brain/BuddyBrain.java](src/buddy/brain/BuddyBrain.java) – main runtime orchestration for UI, web server, and voice bridge
+- [src/buddy/commands/Commands.java](src/buddy/commands/Commands.java) – central task execution logic and command routing
+- [src/buddy/ui/BuddyUI.java](src/buddy/ui/BuddyUI.java) – desktop interface and activity/status panels
+- [src/buddy/web/BuddyWebServer.java](src/buddy/web/BuddyWebServer.java) – local HTTP web dashboard and command API
+
+### Assistant logic and planning
+
+The assistant is not just a fixed list of keywords. It includes a structured planning flow that tries to understand whether an instruction should be handled as a direct action, a conversational response, or a confirmation-based operation.
+
+Important source links:
+
+- [src/buddy/brain/BuddyActionPlanner.java](src/buddy/brain/BuddyActionPlanner.java)
+- [src/buddy/brain/BuddyActionPlan.java](src/buddy/brain/BuddyActionPlan.java)
+- [src/buddy/brain/BuddyChat.java](src/buddy/brain/BuddyChat.java)
+- [src/buddy/brain/ConversationContext.java](src/buddy/brain/ConversationContext.java)
+- [src/buddy/brain/OllamaBrain.java](src/buddy/brain/OllamaBrain.java)
+
+These files support the assistant’s decision-making pipeline and allow it to reason about context, planning, and follow-up confirmations.
+
+### App, file, memory, and resolver systems
+
+Buddy is designed to do more than answer questions. It interacts with the system in practical ways by managing files, launching apps, resolving targets, and remembering items from prior interactions.
+
+Source links:
+
+- [src/buddy/actions/ActionManager.java](src/buddy/actions/ActionManager.java)
+- [src/buddy/apps/AppManager.java](src/buddy/apps/AppManager.java)
+- [src/buddy/files/FileManager.java](src/buddy/files/FileManager.java)
+- [src/buddy/memory/MemoryManager.java](src/buddy/memory/MemoryManager.java)
+- [src/buddy/memory/MemoryExtractor.java](src/buddy/memory/MemoryExtractor.java)
+- [src/buddy/resolver/TargetResolver.java](src/buddy/resolver/TargetResolver.java)
+- [src/buddy/resolver/WindowsAppResolver.java](src/buddy/resolver/WindowsAppResolver.java)
+- [src/buddy/resolver/WindowsLocationResolver.java](src/buddy/resolver/WindowsLocationResolver.java)
+- [src/buddy/resolver/WindowsProcessResolver.java](src/buddy/resolver/WindowsProcessResolver.java)
+
+These modules are what make Buddy feel like a workstation assistant rather than a command script.
+
+### Voice interface and Python bridge
+
+The voice layer is implemented in Python and is connected to the Java system through a bridge. It listens for a wake word, captures voice commands, transcribes them, and sends results back into the Java command system.
+
+Key voice files:
+
+- [voice/buddy_voice.py](voice/buddy_voice.py)
+- [voice/buddy_voice_high_accuracy.py](voice/buddy_voice_high_accuracy.py)
+- [voice/buddy_voice_high_accuracy_bridge.py](voice/buddy_voice_high_accuracy_bridge.py)
+- [voice/brain_test.py](voice/brain_test.py)
+- [voice/brain_action_test.py](voice/brain_action_test.py)
+- [voice/wake_test.py](voice/wake_test.py)
+- [voice/voice_test.py](voice/voice_test.py)
+- [voice/test_mic.py](voice/test_mic.py)
+
+The bridge file is especially important because it manages the communication channel between Python voice recognition and the Java runtime, including wake detection and speech-to-text work.
+
+### Automation and Windows integration
+
+The project also includes startup and desktop integration scripts so Buddy can launch more like a real local assistant application.
+
+- [buddy-startup.cmd](buddy-startup.cmd)
+- [buddy-run.cmd](buddy-run.cmd)
+- [install-desktop-shortcut.ps1](install-desktop-shortcut.ps1)
+- [build.ps1](build.ps1)
+
+These scripts help with local execution, startup registration, and building the packaged Java application.
+
+---
+
+## 3. Project outputs and generated artifacts
+
+This project generates several real outputs that can be used directly after building.
+
+### Runtime artifacts
+
+- [.dist/Buddy.jar](.dist/Buddy.jar) – packaged Java executable created by the build script
+- [out](out) – compiled class output directory used during local development and testing
+- [assets](assets) – graphical and UX-related assets used by the app
+
+### Web dashboard output
+
+When the Java app runs, Buddy starts a local HTTP server and exposes a dashboard at:
+
+- http://localhost:8080
+
+This dashboard is implemented in [src/buddy/web/BuddyWebServer.java](src/buddy/web/BuddyWebServer.java). It provides a lightweight browser-based control surface and exposes a command API for interaction.
+
+### Voice system output
+
+The voice subsystem listens for the wake word “Buddy,” records command speech, transcribes audio, and then feeds the recognized text back into the Java processing engine. This live interaction model is managed by the Python bridge and the Java command system together.
+
+### Model and speech resources
+
+The project includes a local speech model bundle:
+
+- [vosk-model-small-en-us-0.15/README](vosk-model-small-en-us-0.15/README)
+
+This gives the assistant access to a local offline speech model for wake and transcription workflows.
+
+### Test output and verification
+
+The project also includes a meaningful test set to validate the assistant’s behavior:
+
+- [tests/BuddyUISmokeTest.java](tests/BuddyUISmokeTest.java)
+- [tests/CommandLineModeTest.java](tests/CommandLineModeTest.java)
+- [tests/CommandsBehaviorTest.java](tests/CommandsBehaviorTest.java)
+
+These tests cover UI smoke behavior, command-line mode, and command execution flows.
+
+---
+
+## 4. How the system works
+
+The project follows a practical layered flow:
+
+1. The user enters a command or speaks a phrase.
+2. The Java runtime receives the request through either the console, GUI, or web dashboard.
+3. [src/buddy/commands/Commands.java](src/buddy/commands/Commands.java) decides whether the input is a direct command, a conversational request, or a confirmation-based action.
+4. The planner and context system evaluate the request, using memory and prior conversation state when needed.
+5. The correct action is executed: open an app, process a file, browse or search the web, speak a response, or ask for confirmation.
+6. The result is returned to the user through the UI, console, or voice output.
+
+This design keeps the code understandable while still making the assistant flexible enough to handle a real set of desktop activities.
+
+---
+
+## 5. Build and run instructions
+
+### Build the project
+
+From the project root, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+This script scans the Java files, compiles them into [out](out), and packages the app into [.dist/Buddy.jar](.dist/Buddy.jar).
+
+### Run the project
+
+Use either of these methods:
+
+```powershell
+java -cp out buddy.Main
+```
+
+or
+
+```powershell
+.\buddy-run.cmd
+```
+
+The startup command also checks whether the jar already exists and builds it if needed.
+
+### Autostart mode
+
+Buddy includes a Windows startup script for automatic launch:
+
+```powershell
+.\buddy-startup.cmd
+```
+
+This is useful for running the assistant in the background when the machine starts.
+
+---
+
+## 6. Why this project matters
+
+Buddy is more than a coding exercise. It is a functional assistant project that blends several disciplines into one working system:
+
+- Java application architecture
+- frontend-style desktop UI design
+- local web API integration
+- Python-based speech recognition and TTS
+- action planning and reasoning
+- practical file and app automation on Windows
+
+The project demonstrates how multiple runtime layers can be connected to behave like an AI-driven productivity assistant. It is intentionally practical, with a clear desktop-oriented design and a real runtime workflow rather than a purely academic example.
+
+---
+
+## 7. Repository summary
+
+This repository brings together all of the pieces needed for a working assistant project:
+
+- Java execution layer: [src](src)
+- Voice subsystem: [voice](voice)
+- Tests: [tests](tests)
+- Build and startup scripts: [build.ps1](build.ps1), [buddy-run.cmd](buddy-run.cmd), [buddy-startup.cmd](buddy-startup.cmd)
+- Generated outputs: [.dist](.dist), [out](out)
+- Supporting project files: [Buddy.iml](Buddy.iml), [.gitignore](.gitignore)
+
+The project is best understood as a working local AI assistant prototype that combines desktop interaction, web control, and voice-driven automation in one codebase.
+
+---
+
+## 8. Final note
+
+The repository is a strong example of a real-world assistant built from multiple moving parts. It is intentionally practical, with direct startup scripts, local model support, and a command-processing pipeline that can evolve into a broader personal productivity system.
+
+If you continue developing Buddy, the most natural next steps would be improving intent detection, adding safer confirmation flows, broadening app automation, and refining voice command quality for more reliable daily usage.

@@ -24,16 +24,66 @@ public class Main {
                 boolean autostart = args != null && java.util.Arrays.stream(args)
                                 .anyMatch(arg -> "--autostart".equalsIgnoreCase(arg == null ? "" : arg.trim()));
 
+                String commandFromArgs = extractCommandArg(args);
+                if (commandFromArgs != null) {
+                        System.out.println(runCommandOnce(commandFromArgs));
+                        return;
+                }
+
                 System.out.println(autostart ? "Starting Buddy in autostart mode..." : "Starting Buddy...");
 
                 BuddyBrain buddy = new BuddyBrain(autostart);
                 buddy.start();
         }
 
+        public static String runCommandOnce(String userCommand) {
+                BuddyBrain buddy = new BuddyBrain(false);
+                return buddy.processCommand(userCommand);
+        }
+
+        private static String extractCommandArg(String[] args) {
+                if (args == null || args.length == 0) {
+                        return null;
+                }
+
+                for (int i = 0; i < args.length; i++) {
+                        String arg = args[i];
+                        if (arg == null) {
+                                continue;
+                        }
+
+                        String trimmed = arg.trim();
+                        if (trimmed.isEmpty()) {
+                                continue;
+                        }
+
+                        String normalized = trimmed.toLowerCase();
+                        if (normalized.equals("--command") || normalized.equals("--cmd")
+                                        || normalized.equals("--once")) {
+                                if (i + 1 < args.length && args[i + 1] != null && !args[i + 1].trim().isEmpty()) {
+                                        return args[i + 1].trim();
+                                }
+                                return null;
+                        }
+
+                        if (normalized.startsWith("--")) {
+                                continue;
+                        }
+
+                        return trimmed;
+                }
+
+                return null;
+        }
+
         private static void printHelp() {
                 System.out.println("Buddy startup options:");
                 System.out.println("  --autostart            Launch Buddy with the startup/minimized behavior");
                 System.out.println("  --install-autostart    Register Buddy in the Windows Run key for login startup");
+                System.out.println("  --command <text>       Run a single command without opening the interactive UI");
+                System.out.println("  --cmd <text>           Alias for --command");
+                System.out.println("  --once <text>          Alias for --command");
+                System.out.println("  " + "Example: java -jar Buddy.jar --command \"what is the date\"");
         }
 
         private static void installWindowsAutostart() {
