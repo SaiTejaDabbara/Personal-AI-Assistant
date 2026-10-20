@@ -40,6 +40,20 @@ At the application level, the project is organized into a few clear layers:
 
 The main runtime entry point is [src/buddy/Main.java](src/buddy/Main.java), which starts the assistant and handles common startup flags such as autostart, command execution, and help mode.
 
+### Tech stack
+
+| Area | Technologies |
+| --- | --- |
+| Main application | Java, Swing |
+| AI and local inference | Ollama HTTP API (`qwen2.5:0.5b` for chat; `llama3.2` is configured in the `OllamaBrain` command-understanding class) |
+| Voice input | Python, NumPy, sounddevice, faster-whisper |
+| Voice output | pyttsx3 |
+| Web interface | Java local HTTP server and browser-based dashboard (`localhost:8080`) |
+| Desktop integration | Windows app, process, and file management; PowerShell and command scripts for build and startup |
+| Build and tests | JDK tools (`javac`, `jar`); Java test programs in `tests/` |
+
+The voice bridge and its Python packages are used when voice mode is enabled. The repository also includes a Vosk model bundle for offline speech-related workflows.
+
 ---
 
 ## 2. What was created in this project
@@ -164,14 +178,51 @@ These tests cover UI smoke behavior, command-line mode, and command execution fl
 
 ## 4. How the system works
 
-The project follows a practical layered flow:
+Commands can arrive through the console, Swing UI, local web dashboard, or the Python voice bridge. This diagram shows how Buddy routes a request and returns a result:
 
-1. The user enters a command or speaks a phrase.
-2. The Java runtime receives the request through either the console, GUI, or web dashboard.
-3. [src/buddy/commands/Commands.java](src/buddy/commands/Commands.java) decides whether the input is a direct command, a conversational request, or a confirmation-based action.
-4. The planner and context system evaluate the request, using memory and prior conversation state when needed.
-5. The correct action is executed: open an app, process a file, browse or search the web, speak a response, or ask for confirmation.
-6. The result is returned to the user through the UI, console, or voice output.
+```mermaid
+flowchart TD
+    User([User])
+
+    subgraph Input["Input channels"]
+        Console["Console"]
+        Desktop["Swing desktop UI"]
+        Web["Local dashboard<br/>localhost:8080"]
+        Mic["Microphone"]
+        Voice["Python voice bridge<br/>wake detection + faster-whisper"]
+        Mic --> Voice
+    end
+
+    User --> Console
+    User --> Desktop
+    User --> Web
+    User --> Mic
+
+    Console --> Core["Java runtime<br/>BuddyBrain"]
+    Desktop --> Core
+    Web --> Core
+    Voice -->|"Transcribed command"| Core
+
+    Core --> Commands["Commands.process"]
+    Commands --> Fast{"Direct command<br/>or quick reply?"}
+    Fast -->|"Yes"| Action["Execute command"]
+    Fast -->|"No"| Route{"Conversation or<br/>action request?"}
+    Route -->|"Conversation"| Chat["BuddyChat + Ollama<br/>qwen2.5:0.5b"]
+    Route -->|"Action"| Planner["Java action planner + context"]
+    Planner -->|"Confirmation required"| Confirm["Ask user to confirm"]
+    Confirm --> Commands
+    Planner -->|"Ready to execute"| Action
+
+    Action --> Tools["App, file, web, and<br/>Windows system helpers"]
+    Tools --> Result["Response / action result"]
+    Chat --> Result
+
+    Result --> Output["Console, Swing UI,<br/>or web dashboard"]
+    Result -->|"Speech text"| Voice
+    Voice --> Speaker["pyttsx3"]
+    Speaker --> User
+    Output --> User
+```
 
 This design keeps the code understandable while still making the assistant flexible enough to handle a real set of desktop activities.
 
