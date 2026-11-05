@@ -638,11 +638,25 @@ public class BuddyWebServer {
               min-height: 52px;
             }
 
+            .agent-card[data-command] {
+              cursor: pointer;
+              transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+            }
+
             .agent-card .left {
               display: flex;
               align-items: center;
+              flex: 1;
+              min-width: 0;
               gap: 8px;
             }
+
+            .agent-card .left > span {
+              min-width: 0;
+              overflow-wrap: anywhere;
+            }
+
+            .agent-card .status-tag { flex: 0 0 auto; }
 
             .small-icon {
               width: 20px;
@@ -760,6 +774,73 @@ public class BuddyWebServer {
               font-size: 0.72rem;
             }
 
+            .command-form {
+              display: flex;
+              align-items: stretch;
+              gap: 8px;
+              margin-top: 10px;
+            }
+
+            .command-input {
+              flex: 1;
+              min-width: 0;
+              background: rgba(9, 18, 25, 0.9);
+              border: 1px solid rgba(120, 180, 240, 0.3);
+              color: var(--text);
+              border-radius: 999px;
+              padding: 10px 14px;
+              outline: none;
+            }
+
+            .command-input:focus {
+              border-color: var(--cyan);
+              box-shadow: 0 0 0 3px rgba(74, 216, 255, 0.14);
+            }
+
+            .send-button {
+              min-width: 84px;
+              padding: 0 16px;
+              background: linear-gradient(180deg, #0f6075, #104465);
+              border: 1px solid rgba(137, 227, 255, 0.35);
+              border-radius: 999px;
+              color: white;
+              font-weight: 700;
+              cursor: pointer;
+              transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+            }
+
+            .send-button:hover:not(:disabled),
+            .agent-card[data-command]:hover {
+              transform: translateY(-2px);
+              filter: brightness(1.2);
+              box-shadow: 0 5px 16px rgba(74, 216, 255, 0.2);
+            }
+
+            .send-button:focus-visible,
+            .agent-card[data-command]:focus-visible {
+              outline: 2px solid var(--cyan);
+              outline-offset: 3px;
+            }
+
+            .send-button:disabled {
+              cursor: wait;
+              opacity: 0.65;
+            }
+
+            .chat-box {
+              height: 160px;
+              border: 1px solid rgba(120, 180, 240, 0.15);
+              background: rgba(255, 255, 255, 0.03);
+              border-radius: 8px;
+              overflow: auto;
+              padding: 14px;
+              color: var(--muted);
+            }
+
+            .message + .message { margin-top: 10px; }
+            .message.user { color: var(--text); }
+            .message.error { color: var(--danger); }
+
             @media (max-width: 1100px) {
               .main-panel {
                 grid-template-columns: 1fr;
@@ -768,15 +849,79 @@ public class BuddyWebServer {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
               }
+              .lower-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+              .lower-grid > .panel:first-child { grid-column: 1 / -1; }
+            }
+
+            @media (min-width: 821px) and (max-height: 850px) {
+              body { padding: 8px; }
+              .app-shell {
+                height: auto;
+                min-height: calc(100vh - 16px);
+                overflow: visible;
+              }
+              .workspace { height: auto; min-height: calc(100vh - 84px); }
+              .content { height: auto; }
+              .main-panel { flex: 0 0 auto; min-height: auto; }
             }
 
             @media (max-width: 820px) {
-              .workspace { display: block; }
-              .sidebar { width: 100%; }
+              body { padding: 0; }
+              .app-shell {
+                height: auto;
+                min-height: 100vh;
+                overflow: visible;
+                border: 0;
+              }
+              .topbar { min-height: 60px; height: auto; padding: 10px 12px; gap: 8px; }
+              .brand-wrap { gap: 8px; }
               .brand-name { font-size: 1.4rem; }
-              .brand-sub { letter-spacing: 0.2em; }
-              .lower-grid { grid-template-columns: 1fr; }
-              .right-panel { grid-template-columns: 1fr; }
+              .brand-sub { margin-left: 0; letter-spacing: 0.1em; }
+              .topbar-right { gap: 7px; }
+              .ready-pill { min-width: 0; padding: 5px 8px; }
+              .clock { font-size: 0.7rem; letter-spacing: 0; }
+              .tiny-icons { display: none; }
+              .workspace { display: flex; height: auto; min-height: calc(100vh - 60px); flex-direction: column; }
+              .sidebar {
+                width: 100%;
+                padding: 8px 12px;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                border-right: 0;
+                border-bottom: 1px solid rgba(120, 180, 240, 0.18);
+              }
+              .sidebar h2 { display: none; }
+              .sidebar > div:first-child { flex: 1; min-width: 0; }
+              .nav-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+              .nav-item { justify-content: center; width: auto; min-height: 36px; padding: 8px 4px; text-align: center; white-space: normal; letter-spacing: 0.08em; }
+              .sidebar-footer { display: none; }
+              .content { width: 100%; }
+              .main-panel { padding: 12px; gap: 12px; }
+              .hero { min-height: 330px; }
+              .orb-wrap { width: min(64vw, 300px); height: min(64vw, 300px); }
+              .status-label { bottom: 28px; width: calc(100% - 24px); }
+              .status-label .ready { font-size: 1.5rem; }
+              .status-label .sub { font-size: 0.85rem; }
+              .right-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+              .mini-box { min-height: 96px; }
+              .live-card { grid-column: 1 / -1; }
+              .lower-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 0 12px 12px; }
+              .lower-grid > .panel:first-child { grid-column: auto; }
+              .panel { min-width: 0; min-height: 0; }
+              .bottom-bar { height: auto; min-height: 56px; padding: 8px 12px; }
+              .talk-box { padding: 8px 12px; letter-spacing: 0.08em; }
+            }
+
+            @media (max-width: 420px) {
+              .brand-icon { display: none; }
+              .brand-name { font-size: 1.15rem; }
+              .brand-sub { font-size: 0.58rem; }
+              .ready-pill { font-size: 0.64rem; letter-spacing: 0.08em; }
+              .nav-item { font-size: 0.62rem; letter-spacing: 0.02em; }
+              .right-panel { grid-template-columns: 1fr 1fr; }
+              .command-form { align-items: stretch; }
+              .send-button { min-width: 68px; padding: 0 10px; }
             }
           </style>
         </head>
@@ -873,13 +1018,13 @@ public class BuddyWebServer {
                     <div class="panel-header">
                       <div class="panel-title">Voice conversation</div>
                     </div>
-                    <div class="chat-box" id="chatBox" style="height: 160px; border: 1px solid rgba(120, 180, 240, 0.15); background: rgba(255,255,255,0.03); border-radius: 8px; overflow: auto; padding: 14px; color: var(--muted);">
+                    <div class="chat-box" id="chatBox" aria-live="polite" aria-relevant="additions">
                       <div class="message buddy" style="margin: 0;">Buddy is listening and ready.</div>
                     </div>
-                    <div style="display:flex; gap:8px; margin-top:10px;">
-                      <input id="commandInput" style="flex:1; background: rgba(9, 18, 25, 0.9); border:1px solid rgba(120,180,240,.18); color: white; border-radius: 999px; padding: 10px 14px; outline:none;" placeholder="Tell Buddy what to do..." />
-                      <button id="sendBtn" style="min-width: 84px; background: linear-gradient(180deg, #0f6075, #104465); border:1px solid rgba(137, 227, 255, 0.25); border-radius: 999px; color: white; font-weight:700;">Send</button>
-                    </div>
+                    <form id="commandForm" class="command-form">
+                      <input id="commandInput" class="command-input" type="text" autocomplete="off" aria-label="Command for Buddy" placeholder="Tell Buddy what to do..." />
+                      <button id="sendBtn" class="send-button" type="submit">Send</button>
+                    </form>
                   </div>
 
                   <div class="panel">
@@ -926,6 +1071,62 @@ public class BuddyWebServer {
             const timeLabel = document.getElementById('timeLabel');
             const buddyGreeting = document.getElementById('buddyGreeting');
             const voiceStatusText = document.getElementById('voiceStatusText');
+            const commandForm = document.getElementById('commandForm');
+            const commandInput = document.getElementById('commandInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const chatBox = document.getElementById('chatBox');
+
+            function addMessage(text, kind) {
+              const message = document.createElement('div');
+              message.className = 'message ' + kind;
+              message.textContent = text;
+              chatBox.appendChild(message);
+              chatBox.scrollTop = chatBox.scrollHeight;
+              return message;
+            }
+
+            async function sendCommand(command) {
+              const text = command.trim();
+              if (!text || sendBtn.disabled) return;
+
+              addMessage('You: ' + text, 'user');
+              commandInput.value = '';
+              sendBtn.disabled = true;
+              sendBtn.textContent = '...';
+              voiceStatusText.textContent = 'Working on your request...';
+              const responseMessage = addMessage('Buddy is thinking...', 'buddy');
+
+              try {
+                const response = await fetch('/api/command', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                  body: new URLSearchParams({ text })
+                });
+                const data = await response.json();
+                if (!response.ok || !data.ok) {
+                  throw new Error(data.message || 'The command could not be completed.');
+                }
+                responseMessage.textContent = data.response || 'Done.';
+                voiceStatusText.textContent = 'Request complete.';
+              } catch (error) {
+                responseMessage.className = 'message error';
+                responseMessage.textContent = error.message || 'Could not reach Buddy.';
+                voiceStatusText.textContent = 'Request failed. Please try again.';
+              } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send';
+                commandInput.focus();
+              }
+            }
+
+            commandForm.addEventListener('submit', (event) => {
+              event.preventDefault();
+              sendCommand(commandInput.value);
+            });
+
+            document.querySelectorAll('[data-command]').forEach((button) => {
+              button.addEventListener('click', () => sendCommand(button.dataset.command));
+            });
 
             function updateClock() {
               const now = new Date();

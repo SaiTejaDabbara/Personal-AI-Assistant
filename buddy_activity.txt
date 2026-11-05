@@ -844,3 +844,200 @@ Published: 17 Sep 2026, 05:20 AM
 18-10-2026 07:20:57 pm | Command: Command completed | Result: Opening website...
 18-10-2026 07:21:14 pm | Command: open chrome | Result: Opening application...
 18-10-2026 07:21:14 pm | Command: Command completed | Result: Opening application...
+18-10-2026 08:03:46 pm | Command: WEB SEARCH can u search for latest news in techcrunch | Result: 1. Google Search as you know it is over - TechCrunch
+Published: 19 May 2026, 12:30 PM
+
+2. Electric vehicle sales in the US are showing signs of life - TechCrunch
+Published: 15 Oct 2026, 01:42 AM
+
+3. Netflix to lay off 1,000 staff amid intensifying competition for user attention - TechCrunch
+Published: 14 Oct 2026, 08:25 PM
+
+4. Justice Department says North Koreans have infiltrated dozens of US companies - TechCrunch
+Published: 14 Oct 2026, 07:00 AM
+
+5. The investor’s guide to TechCrunch Disrupt 2026: Everything you need to know - TechCrunch
+Published: 11 Oct 2026, 11:23 PM
+
+6. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+7. You can no longer Google the word ‘disregard’ - TechCrunch
+Published: 22 May 2026, 12:30 PM
+
+8. ChatGPT can now send texts for you with new Apple Messages plug-in - TechCrunch
+Published: 20 Aug 2026, 12:30 PM
+18-10-2026 08:03:47 pm | Command: Command completed | Result: 1. Google Search as you know it is over - TechCrunch
+Published: 19 May 2026, 12:30 PM
+
+2. Electric vehicle sales in the US are showing signs of life - TechCrunch
+Published: 15 Oct 2026, 01:42 AM
+
+3. Netflix to lay off 1,000 staff amid intensifying competition for user attention - TechCrunch
+Published: 14 Oct 2026, 08:25 PM
+
+4. Justice Department says North Koreans have infiltrated dozens of US companies - TechCrunch
+Published: 14 Oct 2026, 07:00 AM
+
+5. The investor’s guide to TechCrunch Disrupt 2026: Everything you need to know - TechCrunch
+Published: 11 Oct 2026, 11:23 PM
+
+6. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+7. You can no longer Google the word ‘disregard’ - TechCrunch
+Published: 22 May 2026, 12:30 PM
+
+8. ChatGPT can now send texts for you with new Apple Messages plug-in - TechCrunch
+Published: 20 Aug 2026, 12:30 PM
+18-10-2026 09:23:54 pm | Command: Buddy started | Result: System ready
+18-10-2026 09:23:54 pm | Command: Buddy started | Result: System ready
+26-10-2026 11:31:17 am | Command: Buddy started | Result: System ready
+05-11-2026 10:09:36 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:24:56 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:26:47 pm | Command: what is my name | Result: Hi, your name is Alice.
+05-11-2026 10:30:12 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:31:12 pm | Command: WEB SEARCH latest news n techcrunch | Result: 1. TechCrunch | Startup and Technology News - TechCrunch
+Published: 09 Feb 2010, 03:47 PM
+
+2. Netflix’s new AI Discover tab helps you find something to watch based on your mood - TechCrunch
+Published: 04 Nov 2026, 12:12 AM
+
+3. People are using AI to make their smart TVs dumb again - TechCrunch
+Published: 19 Oct 2026, 12:30 PM
+
+4. Titan OS raises $46 million to expand its smart TV OS internationally - TechCrunch
+Published: 04 Nov 2026, 08:30 PM
+
+5. Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens - TechCrunch
+Published: 03 Nov 2026, 06:05 AM
+
+6. DoorDash said it’s only received ‘several hundred’ orders from AI agents - TechCrunch
+Published: 30 Oct 2026, 07:24 PM
+
+7. Google’s first data center satellite is online and writing poetry - TechCrunch
+Published: 30 Oct 2026, 10:30 PM
+
+8. The Founder Summit agenda is only half the reason to be in Boston on Nov. 4 - TechCrunch
+Published: 03 Nov 2026, 08:00 PM
+05-11-2026 10:32:02 pm | Command: WEB SEARCH taday atest news in atest news in techcrunch | Result: 1. Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling - TechCrunch
+Published: 15 Jul 2026, 12:30 PM
+
+2. Legally embattled AI music startup Suno raises at $2.45B valuation on $200M revenue - TechCrunch
+Published: 19 Nov 2025, 01:30 PM
+05-11-2026 10:33:27 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:33:35 pm | Command: Command completed | Result: Hey boss. What can I do for you?
+05-11-2026 10:33:51 pm | Command: Command completed | Result: Hey boss. What can I do for you?
+05-11-2026 10:33:57 pm | Command: Command completed | Result: Hey boss. What can I do for you?
+05-11-2026 10:34:10 pm | Command: what is my name | Result: Hi, your name is Alice.
+05-11-2026 10:34:31 pm | Command: WEB SEARCH latest news in techcrunch todays news | Result: 1. Open source AI is booming. Hugging Face explains who profits. - TechCrunch
+Published: 05 Nov 2026, 01:00 AM
+
+2. Almost no one uses AI agents to book their Uber, company says - TechCrunch
+Published: 05 Nov 2026, 03:26 AM
+
+3. Agility is the first pure humanoid robot company on the stock market. Are you buying? - TechCrunch
+Published: 05 Nov 2026, 05:30 PM
+
+4. OpenAI is already trying to shape the 2028 election - TechCrunch
+Published: 05 Nov 2026, 02:55 AM
+
+5. Meta acquires AI coding startup Conductor - TechCrunch
+Published: 05 Nov 2026, 02:40 AM
+
+6. Nothing CEO says company’s mysterious AI-first device is dropping next month - TechCrunch
+Published: 05 Nov 2026, 03:43 AM
+
+7. After the midterms, a bigger clash over data centers could be coming - TechCrunch
+Published: 05 Nov 2026, 06:32 AM
+
+8. Zipline hits $21.5B valuation as Walmart expands bet on drone delivery - TechCrunch
+Published: 05 Nov 2026, 09:10 PM
+05-11-2026 10:34:31 pm | Command: Command completed | Result: 1. Open source AI is booming. Hugging Face explains who profits. - TechCrunch
+Published: 05 Nov 2026, 01:00 AM
+
+2. Almost no one uses AI agents to book their Uber, company says - TechCrunch
+Published: 05 Nov 2026, 03:26 AM
+
+3. Agility is the first pure humanoid robot company on the stock market. Are you buying? - TechCrunch
+Published: 05 Nov 2026, 05:30 PM
+
+4. OpenAI is already trying to shape the 2028 election - TechCrunch
+Published: 05 Nov 2026, 02:55 AM
+
+5. Meta acquires AI coding startup Conductor - TechCrunch
+Published: 05 Nov 2026, 02:40 AM
+
+6. Nothing CEO says company’s mysterious AI-first device is dropping next month - TechCrunch
+Published: 05 Nov 2026, 03:43 AM
+
+7. After the midterms, a bigger clash over data centers could be coming - TechCrunch
+Published: 05 Nov 2026, 06:32 AM
+
+8. Zipline hits $21.5B valuation as Walmart expands bet on drone delivery - TechCrunch
+Published: 05 Nov 2026, 09:10 PM
+05-11-2026 10:35:32 pm | Command: WEB SEARCH today news in techcrunch | Result: 1. Almost no one uses AI agents to book their Uber, company says - TechCrunch
+Published: 05 Nov 2026, 03:26 AM
+
+2. Open source AI is booming. Hugging Face explains who profits. - TechCrunch
+Published: 05 Nov 2026, 01:00 AM
+
+3. Apple is reportedly cutting budgets for its internal AI usage - TechCrunch
+Published: 05 Nov 2026, 06:56 AM
+
+4. Zipline hits $21.5B valuation as Walmart expands bet on drone delivery - TechCrunch
+Published: 05 Nov 2026, 09:10 PM
+
+5. DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy - TechCrunch
+Published: 05 Nov 2026, 12:59 AM
+
+6. Meta acquires AI coding startup Conductor - TechCrunch
+Published: 05 Nov 2026, 02:40 AM
+
+7. Nothing CEO says company’s mysterious AI-first device is dropping next month - TechCrunch
+Published: 05 Nov 2026, 03:43 AM
+
+8. Hackers stole DreamHost customer files and inboxes during months-long attack - TechCrunch
+Published: 05 Nov 2026, 02:06 AM
+05-11-2026 10:37:12 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:37:28 pm | Command: what is my name | Result: Hi, your name is Alice.
+05-11-2026 10:37:36 pm | Command: my name is sai | Result: Got it. I'll remember that your name is sai.
+05-11-2026 10:37:43 pm | Command: what is my namw | Result: Your name is sai.
+05-11-2026 10:38:07 pm | Command: WEB SEARCH can u search for latest news | Result: 1. NBC News - Breaking Headlines and Video Reports on World, U.S. and Local Angles - NBC News
+Published: 05 Nov 2026, 05:34 AM
+
+2. ALI, Purdue expedition to search for Amelia Earhart’s plane will depart in October - Purdue University
+Published: 24 Jul 2026, 12:30 PM
+
+3. Google Search as you know it is over - TechCrunch
+Published: 19 May 2026, 12:30 PM
+
+4. A new era for AI Search - blog.google
+Published: 19 May 2026, 12:30 PM
+
+5. Personalize the content you see on Search, Discover, and News - blog.google
+Published: 20 Aug 2026, 12:30 PM
+
+6. Social Media and News Fact Sheet - Pew Research Center
+Published: 19 Oct 2026, 12:30 PM
+
+7. Introducing ChatGPT search - OpenAI
+Published: 31 Oct 2024, 12:30 PM
+
+8. Find out which university degrees could earn you most across your lifetime - BBC
+Published: 25 Jun 2026, 12:30 PM
+05-11-2026 10:38:14 pm | Command: what is my name | Result: Hi, your name is sai.
+05-11-2026 10:39:40 pm | Command: what is date today | Result: Today is Nov 5, 2026.
+05-11-2026 10:39:51 pm | Command: open spotify | Result: Opening website...
+05-11-2026 10:40:05 pm | Command: open spotify app | Result: Opening website...
+05-11-2026 10:40:17 pm | Command: open notepad | Result: Opening application...
+05-11-2026 10:41:27 pm | Command: WEB SEARCH todays evening news in techcruch | Result: I could not find any news published today for that topic.
+05-11-2026 10:43:44 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:44:29 pm | Command: what is my name | Result: Hi, your name is sai.
+05-11-2026 10:44:55 pm | Command: what is my name | Result: Hi, your name is sai.
+05-11-2026 10:45:18 pm | Command: open techcrunch | Result: Opening website...
+05-11-2026 10:45:32 pm | Command: open spotify | Result: Opening website...
+05-11-2026 10:45:52 pm | Command: open instagram | Result: Opening application...
+05-11-2026 10:48:59 pm | Command: what is my name | Result: Hi, your name is sai.
+05-11-2026 10:51:15 pm | Command: Buddy started | Result: System ready
+05-11-2026 10:51:47 pm | Command: what is my name | Result: Hi, your name is sai.
