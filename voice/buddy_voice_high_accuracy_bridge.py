@@ -365,12 +365,9 @@ def start_java_message_listener():
 
                 if not line:
 
-                    # Java closed stdin.
-                    time.sleep(
-                        0.1
-                    )
-
-                    continue
+                    # EOF means the Java parent has closed the bridge.
+                    shutdown_event.set()
+                    break
 
                 line = line.rstrip(
                     "\r\n"

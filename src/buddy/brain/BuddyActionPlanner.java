@@ -19,6 +19,16 @@ public class BuddyActionPlanner {
     private static final String MODEL =
             "qwen2.5:0.5b";
 
+    private static final Pattern EXPLICIT_ACTION_SEPARATOR =
+            Pattern.compile(
+                    "(?i)\\s+(?:and(?:\\s+then)?|then)\\s+(?=(?:open|close|create|make|locate|find|search|download|move|copy|rename|play|delete)\\b)"
+            );
+
+    private static final Pattern ACTION_CLAUSE_START =
+            Pattern.compile(
+                    "(?i)^(?:(?:please|buddy)\\s+)*(?:open|close|create|make|locate|find|search|download|move|copy|rename|play|delete)\\b"
+            );
+
     private final HttpClient httpClient;
 
     public BuddyActionPlanner() {
@@ -51,6 +61,15 @@ public class BuddyActionPlanner {
                             : userMessage.trim();
 
             if (currentMessage.isBlank()) {
+                return plans;
+            }
+
+            List<String> explicitActions =
+                    splitExplicitActions(currentMessage);
+            if (explicitActions.size() > 1) {
+                for (String action : explicitActions) {
+                    plans.addAll(plan(action, context));
+                }
                 return plans;
             }
 
@@ -190,8 +209,8 @@ public class BuddyActionPlanner {
                             + "\"keep_alive\":\"60m\","
                             + "\"options\":{"
                             + "\"temperature\":0,"
-                            + "\"num_ctx\":512,"
-                            + "\"num_predict\":32"
+                            + "\"num_ctx\":2048,"
+                            + "\"num_predict\":256"
                             + "}"
                             + "}";
 
@@ -292,6 +311,28 @@ public class BuddyActionPlanner {
         }
     }
 
+    static List<String> splitExplicitActions(String message) {
+        if (message == null || message.isBlank()) {
+            return List.of();
+        }
+
+        String[] clauses =
+                EXPLICIT_ACTION_SEPARATOR.split(message.trim());
+        if (clauses.length < 2) {
+            return List.of(message.trim());
+        }
+
+        List<String> actions = new ArrayList<>();
+        for (String clause : clauses) {
+            String action = clause.trim();
+            if (!ACTION_CLAUSE_START.matcher(action).find()) {
+                return List.of(message.trim());
+            }
+            actions.add(action);
+        }
+        return actions;
+    }
+
     // ============================================================
     // FALLBACK
     // ============================================================
@@ -330,7 +371,7 @@ public class BuddyActionPlanner {
     // PLAN SAFETY / VALIDATION
     // ============================================================
 
-    private List<BuddyActionPlan> sanitizePlans(
+    List<BuddyActionPlan> sanitizePlans(
             List<BuddyActionPlan> plans,
             String userMessage
     ) {
@@ -589,7 +630,7 @@ public class BuddyActionPlanner {
     // PARSE ACTIONS
     // ============================================================
 
-    private List<BuddyActionPlan> parseActions(
+    List<BuddyActionPlan> parseActions(
             String json
     ) {
 
@@ -620,6 +661,30 @@ public class BuddyActionPlanner {
             return parseActionArray(
                     json
             );
+        }
+
+        Matcher intentFields =
+                Pattern.compile(
+                        "\"intent\"\\s*:\\s*\"(?:\\\\.|[^\"\\\\])*\""
+                ).matcher(json);
+        List<Integer> intentStarts = new ArrayList<>();
+        while (intentFields.find()) {
+            intentStarts.add(intentFields.start());
+        }
+
+        if (intentStarts.size() > 1) {
+            for (int i = 0; i < intentStarts.size(); i++) {
+                int start = intentStarts.get(i);
+                int end = i + 1 < intentStarts.size()
+                        ? intentStarts.get(i + 1)
+                        : json.length();
+                plans.addAll(
+                        parseActions(
+                                json.substring(start, end)
+                        )
+                );
+            }
+            return plans;
         }
 
         String intent =
@@ -744,14 +809,12 @@ public class BuddyActionPlanner {
                         ']'
                 );
 
-        if (arrayEnd < 0) {
-            return plans;
-        }
-
         String actionsJson =
                 json.substring(
                         arrayStart + 1,
-                        arrayEnd
+                        arrayEnd < 0
+                                ? json.length()
+                                : arrayEnd
                 );
 
         int index = 0;
