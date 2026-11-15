@@ -1277,6 +1277,7 @@ public class BuddyWebServer {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             let recognition = null;
             let finalTranscript = '';
+            let recognitionError = false;
             let selectedSection = 'home';
 
             function addMessage(text, kind) {
@@ -1457,6 +1458,7 @@ public class BuddyWebServer {
               recognition.continuous = false;
               recognition.addEventListener('start', () => {
                 finalTranscript = '';
+                recognitionError = false;
                 micBtn.classList.add('listening');
                 document.getElementById('voiceAgentStatus').textContent = 'Listening';
                 voiceStatusText.textContent = 'Listening... speak now';
@@ -1472,20 +1474,27 @@ public class BuddyWebServer {
               });
               recognition.addEventListener('end', () => {
                 micBtn.classList.remove('listening');
+                if (recognitionError) return;
                 document.getElementById('voiceAgentStatus').textContent = 'Ready';
                 if (finalTranscript.trim()) {
                   commandInput.value = finalTranscript.trim();
-                  sendCommand(finalTranscript.trim());
+                  voiceStatusText.textContent = 'Transcript ready. Review it and press Send.';
                 } else {
                   voiceStatusText.textContent = 'Ready when you are';
                 }
               });
               recognition.addEventListener('error', (event) => {
+                recognitionError = true;
                 micBtn.classList.remove('listening');
-                document.getElementById('voiceAgentStatus').textContent = 'Ready';
-                voiceStatusText.textContent = event.error === 'not-allowed'
-                  ? 'Microphone permission was denied. Allow access in your browser settings.'
-                  : 'Voice input failed. You can still type a message.';
+                document.getElementById('voiceAgentStatus').textContent = 'Unavailable';
+                const errorMessages = {
+                  'not-allowed': 'Microphone permission was denied. Allow access in your browser settings.',
+                  'service-not-allowed': 'The browser blocked its speech recognition service.',
+                  'audio-capture': 'No microphone was found. Connect a microphone and try again.',
+                  'network': 'Browser speech recognition could not connect. Check your internet connection and try again.',
+                  'no-speech': 'No speech was detected. Try again and speak closer to the microphone.'
+                };
+                voiceStatusText.textContent = errorMessages[event.error] || 'Voice input failed. You can still type a message.';
               });
             } else {
               micBtn.title = 'Voice recognition is not supported in this browser';
@@ -1502,7 +1511,7 @@ public class BuddyWebServer {
                 try {
                   recognition.start();
                 } catch (error) {
-                  voiceStatusText.textContent = 'Could not start the microphone. Please try again.';
+                  voiceStatusText.textContent = 'Could not start the microphone: ' + error.message;
                 }
               }
             });
