@@ -172,6 +172,8 @@ Here are the results in a cleaner list:
    Published: [today's date and time]
 ```
 
+![Buddy dashboard showing today's TechCrunch news in a readable, newest-first list](assets/screenshots/buddy-news-search.png)
+
 ### Voice system output
 
 The voice subsystem listens for the wake word “Buddy,” records command speech, transcribes audio, and then feeds the recognized text back into the Java processing engine. This live interaction model is managed by the Python bridge and the Java command system together.
