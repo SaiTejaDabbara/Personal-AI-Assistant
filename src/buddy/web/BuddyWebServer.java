@@ -166,16 +166,16 @@ public class BuddyWebServer {
     }
   }
 
-  private String jsonEscape(String value) {
+  static String jsonEscape(String value) {
     if (value == null) {
       return "";
     }
     return value
         .replace("\\", "\\\\")
         .replace("\"", "\\\"")
-        .replace("\n", " ")
-        .replace("\r", " ")
-        .replace("\t", " ");
+        .replace("\r", "\\r")
+        .replace("\n", "\\n")
+        .replace("\t", "\\t");
   }
 
   private byte[] loadHtml() {
