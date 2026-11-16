@@ -14,6 +14,7 @@ import buddy.memory.MemoryManager;
 import buddy.resolver.ResolvedTarget;
 import buddy.resolver.TargetResolver;
 import buddy.web.WebIntelligence;
+import buddy.web.WebSearchFormatter;
 import java.awt.Desktop;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,6 +45,7 @@ public class Commands {
         private final GenericFileDownloader fileDownloader;
         private final WebIntelligence webIntelligence;
         private final Preferences localMemory;
+        private String lastWebSearchResults;
 
         // ============================================================
         // CONSTRUCTOR
@@ -116,6 +118,13 @@ public class Commands {
                 // ========================================================
 
                 conversationContext.setLastUserMessage(originalInput);
+
+                String formattedSearchResults =
+                                tryFormatPreviousWebSearch(originalInput);
+
+                if (formattedSearchResults != null) {
+                        return formattedSearchResults;
+                }
 
                 // ========================================================
                 // DETERMINISTIC FAST PATH
@@ -2580,7 +2589,7 @@ public class Commands {
                                 .replaceAll("\\s+", " ")
                                 .replaceAll("(?i)^[,\\s]+", "")
                                 .replaceAll("(?i)^(?:okay|ok|alright|please|hey buddy|buddy)\\s*[, ]*", "")
-                                .replaceAll("(?i)^(?:can you|could you|would you)\\s+", "")
+                                .replaceAll("(?i)^(?:can you|can u|could you|would you)\\s+", "")
                                 .replaceAll("(?i)^(?:search(?: for)?|look up|lookup|google|find online|find on the web|browse for)\\s+",
                                                 "")
                                 .replaceAll("(?i)^the\\s+", "")
@@ -2605,6 +2614,13 @@ public class Commands {
                 String result = webIntelligence.getCurrentInformation(
                                 query);
 
+                lastWebSearchResults =
+                                result == null
+                                                || result.isBlank()
+                                                || result.startsWith("I could not")
+                                                        ? null
+                                                        : result;
+
                 activityLogger.log(
                                 "WEB SEARCH " + query,
                                 result);
@@ -2615,7 +2631,31 @@ public class Commands {
                 conversationContext.setLastObject(
                                 query);
 
-                return result;
+                return lastWebSearchResults == null
+                                ? result
+                                : WebSearchFormatter.formatForReading(result);
+        }
+
+        private String tryFormatPreviousWebSearch(String input) {
+
+                if (!"web_search".equalsIgnoreCase(
+                                conversationContext.getLastAction())
+                                || lastWebSearchResults == null
+                                || !isSearchFormattingRequest(input)) {
+                        return null;
+                }
+
+                return WebSearchFormatter.formatForReading(
+                                lastWebSearchResults);
+        }
+
+        private boolean isSearchFormattingRequest(String input) {
+
+                String command = normalizeFastCommand(input);
+
+                return command.matches(
+                                ".*\\b(format|reformat|clean|readable|proper(?:ly)?|organize|organise|"
+                                                + "bullet|point[- ]wise|points[- ]wise|easy to read)\\b.*");
         }
 
         // ============================================================

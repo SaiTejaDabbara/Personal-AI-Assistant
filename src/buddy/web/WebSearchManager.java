@@ -15,6 +15,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -41,7 +42,7 @@ public class WebSearchManager {
     private static final int FALLBACK_CONNECT_TIMEOUT_MS = 2500;
     private static final int FALLBACK_READ_TIMEOUT_MS = 4000;
 
-    private static final int MAX_RESULTS = 8;
+    private static final int MAX_RESULTS = 20;
 
     private static final DateTimeFormatter OUTPUT_DATE_FORMAT =
             DateTimeFormatter.ofPattern(
@@ -66,12 +67,12 @@ public class WebSearchManager {
             return "I need something to search for.";
         }
 
-        boolean todayOnly = isTodayQuery(cleanQuery);
+        boolean todayOnly = shouldUseTodayWindow(cleanQuery);
 
         /*
          * IMPORTANT:
          *
-         * For "today" requests, do NOT use SearXNG.
+         * For today's news window, do NOT use SearXNG.
          *
          * SearXNG can return older indexed results and therefore
          * cannot guarantee strict "today only" behavior.
@@ -287,16 +288,15 @@ public class WebSearchManager {
                     "Trying Google News RSS fallback..."
             );
 
-            String encodedQuery =
-                    URLEncoder.encode(
-                            query,
-                            StandardCharsets.UTF_8
-                    );
-
             String url =
                     GOOGLE_NEWS_RSS_URL
                             + "?q="
-                            + encodedQuery
+                            + URLEncoder.encode(
+                                    todayOnly
+                                            ? addTodaySearchRestriction(query)
+                                            : query,
+                                    StandardCharsets.UTF_8
+                            )
                             + "&hl=en-US"
                             + "&gl=US"
                             + "&ceid=US:en";
@@ -399,12 +399,12 @@ public class WebSearchManager {
     // GOOGLE NEWS RSS PARSER
     // ============================================================
 
-    private String parseGoogleNewsRss(
+    String parseGoogleNewsRss(
             String xml,
             boolean todayOnly
     ) {
 
-        List<String> results =
+        List<NewsArticle> results =
                 new ArrayList<>();
 
         try {
@@ -454,14 +454,12 @@ public class WebSearchManager {
             NodeList items =
                     document.getElementsByTagName("item");
 
-            LocalDate today =
-                    LocalDate.now(
-                            ZoneId.systemDefault()
-                    );
+            ZoneId localZone = ZoneId.systemDefault();
+            ZonedDateTime now = ZonedDateTime.now(localZone);
 
             for (int i = 0;
                  i < items.getLength()
-                         && results.size() < MAX_RESULTS;
+                         && (todayOnly || results.size() < MAX_RESULTS);
                  i++) {
 
                 Node node =
@@ -496,29 +494,17 @@ public class WebSearchManager {
                         parseRssDate(published);
 
                 /*
-                 * Strict TODAY behavior:
+                 * Strict today-window behavior:
                  *
-                 * If user explicitly requested "today",
-                 * an article MUST have a valid publication
-                 * date and that date MUST equal today's
-                 * local date.
+                 * An article MUST have a valid publication
+                 * date within the local midnight-to-now window.
                  */
-                if (todayOnly) {
-
-                    if (publishedTime == null) {
-                        continue;
-                    }
-
-                    LocalDate articleDate =
-                            publishedTime
-                                    .withZoneSameInstant(
-                                            ZoneId.systemDefault()
-                                    )
-                                    .toLocalDate();
-
-                    if (!articleDate.equals(today)) {
-                        continue;
-                    }
+                if (todayOnly
+                        && !isPublishedDuringToday(
+                                publishedTime,
+                                now
+                        )) {
+                    continue;
                 }
 
                 String formattedDate;
@@ -542,38 +528,12 @@ public class WebSearchManager {
                                     : "Unknown date";
                 }
 
-                /*
-                 * Intentionally DO NOT output:
-                 *
-                 * link
-                 * URL
-                 * source URL
-                 *
-                 * User asked for date/time instead.
-                 */
-                StringBuilder result =
-                        new StringBuilder();
-
-                result.append(
-                        results.size() + 1
-                );
-
-                result.append(". ");
-
-                result.append(
-                        cleanText(title)
-                );
-
-                result.append(
-                        "\nPublished: "
-                );
-
-                result.append(
-                        formattedDate
-                );
-
                 results.add(
-                        result.toString()
+                        new NewsArticle(
+                                cleanText(title),
+                                publishedTime,
+                                formattedDate
+                        )
                 );
             }
 
@@ -581,9 +541,31 @@ public class WebSearchManager {
                 return "";
             }
 
+            results.sort(
+                    Comparator.comparing(
+                            NewsArticle::getPublishedTime,
+                            Comparator.nullsLast(Comparator.reverseOrder())
+                    )
+            );
+
+            List<String> formattedResults =
+                    new ArrayList<>();
+
+            for (int i = 0; i < results.size(); i++) {
+                NewsArticle article = results.get(i);
+
+                formattedResults.add(
+                        (i + 1)
+                                + ". "
+                                + article.getTitle()
+                                + "\nPublished: "
+                                + article.getFormattedDate()
+                );
+            }
+
             return String.join(
                     "\n\n",
-                    results
+                    formattedResults
             );
 
         } catch (Exception e) {
@@ -594,6 +576,35 @@ public class WebSearchManager {
             );
 
             return "";
+        }
+    }
+
+    private static final class NewsArticle {
+
+        private final String title;
+        private final ZonedDateTime publishedTime;
+        private final String formattedDate;
+
+        private NewsArticle(
+                String title,
+                ZonedDateTime publishedTime,
+                String formattedDate
+        ) {
+            this.title = title;
+            this.publishedTime = publishedTime;
+            this.formattedDate = formattedDate;
+        }
+
+        private String getTitle() {
+            return title;
+        }
+
+        private ZonedDateTime getPublishedTime() {
+            return publishedTime;
+        }
+
+        private String getFormattedDate() {
+            return formattedDate;
         }
     }
 
@@ -716,12 +727,18 @@ public class WebSearchManager {
     // QUERY NORMALIZATION
     // ============================================================
 
-    private String normalizeQuery(
+    String normalizeQuery(
             String query
     ) {
 
         String clean =
                 query.trim();
+
+        clean =
+                clean.replaceFirst(
+                        "(?i)^(?:(?:can\\s+(?:you|u)|could\\s+you|would\\s+you|please)\\s+)+",
+                        ""
+                );
 
         clean =
                 clean.replaceFirst(
@@ -815,17 +832,44 @@ public class WebSearchManager {
     // TODAY DETECTION
     // ============================================================
 
-    private boolean isTodayQuery(
-            String query
-    ) {
+    static boolean shouldUseTodayWindow(String query) {
 
         if (query == null) {
             return false;
         }
 
         return query.matches(
-                "(?is).*\\b(today|today's|todays)\\b.*"
+                "(?is).*\\b(today|today's|todays|news|headlines?|breaking|latest)\\b.*"
         );
+    }
+
+    static boolean isPublishedDuringToday(
+            ZonedDateTime publishedTime,
+            ZonedDateTime now
+    ) {
+
+        if (publishedTime == null || now == null) {
+            return false;
+        }
+
+        ZonedDateTime localPublishedTime =
+                publishedTime.withZoneSameInstant(now.getZone());
+
+        ZonedDateTime startOfToday =
+                now.toLocalDate().atStartOfDay(now.getZone());
+
+        return !localPublishedTime.isBefore(startOfToday)
+                && !localPublishedTime.isAfter(now);
+    }
+
+    private String addTodaySearchRestriction(String query) {
+
+        LocalDate localToday =
+                LocalDate.now(ZoneId.systemDefault());
+
+        // Search back one calendar day to account for provider timezone
+        // differences; the local timestamp check enforces today's window.
+        return query + " after:" + localToday.minusDays(1);
     }
 
     // ============================================================

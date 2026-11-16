@@ -152,6 +152,26 @@ When the Java app runs, Buddy starts a local HTTP server and exposes a dashboard
 
 This dashboard is implemented in [src/buddy/web/BuddyWebServer.java](src/buddy/web/BuddyWebServer.java). It provides a lightweight browser-based control surface and exposes a command API for interaction.
 
+#### Example: today's news search
+
+You can ask Buddy from the dashboard or by voice:
+
+```text
+Can you search for the latest news on TechCrunch?
+```
+
+For news, headline, breaking, and latest searches, Buddy uses the local calendar day as its time window: from midnight up to the time of the request. Results are ordered newest first, and each headline includes its publication date and time in the computer's local timezone. The available stories depend on what the news feed returns for that search.
+
+```text
+Here are the results in a cleaner list:
+
+1. [Most recent headline] - TechCrunch
+   Published: [today's date and time]
+
+2. [Next most recent headline] - TechCrunch
+   Published: [today's date and time]
+```
+
 ### Voice system output
 
 The voice subsystem listens for the wake word “Buddy,” records command speech, transcribes audio, and then feeds the recognized text back into the Java processing engine. This live interaction model is managed by the Python bridge and the Java command system together.
@@ -171,8 +191,9 @@ The project also includes a meaningful test set to validate the assistant’s be
 - [tests/BuddyUISmokeTest.java](tests/BuddyUISmokeTest.java)
 - [tests/CommandLineModeTest.java](tests/CommandLineModeTest.java)
 - [tests/CommandsBehaviorTest.java](tests/CommandsBehaviorTest.java)
+- [tests/buddy/web/WebSearchManagerTest.java](tests/buddy/web/WebSearchManagerTest.java) - verifies today's news filtering and newest-first ordering
 
-These tests cover UI smoke behavior, command-line mode, and command execution flows.
+These tests cover UI smoke behavior, command-line mode, command execution flows, and today's news search behavior.
 
 ---
 
