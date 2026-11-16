@@ -144,6 +144,9 @@ This project generates several real outputs that can be used directly after buil
 - [out](out) – compiled class output directory used during local development and testing
 - [assets](assets) – graphical and UX-related assets used by the app
 
+  <img width="1890" height="873" alt="image" src="https://github.com/user-attachments/assets/f289ece3-ed2d-4935-a064-8829b0a7f3dd" />
+
+
 ### Web dashboard output
 
 When the Java app runs, Buddy starts a local HTTP server and exposes a dashboard at:
