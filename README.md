@@ -4,6 +4,15 @@
 Buddy is a personal AI assistant built using Java.
 The project focuses on voice interaction, local AI,
 and personalized memory.
+## Features
+
+- **Voice Interaction:** Supports spoken commands and voice responses.
+- **Local AI:** Uses Ollama models for natural-language understanding and task planning.
+- **Desktop Interface:** Provides a Java Swing-based desktop interface.
+- **Web Dashboard:** Offers a web-based interface for interacting with Buddy.
+- **Smart Actions:** Can open applications and files, and search the web.
+- **Personal Memory:** Maintains user-specific information and activity history.
+- **Command Processing:** Understands natural-language requests and plans actions.
 ## Terminology used in this project
 
 Before diving into the project itself, it helps to understand the key technologies and names used throughout the codebase and the system design.
