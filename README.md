@@ -1,5 +1,9 @@
 # Buddy AI Command Center
+## Development
 
+Buddy is a personal AI assistant built using Java.
+The project focuses on voice interaction, local AI,
+and personalized memory.
 ## Terminology used in this project
 
 Before diving into the project itself, it helps to understand the key technologies and names used throughout the codebase and the system design.
