@@ -58,7 +58,7 @@ The main runtime entry point is [src/buddy/Main.java](src/buddy/Main.java), whic
 | Area | Technologies |
 | --- | --- |
 | Main application | Java, Swing |
-| AI and local inference | Ollama HTTP API (`qwen2.5:0.5b` for chat; `llama3.2` is configured in the `OllamaBrain` command-understanding class) |
+| AI and local inference | Ollama HTTP API (`llama3.2` for chat and command understanding) |
 | Voice input | Python, NumPy, sounddevice, faster-whisper |
 | Voice output | pyttsx3 |
 | Web interface | Java local HTTP server and browser-based dashboard (`localhost:8080`) |
@@ -187,6 +187,8 @@ Here are the results in a cleaner list:
 2. [Next most recent headline] - TechCrunch
    Published: [today's date and time]
 ```
+
+![Buddy dashboard showing today's TechCrunch news in a readable, newest-first list](assets/screenshots/buddy-news-search.png)
 
 ### Voice system output
 
