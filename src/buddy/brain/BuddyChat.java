@@ -16,11 +16,13 @@ public class BuddyChat {
             "http://localhost:11434/api/generate";
 
     private static final String MODEL =
-            "qwen2.5:0.5b";
+            "llama3.2";
 
     private final MemoryManager memoryManager;
     private final HttpClient httpClient;
     private final ConversationContext conversationContext;
+    private String previousChatUserMessage;
+    private String previousChatResponse;
 
     public BuddyChat() {
 
@@ -48,6 +50,18 @@ public class BuddyChat {
 
         String instant = tryInstantReply(message);
 
+        if (instant == null) {
+            instant = tryCapabilityReply(message);
+        }
+
+        if (instant == null) {
+            instant = tryFreeAiCourseReply(message);
+        }
+
+        if (instant == null) {
+            instant = tryCapabilityFollowUp(message);
+        }
+
         if (instant != null) {
             conversationContext.setLastUserMessage(message);
             conversationContext.setLastAction("Conversation");
@@ -58,7 +72,7 @@ public class BuddyChat {
                             + " ms"
             );
 
-            return instant;
+            return rememberConversation(message, instant);
         }
 
         conversationContext.setLastUserMessage(message);
@@ -97,18 +111,45 @@ public class BuddyChat {
 
         contextText = compactContext(contextText);
 
+        String recentConversation = previousChatUserMessage == null
+                ? "none"
+                : "User: " + previousChatUserMessage + "\nBuddy: " + previousChatResponse;
+
         String compactMemory =
                 compactMemory(memoryText.toString());
 
         String prompt =
                 "You are Buddy, a helpful personal AI desktop assistant.\n\n"
-                        + "Answer naturally, briefly, and directly.\n"
+                        + "Answer clearly and directly, with enough detail to be useful. "
+                        + "For explanatory or how-to questions, explain the key ideas in "
+                        + "well-organized paragraphs and include relevant examples or steps "
+                        + "when they help. Keep explanations focused, usually around 90-130 "
+                        + "words, and use short paragraphs or up to five bullets. Give simple "
+                        + "questions concise answers. Avoid filler and repetition, and finish "
+                        + "complete thoughts instead of trailing off.\n"
+                        + "Be honest about uncertainty and do not invent facts or confuse "
+                        + "different products or organizations. When explaining AI systems, "
+                        + "describe established public principles and clearly label details "
+                        + "that are not public. Do not refuse a general educational explanation "
+                        + "just because a product is proprietary. Do not claim a system "
+                        + "retrieves from a knowledge base unless it actually uses retrieval. "
+                        + "Describe only "
+                        + "Buddy's implemented capabilities: it can launch or close supported "
+                        + "apps and websites, search, and manage supported files. It does not "
+                        + "have general mouse or keyboard control, arbitrary window control, "
+                        + "email integration, or unrestricted workflow automation. Never claim "
+                        + "it can send email; offer to draft one instead. For general learning "
+                        + "and recommendation questions, answer helpfully from general knowledge "
+                        + "without requiring a live search, and qualify details such as current "
+                        + "prices or availability that may change.\n"
                         + "Use memory or previous context only when it clearly helps "
                         + "answer the current message.\n"
                         + "Do not claim an action was performed unless Java actually "
                         + "performed it.\n\n"
                         + "USER MEMORY:\n"
                         + compactMemory
+                        + "\n\nRECENT CONVERSATION:\n"
+                        + recentConversation
                         + "\n\nCONTEXT:\n"
                         + contextText
                         + "\n\nUSER:\n"
@@ -123,15 +164,15 @@ public class BuddyChat {
                         + "\"keep_alive\":\"60m\","
                         + "\"options\":{"
                         + "\"temperature\":0.2,"
-                        + "\"num_ctx\":512,"
-                        + "\"num_predict\":48"
+                        + "\"num_ctx\":2048,"
+                        + "\"num_predict\":192"
                         + "}"
                         + "}";
 
         HttpRequest request =
                 HttpRequest.newBuilder()
                         .uri(URI.create(OLLAMA_URL))
-                        .timeout(Duration.ofSeconds(20))
+                        .timeout(Duration.ofSeconds(90))
                         .header("Content-Type", "application/json")
                         .POST(HttpRequest.BodyPublishers.ofString(json))
                         .build();
@@ -160,7 +201,7 @@ public class BuddyChat {
                         "BuddyChat HTTP error: "
                                 + response.statusCode()
                 );
-                return fallbackReply(message);
+                return rememberConversation(message, fallbackReply(message));
             }
 
             String result =
@@ -176,16 +217,18 @@ public class BuddyChat {
             );
 
             if (result == null || result.isBlank()) {
-                return fallbackReply(message);
+                return rememberConversation(message, fallbackReply(message));
             }
 
-            return result.trim();
+            return rememberConversation(message, result.trim());
 
         } catch (java.net.http.HttpTimeoutException e) {
 
             System.out.println("BuddyChat timed out.");
 
-            return "Sorry, I'm taking too long to respond.";
+            return rememberConversation(
+                    message,
+                    "The local AI model is taking longer than expected. Please try again shortly.");
 
         } catch (Exception e) {
 
@@ -194,7 +237,7 @@ public class BuddyChat {
                             + e.getMessage()
             );
 
-            return fallbackReply(message);
+            return rememberConversation(message, fallbackReply(message));
         }
     }
 
@@ -251,6 +294,91 @@ public class BuddyChat {
             default:
                 return null;
         }
+    }
+
+    private String tryCapabilityReply(String input) {
+        String command = normalizeMessage(input);
+
+        boolean asksAboutCapabilities = command.matches(
+                "^(can|could|do|does|are|what|which|how)\\b.*");
+        if (!asksAboutCapabilities) {
+            return null;
+        }
+
+        boolean asksAboutDesktopControl =
+                command.matches(".*\\b(?:control|contrl|manage|operate)\\b.*\\b(?:desktop|computer|pc)\\b.*")
+                        || command.matches(".*\\b(?:desktop|computer|pc)\\b.*\\b(?:control|contrl|manage|operate)\\b.*");
+
+        if (asksAboutDesktopControl) {
+            return "I can carry out Buddy's supported desktop actions, such as opening or closing supported apps and websites, searching, and managing files. I cannot control the mouse or keyboard, operate arbitrary windows, or change system settings. Tell me the specific task and I can confirm whether Buddy supports it.";
+        }
+
+        boolean asksToSendEmail =
+                command.matches(".*\\b(?:send|sending)\\b.*\\b(?:an?\\s+)?emails?\\b.*")
+                        || command.matches(".*\\bemails?\\b.*\\b(?:send|sending)\\b.*");
+        boolean asksAboutAutomation =
+                command.matches(".*\\b(?:automate|automation|automating|workflow|processes?)\\b.*");
+
+        if (asksToSendEmail || asksAboutAutomation) {
+            return "Buddy is not connected to an email service, so I cannot send emails, but I can help draft one. I can also carry out supported local tasks, such as opening apps and organizing files; I cannot run arbitrary workflows or unattended automation. Describe the process and I will tell you which steps Buddy can handle.";
+        }
+
+        return null;
+    }
+
+    private String tryFreeAiCourseReply(String input) {
+        String command = normalizeMessage(input);
+        boolean asksAboutAi = command.matches(
+                ".*\\b(?:ai|artificial intelligence|machine learning)\\b.*");
+        boolean asksAboutLearning = command.matches(
+                ".*\\b(?:course|courses|learn|learning|platform|platforms|study|training)\\b.*");
+        boolean asksForFreeResources = command.matches(
+                ".*\\b(?:free|no cost|without paying)\\b.*");
+
+        if (!asksAboutAi || !asksAboutLearning || !asksForFreeResources) {
+            return null;
+        }
+
+        return "Here are good free places to start learning AI:\n\n"
+                + "• Elements of AI — beginner-friendly introduction to AI concepts.\n"
+                + "• Google Machine Learning Crash Course — practical ML fundamentals and exercises.\n"
+                + "• fast.ai — hands-on deep learning, best if you are comfortable with Python.\n"
+                + "• Kaggle Learn — short, practical lessons in Python, machine learning, and data skills.\n"
+                + "• Microsoft Learn and IBM SkillsBuild — structured AI modules and learning paths.\n\n"
+                + "Course content is often free, while certificates or some graded features may cost extra; check each provider's current terms. If you share your experience level and whether you prefer coding or theory, I can suggest a learning path.";
+    }
+
+    private String tryCapabilityFollowUp(String input) {
+        String command = normalizeMessage(input);
+        if (!command.matches("^(why|why not|why cant you|why can't you)$")
+                || previousChatUserMessage == null) {
+            return null;
+        }
+
+        String previousQuestion = normalizeMessage(previousChatUserMessage);
+        if (previousQuestion.contains("desktop")
+                || previousQuestion.contains("computer")
+                || previousQuestion.contains("email")
+                || previousQuestion.contains("automate")
+                || previousQuestion.contains("workflow")) {
+            return "Buddy can only perform actions that are explicitly implemented and connected to it. It can launch supported apps and websites and manage files, but it has no general mouse/keyboard or email integration. That limitation prevents me from claiming I can control or send things that Buddy cannot actually access.";
+        }
+
+        return null;
+    }
+
+    private String normalizeMessage(String input) {
+        return input.trim()
+                .toLowerCase(Locale.ROOT)
+                .replaceAll("\\s+", " ")
+                .replaceAll("[!?.,]+$", "")
+                .trim();
+    }
+
+    private String rememberConversation(String userMessage, String response) {
+        previousChatUserMessage = userMessage;
+        previousChatResponse = response;
+        return response;
     }
 
     private String compactMemory(String memory) {

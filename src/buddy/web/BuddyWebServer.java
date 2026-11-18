@@ -1318,7 +1318,9 @@ public class BuddyWebServer {
                 }
               } catch (error) {
                 responseMessage.className = 'message error';
-                responseMessage.textContent = error.message || 'Could not reach Buddy.';
+                responseMessage.textContent = error instanceof TypeError
+                  ? "Could not reach Buddy's local server. Check that Buddy is running, then try again."
+                  : (error.message || 'The request could not be completed.');
                 voiceStatusText.textContent = 'Request failed. Please try again.';
               } finally {
                 sendBtn.disabled = false;
