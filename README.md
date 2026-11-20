@@ -265,7 +265,7 @@ This script scans the Java files, compiles them into [out](out), and packages th
 
 ### Run the project
 
-Use either of these methods:
+Open a terminal in the project root and use either of these methods:
 
 ```powershell
 java -cp out buddy.Main
@@ -277,7 +277,36 @@ or
 .\buddy-run.cmd
 ```
 
-The startup command also checks whether the jar already exists and builds it if needed.
+`buddy-run.cmd` keeps the terminal open so startup and runtime messages remain visible. It also builds `.dist\Buddy.jar` automatically if the jar is missing.
+
+After Buddy starts, open:
+
+- http://127.0.0.1:8080
+- http://localhost:8080
+
+The same Swing and web interfaces can send commands to Buddy, and the web dashboard also provides status information and a command API.
+
+### Command-line mode
+
+To run one command without starting the interactive UI:
+
+```powershell
+java -jar .dist\Buddy.jar --command "what is the date"
+```
+
+`--cmd` and `--once` are aliases for `--command`. To display all startup options:
+
+```powershell
+java -jar .dist\Buddy.jar --help
+```
+
+### Startup troubleshooting
+
+- If the dashboard does not load, confirm that the terminal reports `Buddy web dashboard available at http://localhost:8080`.
+- `127.0.0.1:8080` is useful if `localhost` resolves incorrectly.
+- If port 8080 is already in use, stop the existing Buddy process or application that is using the port, then start Buddy again.
+- Check the terminal for web-server, Java, or voice-bridge startup errors.
+- Buddy requires a valid JDK installation with `javac.exe` and `jar.exe`. The build script checks `JAVA_HOME`, common JDK locations, and the system `PATH`.
 
 ### Autostart mode
 
