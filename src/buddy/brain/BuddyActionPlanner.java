@@ -1,5 +1,7 @@
 package buddy.brain;
 
+import buddy.LocalModelRuntime;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -13,11 +15,11 @@ import java.util.regex.Pattern;
 
 public class BuddyActionPlanner {
 
-    private static final String OLLAMA_URL =
-            "http://localhost:11434/api/chat";
+    private static final String PLANNER_URL =
+            LocalModelRuntime.CHAT_COMPLETIONS_URL;
 
-    private static final String MODEL =
-            "qwen2.5:0.5b";
+    private static final String PLANNER_MODEL =
+            LocalModelRuntime.PLANNER_MODEL;
 
     private static final Pattern EXPLICIT_ACTION_SEPARATOR =
             Pattern.compile(
@@ -194,7 +196,7 @@ public class BuddyActionPlanner {
             String json =
                     "{"
                             + "\"model\":\""
-                            + MODEL
+                            + PLANNER_MODEL
                             + "\","
                             + "\"messages\":["
                             + "{\"role\":\"system\",\"content\":\""
@@ -205,13 +207,9 @@ public class BuddyActionPlanner {
                             + "\"}"
                             + "],"
                             + "\"stream\":false,"
-                            + "\"format\":\"json\","
-                            + "\"keep_alive\":\"60m\","
-                            + "\"options\":{"
+                            + "\"response_format\":{\"type\":\"json_object\"},"
                             + "\"temperature\":0,"
-                            + "\"num_ctx\":2048,"
-                            + "\"num_predict\":256"
-                            + "}"
+                            + "\"max_tokens\":256"
                             + "}";
 
             long plannerStart =
@@ -221,7 +219,7 @@ public class BuddyActionPlanner {
                     HttpRequest.newBuilder()
                             .uri(
                                     URI.create(
-                                            OLLAMA_URL
+                                            PLANNER_URL
                                     )
                             )
                             .timeout(
@@ -245,7 +243,7 @@ public class BuddyActionPlanner {
                     );
 
             System.out.println(
-                    "Ollama planner HTTP time: "
+                    "GPU planner HTTP time: "
                             + (
                             System.currentTimeMillis()
                                     - plannerStart

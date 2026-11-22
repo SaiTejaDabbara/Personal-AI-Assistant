@@ -8,6 +8,11 @@ if not exist "%~dp0\.dist\Buddy.jar" (
 )
 
 if exist "%~dp0\.dist\Buddy.jar" (
+    powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0buddy-gpu-start.ps1"
+    if errorlevel 1 exit /b 1
+)
+
+if exist "%~dp0\.dist\Buddy.jar" (
     java -jar "%~dp0\.dist\Buddy.jar" %*
     exit /b %ERRORLEVEL%
 )
