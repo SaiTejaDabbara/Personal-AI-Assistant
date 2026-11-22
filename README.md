@@ -4,7 +4,7 @@
 
 Before diving into the project itself, it helps to understand the key technologies and names used throughout the codebase and the system design.
 
-- Ollama: a local AI model runtime used for natural-language reasoning and task planning. In this project, Buddy uses local model-based intelligence to interpret requests and help decide what action should happen next.
+- llama.cpp Vulkan server: runs Buddy's local language models on the AMD Radeon integrated GPU. Buddy starts separate GPU-pinned servers for chat and action planning.
 - Java: the main application runtime for the desktop assistant. It owns the command engine, app logic, workflow orchestration, and the Swing-based desktop UI.
 - Python: used for the voice stack, transcription, wake detection, and text-to-speech functions. It acts as the speech layer connected to the Java application.
 - Whisper / faster-whisper: a speech-to-text engine used to transcribe spoken commands and wake-word audio into readable text for processing.
@@ -45,7 +45,7 @@ The main runtime entry point is [src/buddy/Main.java](src/buddy/Main.java), whic
 | Area | Technologies |
 | --- | --- |
 | Main application | Java, Swing |
-| AI and local inference | Ollama HTTP API (`llama3.2` for chat and command understanding) |
+| AI and local inference | llama.cpp Vulkan server (Llama 3.2 for chat and memory extraction; Qwen 2.5 0.5B for action planning) |
 | Voice input | Python, NumPy, sounddevice, faster-whisper |
 | Voice output | pyttsx3 |
 | Web interface | Java local HTTP server and browser-based dashboard (`localhost:8080`) |
@@ -230,7 +230,7 @@ flowchart TD
     Commands --> Fast{"Direct command<br/>or quick reply?"}
     Fast -->|"Yes"| Action["Execute command"]
     Fast -->|"No"| Route{"Conversation or<br/>action request?"}
-    Route -->|"Conversation"| Chat["BuddyChat + Ollama<br/>qwen2.5:0.5b"]
+    Route -->|"Conversation"| Chat["BuddyChat + llama.cpp Vulkan<br/>Llama 3.2"]
     Route -->|"Action"| Planner["Java action planner + context"]
     Planner -->|"Confirmation required"| Confirm["Ask user to confirm"]
     Confirm --> Commands
@@ -268,6 +268,7 @@ This script scans the Java files, compiles them into [out](out), and packages th
 Open a terminal in the project root and use either of these methods:
 
 ```powershell
+.\buddy-gpu-start.ps1
 java -cp out buddy.Main
 ```
 
@@ -277,7 +278,11 @@ or
 .\buddy-run.cmd
 ```
 
-`buddy-run.cmd` keeps the terminal open so startup and runtime messages remain visible. It also builds `.dist\Buddy.jar` automatically if the jar is missing.
+`buddy-gpu-start.ps1` verifies that the AMD Vulkan device and both local models are available, then launches llama.cpp with all model layers pinned to `Vulkan0`. It fails rather than falling back to Ollama or CPU inference.
+
+`buddy-run.cmd` starts the GPU servers, builds `.dist\Buddy.jar` if needed, and keeps the terminal open so startup and runtime messages remain visible. `buddy-startup.cmd` also starts the GPU servers before launching Buddy at login.
+
+The servers bind to localhost on ports `11436` and `11437`. Their logs are written under `%LOCALAPPDATA%\Buddy\logs`.
 
 After Buddy starts, open:
 
@@ -291,8 +296,10 @@ The same Swing and web interfaces can send commands to Buddy, and the web dashbo
 To run one command without starting the interactive UI:
 
 ```powershell
-java -jar .dist\Buddy.jar --command "what is the date"
+.\buddy-run.cmd --command "what is the date"
 ```
+
+If running the JAR directly, start `buddy-gpu-start.ps1` first.
 
 `--cmd` and `--once` are aliases for `--command`. To display all startup options:
 

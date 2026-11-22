@@ -1,5 +1,6 @@
 package buddy.brain;
 
+import buddy.LocalModelRuntime;
 import buddy.memory.MemoryManager;
 
 import java.net.URI;
@@ -11,12 +12,6 @@ import java.util.Locale;
 import java.util.Map;
 
 public class BuddyChat {
-
-    private static final String OLLAMA_URL =
-            "http://localhost:11434/api/generate";
-
-    private static final String MODEL =
-            "llama3.2";
 
     private final MemoryManager memoryManager;
     private final HttpClient httpClient;
@@ -158,20 +153,15 @@ public class BuddyChat {
 
         String json =
                 "{"
-                        + "\"model\":\"" + MODEL + "\","
                         + "\"prompt\":\"" + escapeJson(prompt) + "\","
                         + "\"stream\":false,"
-                        + "\"keep_alive\":\"60m\","
-                        + "\"options\":{"
                         + "\"temperature\":0.2,"
-                        + "\"num_ctx\":2048,"
-                        + "\"num_predict\":192"
-                        + "}"
+                        + "\"n_predict\":192"
                         + "}";
 
         HttpRequest request =
                 HttpRequest.newBuilder()
-                        .uri(URI.create(OLLAMA_URL))
+                        .uri(URI.create(LocalModelRuntime.CHAT_COMPLETION_URL))
                         .timeout(Duration.ofSeconds(90))
                         .header("Content-Type", "application/json")
                         .POST(HttpRequest.BodyPublishers.ofString(json))
@@ -179,7 +169,7 @@ public class BuddyChat {
 
         try {
 
-            long ollamaStart = System.currentTimeMillis();
+            long runtimeStart = System.currentTimeMillis();
 
             HttpResponse<String> response =
                     httpClient.send(
@@ -187,12 +177,12 @@ public class BuddyChat {
                             HttpResponse.BodyHandlers.ofString()
                     );
 
-            long ollamaTime =
-                    System.currentTimeMillis() - ollamaStart;
+            long runtimeTime =
+                    System.currentTimeMillis() - runtimeStart;
 
             System.out.println(
-                    "BuddyChat Ollama HTTP time: "
-                            + ollamaTime
+                    "BuddyChat GPU runtime HTTP time: "
+                            + runtimeTime
                             + " ms"
             );
 
@@ -429,13 +419,13 @@ public class BuddyChat {
 
     private String extractResponse(String json) {
 
-        String key = "\"response\":\"";
+        String key = "\"content\":\"";
 
         int start = json.indexOf(key);
 
         if (start == -1) {
             System.out.println(
-                    "Ollama response: " + json
+                    "GPU runtime response: " + json
             );
             return "";
         }

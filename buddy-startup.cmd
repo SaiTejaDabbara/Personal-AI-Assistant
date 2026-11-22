@@ -20,6 +20,8 @@ if not defined JAVA_CMD (
 )
 
 if exist "%~dp0\.dist\Buddy.jar" (
+    powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0buddy-gpu-start.ps1"
+    if errorlevel 1 exit /b 1
     start "" "%JAVA_CMD%" -jar "%~dp0\.dist\Buddy.jar" --autostart
     exit /b 0
 )

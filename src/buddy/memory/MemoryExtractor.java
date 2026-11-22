@@ -1,18 +1,13 @@
 package buddy.memory;
 
+import buddy.LocalModelRuntime;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class MemoryExtractor {
-
-    private static final String OLLAMA_URL =
-            "http://localhost:11434/api/generate";
-
-    private static final String MODEL =
-            "llama3.2";
-
 
     private final HttpClient httpClient;
 
@@ -82,17 +77,15 @@ public class MemoryExtractor {
 
             String json =
                     "{"
-                            + "\"model\":\""
-                            + MODEL
-                            + "\","
-
                             + "\"prompt\":\""
                             + escapeJson(
                             prompt
                     )
                             + "\","
 
-                            + "\"stream\":false"
+                            + "\"stream\":false,"
+                            + "\"temperature\":0,"
+                            + "\"n_predict\":64"
                             + "}";
 
 
@@ -100,7 +93,7 @@ public class MemoryExtractor {
                     HttpRequest.newBuilder()
                             .uri(
                                     URI.create(
-                                            OLLAMA_URL
+                                            LocalModelRuntime.CHAT_COMPLETION_URL
                                     )
                             )
                             .header(
@@ -231,7 +224,7 @@ public class MemoryExtractor {
     ) {
 
         String key =
-                "\"response\":\"";
+                "\"content\":\"";
 
 
         int start =

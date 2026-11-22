@@ -1,5 +1,7 @@
 package buddy.brain;
 
+import buddy.LocalModelRuntime;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -8,19 +10,12 @@ import java.net.URL;
 
 public class OllamaBrain {
 
-    private static final String OLLAMA_URL =
-            "http://localhost:11434/api/generate";
-
-    private static final String MODEL =
-            "llama3.2";
-
-
     public String understand(String userInput) {
 
         try {
 
             URL url =
-                    new URL(OLLAMA_URL);
+                    new URL(LocalModelRuntime.CHAT_COMPLETION_URL);
 
             HttpURLConnection connection =
                     (HttpURLConnection)
@@ -76,16 +71,13 @@ public class OllamaBrain {
 
             String json =
                     "{"
-                            + "\"model\":\""
-                            + MODEL
-                            + "\","
-
                             + "\"prompt\":"
                             + quote(prompt)
                             + ","
 
-                            + "\"stream\":false"
-
+                            + "\"stream\":false,"
+                            + "\"temperature\":0,"
+                            + "\"n_predict\":128"
                             + "}";
 
 
@@ -140,7 +132,7 @@ public class OllamaBrain {
         } catch (Exception e) {
 
             System.out.println(
-                    "Ollama error: "
+                    "GPU runtime error: "
                             + e.getMessage()
             );
 
@@ -170,7 +162,7 @@ public class OllamaBrain {
     ) {
 
         String key =
-                "\"response\":\"";
+                "\"content\":\"";
 
 
         int start =
