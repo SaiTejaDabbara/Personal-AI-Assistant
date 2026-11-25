@@ -148,7 +148,7 @@ function Ensure-GpuServer {
     New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
     $standardOutput = Join-Path $logDirectory "$LogName.out.log"
     $standardError = Join-Path $logDirectory "$LogName.err.log"
-    $arguments = "--model `"$ModelPath`" --host 127.0.0.1 --port $Port --device Vulkan0 --n-gpu-layers 999 --ctx-size 2048"
+    $arguments = "--model `"$ModelPath`" --host 127.0.0.1 --port $Port --device Vulkan0 --n-gpu-layers 999 --ctx-size 1024 --parallel 1"
 
     $process = Start-Process `
         -FilePath $serverPath `

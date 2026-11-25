@@ -68,6 +68,10 @@ public class Commands {
                 localMemory = Preferences.userNodeForPackage(Commands.class).node("buddy-memory");
         }
 
+        public buddy.brain.ChatModelConfig getChatModelConfig() {
+                return buddy.brain.ChatModelConfig.getInstance();
+        }
+
         // ============================================================
         // MAIN PROCESS
         // ============================================================
