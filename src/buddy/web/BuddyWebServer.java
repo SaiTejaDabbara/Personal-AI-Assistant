@@ -1,6 +1,7 @@
 package buddy.web;
 
 import buddy.commands.Commands;
+import buddy.brain.ChatModelConfig;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
@@ -15,6 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+import java.time.Duration;
+import java.util.Base64;
 
 public class BuddyWebServer {
 
@@ -33,6 +40,8 @@ public class BuddyWebServer {
     server.createContext("/api/command", this::handleCommand);
     server.createContext("/api/status", this::handleStatus);
     server.createContext("/api/dashboard", this::handleDashboard);
+    server.createContext("/api/chat-model", this::handleChatModel);
+    server.createContext("/api/image", this::handleImage);
 
     server.start();
   }
@@ -66,6 +75,143 @@ public class BuddyWebServer {
   private void handleStatus(HttpExchange exchange) throws IOException {
     String body = "{\"ok\":true,\"status\":\"online\",\"voice\":\"ready\"}";
     sendJson(exchange, 200, body);
+  }
+
+  private void handleImage(HttpExchange exchange) throws IOException {
+    if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
+      sendJson(exchange, 405, "{\"ok\":false,\"message\":\"Method not allowed\"}");
+      return;
+    }
+
+    String body = new String(exchange.getRequestBody().readNBytes(12 * 1024 * 1024), StandardCharsets.UTF_8);
+    String image = readJsonString(body, "image");
+    String prompt = readJsonString(body, "prompt");
+    if (image == null || image.isBlank()) {
+      sendJson(exchange, 400, "{\"ok\":false,\"message\":\"Image is required\"}");
+      return;
+    }
+    if (prompt == null || prompt.isBlank()) {
+      prompt = "Describe this image clearly. Include the main subject, visible text, setting, colors, and any important details.";
+    }
+
+    int comma = image.indexOf(',');
+    if (image.startsWith("data:image/") && comma >= 0) {
+      image = image.substring(comma + 1);
+    }
+    if (image.length() > 10 * 1024 * 1024) {
+      sendJson(exchange, 413, "{\"ok\":false,\"message\":\"Image is too large. Maximum size is 10 MB.\"}");
+      return;
+    }
+    try {
+      Base64.getDecoder().decode(image);
+    } catch (IllegalArgumentException e) {
+      sendJson(exchange, 400, "{\"ok\":false,\"message\":\"Invalid image data\"}");
+      return;
+    }
+
+    String requestJson = "{"
+        + "\"model\":\"llava:7b\","
+        + "\"stream\":false,"
+        + "\"messages\":[{\"role\":\"user\",\"content\":\"" + jsonEscape(prompt)
+        + "\",\"images\":[\"" + image + "\"]}]"
+        + "}";
+
+    try {
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create("http://127.0.0.1:11434/api/chat"))
+          .timeout(Duration.ofSeconds(120))
+          .header("Content-Type", "application/json")
+          .POST(HttpRequest.BodyPublishers.ofString(requestJson))
+          .build();
+      HttpResponse<String> response = HttpClient.newBuilder()
+          .connectTimeout(Duration.ofSeconds(5))
+          .build()
+          .send(request, HttpResponse.BodyHandlers.ofString());
+      if (response.statusCode() != 200) {
+        sendJson(exchange, 502, "{\"ok\":false,\"message\":\"Local vision model returned HTTP "
+            + response.statusCode() + "\"}");
+        return;
+      }
+      String result = readNestedJsonString(response.body(), "content");
+      if (result == null || result.isBlank()) {
+        sendJson(exchange, 502, "{\"ok\":false,\"message\":\"The vision model returned no analysis\"}");
+        return;
+      }
+      sendJson(exchange, 200, "{\"ok\":true,\"response\":\"" + jsonEscape(result) + "\"}");
+    } catch (java.net.http.HttpTimeoutException e) {
+      sendJson(exchange, 504, "{\"ok\":false,\"message\":\"Image analysis timed out. Try a smaller image.\"}");
+    } catch (Exception e) {
+      sendJson(exchange, 502, "{\"ok\":false,\"message\":\"Vision model unavailable: "
+          + jsonEscape(e.getMessage()) + "\"}");
+    }
+  }
+
+  private String readJsonString(String json, String key) {
+    String needle = "\"" + key + "\"";
+    int keyIndex = json.indexOf(needle);
+    if (keyIndex < 0) return null;
+    int colon = json.indexOf(':', keyIndex + needle.length());
+    int quote = json.indexOf('"', colon + 1);
+    if (colon < 0 || quote < 0) return null;
+    return decodeJsonString(json, quote + 1);
+  }
+
+  private String readNestedJsonString(String json, String key) {
+    return readJsonString(json, key);
+  }
+
+  private String decodeJsonString(String json, int start) {
+    StringBuilder value = new StringBuilder();
+    for (int i = start; i < json.length(); i++) {
+      char ch = json.charAt(i);
+      if (ch == '"') return value.toString();
+      if (ch == '\\' && i + 1 < json.length()) {
+        char escaped = json.charAt(++i);
+        switch (escaped) {
+          case 'n': value.append('\n'); break;
+          case 'r': value.append('\r'); break;
+          case 't': value.append('\t'); break;
+          case '"': value.append('"'); break;
+          case '\\': value.append('\\'); break;
+          default: value.append(escaped); break;
+        }
+      } else {
+        value.append(ch);
+      }
+    }
+    return value.toString();
+  }
+
+  private void handleChatModel(HttpExchange exchange) throws IOException {
+    ChatModelConfig config = ChatModelConfig.getInstance();
+    if ("GET".equalsIgnoreCase(exchange.getRequestMethod())) {
+      StringBuilder json = new StringBuilder("{\"ok\":true,\"parameters\":{");
+      boolean first = true;
+      for (Map.Entry<String, Number> entry : config.snapshot().entrySet()) {
+        if (!first) json.append(',');
+        first = false;
+        json.append('"').append(jsonEscape(entry.getKey())).append("\":");
+        Number value = entry.getValue();
+        json.append(value instanceof Integer
+            ? Integer.toString(value.intValue())
+            : Double.toString(value.doubleValue()));
+      }
+      json.append("}}");
+      sendJson(exchange, 200, json.toString());
+      return;
+    }
+    if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
+      sendJson(exchange, 405, "{\"ok\":false,\"message\":\"Method not allowed\"}");
+      return;
+    }
+    try {
+      String message = config.update(parseForm(exchange));
+      sendJson(exchange, 200, "{\"ok\":true,\"message\":\"" + jsonEscape(message) + "\"}");
+    } catch (IllegalArgumentException e) {
+      sendJson(exchange, 400, "{\"ok\":false,\"message\":\"" + jsonEscape(e.getMessage()) + "\"}");
+    } catch (IllegalStateException e) {
+      sendJson(exchange, 500, "{\"ok\":false,\"message\":\"" + jsonEscape(e.getMessage()) + "\"}");
+    }
   }
 
   private void handleDashboard(HttpExchange exchange) throws IOException {
@@ -1216,6 +1362,8 @@ public class BuddyWebServer {
                     <div class="message buddy" style="margin: 0;">Hi, I’m Buddy. You can type or tap the microphone and talk to me.</div>
                     </div>
                     <form id="commandForm" class="command-form">
+                    <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+                    <button id="imageBtn" class="mic-button" type="button" aria-label="Attach an image" title="Attach an image">+</button>
                     <button id="micBtn" class="mic-button" type="button" aria-label="Start voice input" title="Start voice input">🎙</button>
                     <input id="commandInput" class="command-input" type="text" autocomplete="off" aria-label="Message Buddy" placeholder="Message Buddy or use your voice..." />
                     <button id="sendBtn" class="send-button" type="submit" aria-label="Send message" title="Send">↑</button>
@@ -1271,6 +1419,8 @@ public class BuddyWebServer {
             const sendBtn = document.getElementById('sendBtn');
             const chatBox = document.getElementById('chatBox');
             const micBtn = document.getElementById('micBtn');
+            const imageBtn = document.getElementById('imageBtn');
+            const imageInput = document.getElementById('imageInput');
             const sectionView = document.getElementById('sectionView');
             const mainPanel = document.querySelector('.main-panel');
             const lowerGrid = document.querySelector('.lower-grid');
@@ -1279,6 +1429,33 @@ public class BuddyWebServer {
             let finalTranscript = '';
             let recognitionError = false;
             let selectedSection = 'home';
+            let selectedImage = null;
+            let selectedImageName = '';
+
+            imageBtn.addEventListener('click', () => imageInput.click());
+            imageInput.addEventListener('change', () => {
+              const file = imageInput.files && imageInput.files[0];
+              if (!file) return;
+              if (!file.type.startsWith('image/')) {
+                addMessage('Please attach a PNG, JPG, JPEG, WEBP, or GIF image.', 'error');
+                imageInput.value = '';
+                return;
+              }
+              if (file.size > 10 * 1024 * 1024) {
+                addMessage('The image is too large. Choose an image under 10 MB.', 'error');
+                imageInput.value = '';
+                return;
+              }
+              const reader = new FileReader();
+              reader.onload = () => {
+                selectedImage = reader.result;
+                selectedImageName = file.name;
+                addMessage('Image attached: ' + selectedImageName, 'user');
+                commandInput.placeholder = 'Ask about ' + selectedImageName + '...';
+                commandInput.focus();
+              };
+              reader.readAsDataURL(file);
+            });
 
             function addMessage(text, kind) {
               const message = document.createElement('div');
@@ -1291,9 +1468,9 @@ public class BuddyWebServer {
 
             async function sendCommand(command) {
               const text = command.trim();
-              if (!text || sendBtn.disabled) return;
+              if ((!text && !selectedImage) || sendBtn.disabled) return;
 
-              addMessage('You: ' + text, 'user');
+              if (text) addMessage('You: ' + text, 'user');
               commandInput.value = '';
               sendBtn.disabled = true;
               sendBtn.textContent = '...';
@@ -1301,11 +1478,25 @@ public class BuddyWebServer {
               const responseMessage = addMessage('Buddy is thinking...', 'buddy');
 
               try {
-                const response = await fetch('/api/command', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-                  body: new URLSearchParams({ text })
-                });
+                let response;
+                if (selectedImage) {
+                  const prompt = text || 'Describe this image clearly and identify any visible text.';
+                  response = await fetch('/api/image', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+                    body: JSON.stringify({ image: selectedImage, prompt })
+                  });
+                  selectedImage = null;
+                  selectedImageName = '';
+                  imageInput.value = '';
+                  commandInput.placeholder = 'Message Buddy or use your voice...';
+                } else {
+                  response = await fetch('/api/command', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                    body: new URLSearchParams({ text })
+                  });
+                }
                 const data = await response.json();
                 if (!response.ok || !data.ok) {
                   throw new Error(data.message || 'The command could not be completed.');
@@ -1397,6 +1588,48 @@ public class BuddyWebServer {
                 recognitionRow.className = 'setting-row';
                 recognitionRow.textContent = SpeechRecognition ? 'Voice recognition is supported in this browser.' : 'Voice recognition is not supported in this browser. Try a current version of Chrome or Edge.';
                 sectionView.appendChild(recognitionRow);
+                const modelForm = document.createElement('form');
+                modelForm.className = 'section-search';
+                modelForm.style.flexWrap = 'wrap';
+                const modelStatus = document.createElement('div');
+                modelStatus.className = 'setting-row';
+                modelStatus.textContent = 'Loading chat model parameters...';
+                sectionView.append(modelForm, modelStatus);
+                try {
+                  const modelResponse = await fetch('/api/chat-model');
+                  const modelData = await modelResponse.json();
+                  if (!modelResponse.ok || !modelData.ok) throw new Error(modelData.message || 'Could not load chat model settings.');
+                  modelStatus.textContent = 'Chat model parameters';
+                  for (const [name, value] of Object.entries(modelData.parameters)) {
+                    const label = document.createElement('label');
+                    label.style.display = 'grid';
+                    label.style.gap = '4px';
+                    label.style.minWidth = '150px';
+                    label.textContent = name;
+                    const input = document.createElement('input');
+                    input.name = name;
+                    input.type = 'number';
+                    input.step = name === 'temperature' || name.includes('penalty') || name.includes('p') || name.startsWith('mirostat_') || name === 'tfs_z'
+                      ? '0.01'
+                      : '1';
+                    input.value = value;
+                    label.appendChild(input);
+                    modelForm.appendChild(label);
+                  }
+                  const saveButton = document.createElement('button');
+                  saveButton.type = 'submit';
+                  saveButton.textContent = 'Save model parameters';
+                  modelForm.appendChild(saveButton);
+                  modelForm.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+                    const body = new URLSearchParams(new FormData(modelForm));
+                    const response = await fetch('/api/chat-model', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+                    const data = await response.json();
+                    modelStatus.textContent = data.message || (data.ok ? 'Saved.' : 'Could not save settings.');
+                  });
+                } catch (error) {
+                  modelStatus.textContent = error.message;
+                }
                 return;
               }
 

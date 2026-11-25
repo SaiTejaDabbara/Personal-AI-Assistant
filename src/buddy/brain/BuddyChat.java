@@ -115,13 +115,10 @@ public class BuddyChat {
 
         String prompt =
                 "You are Buddy, a helpful personal AI desktop assistant.\n\n"
-                        + "Answer clearly and directly, with enough detail to be useful. "
-                        + "For explanatory or how-to questions, explain the key ideas in "
-                        + "well-organized paragraphs and include relevant examples or steps "
-                        + "when they help. Keep explanations focused, usually around 90-130 "
-                        + "words, and use short paragraphs or up to five bullets. Give simple "
-                        + "questions concise answers. Avoid filler and repetition, and finish "
-                        + "complete thoughts instead of trailing off.\n"
+                        + "Answer clearly and directly. Use the minimum detail needed for a "
+                        + "complete answer. Keep simple answers short. Keep longer answers "
+                        + "short, focused, and under five bullets or paragraphs. Avoid filler "
+                        + "and repetition.\n"
                         + "Be honest about uncertainty and do not invent facts or confuse "
                         + "different products or organizations. When explaining AI systems, "
                         + "describe established public principles and clearly label details "
@@ -155,14 +152,13 @@ public class BuddyChat {
                 "{"
                         + "\"prompt\":\"" + escapeJson(prompt) + "\","
                         + "\"stream\":false,"
-                        + "\"temperature\":0.2,"
-                        + "\"n_predict\":192"
+                        + ChatModelConfig.getInstance().completionOptionsJson()
                         + "}";
 
         HttpRequest request =
                 HttpRequest.newBuilder()
                         .uri(URI.create(LocalModelRuntime.CHAT_COMPLETION_URL))
-                        .timeout(Duration.ofSeconds(90))
+                        .timeout(Duration.ofSeconds(45))
                         .header("Content-Type", "application/json")
                         .POST(HttpRequest.BodyPublishers.ofString(json))
                         .build();
@@ -377,7 +373,7 @@ public class BuddyChat {
             return "none";
         }
 
-        final int maxChars = 1800;
+        final int maxChars = 700;
 
         if (memory.length() <= maxChars) {
             return memory;
@@ -392,7 +388,7 @@ public class BuddyChat {
             return "none";
         }
 
-        final int maxChars = 2200;
+        final int maxChars = 900;
 
         if (context.length() <= maxChars) {
             return context;
