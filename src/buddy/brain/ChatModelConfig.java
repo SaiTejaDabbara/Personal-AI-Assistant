@@ -28,7 +28,7 @@ public final class ChatModelConfig {
         values.put("frequency_penalty", 0.0);
         values.put("tfs_z", 1.0);
         values.put("typical_p", 1.0);
-        values.put("n_predict", 96);
+        values.put("n_predict", 384);
         values.put("seed", -1);
         values.put("mirostat", 0);
         values.put("mirostat_tau", 5.0);
