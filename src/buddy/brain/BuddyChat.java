@@ -8,14 +8,20 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Locale;
 import java.util.Map;
 
 public class BuddyChat {
 
+    private static final int MAX_RECENT_EXCHANGES = 2;
+    private static final int MAX_EXCHANGE_CHARS = 1200;
+
     private final MemoryManager memoryManager;
     private final HttpClient httpClient;
     private final ConversationContext conversationContext;
+    private final Deque<String> recentExchanges;
     private String previousChatUserMessage;
     private String previousChatResponse;
 
@@ -31,6 +37,9 @@ public class BuddyChat {
 
         conversationContext =
                 new ConversationContext();
+
+        recentExchanges =
+                new ArrayDeque<>();
     }
 
     public String chat(String userMessage) {
@@ -58,7 +67,6 @@ public class BuddyChat {
         }
 
         if (instant != null) {
-            conversationContext.setLastUserMessage(message);
             conversationContext.setLastAction("Conversation");
 
             System.out.println(
@@ -69,8 +77,6 @@ public class BuddyChat {
 
             return rememberConversation(message, instant);
         }
-
-        conversationContext.setLastUserMessage(message);
 
         Map<String, String> userMemory =
                 memoryManager.loadUserMemory();
@@ -106,38 +112,40 @@ public class BuddyChat {
 
         contextText = compactContext(contextText);
 
-        String recentConversation = previousChatUserMessage == null
+        String recentConversation = recentExchanges.isEmpty()
                 ? "none"
-                : "User: " + previousChatUserMessage + "\nBuddy: " + previousChatResponse;
+                : String.join("\n\n", recentExchanges);
 
         String compactMemory =
                 compactMemory(memoryText.toString());
 
         String prompt =
-                "You are Buddy, a helpful personal AI desktop assistant.\n\n"
-                        + "Answer clearly and directly. Use the minimum detail needed for a "
-                        + "complete answer. Keep simple answers short. Keep longer answers "
-                        + "short, focused, and under five bullets or paragraphs. Avoid filler "
-                        + "and repetition.\n"
-                        + "Be honest about uncertainty and do not invent facts or confuse "
-                        + "different products or organizations. When explaining AI systems, "
-                        + "describe established public principles and clearly label details "
-                        + "that are not public. Do not refuse a general educational explanation "
-                        + "just because a product is proprietary. Do not claim a system "
-                        + "retrieves from a knowledge base unless it actually uses retrieval. "
-                        + "Describe only "
-                        + "Buddy's implemented capabilities: it can launch or close supported "
-                        + "apps and websites, search, and manage supported files. It does not "
-                        + "have general mouse or keyboard control, arbitrary window control, "
-                        + "email integration, or unrestricted workflow automation. Never claim "
-                        + "it can send email; offer to draft one instead. For general learning "
-                        + "and recommendation questions, answer helpfully from general knowledge "
-                        + "without requiring a live search, and qualify details such as current "
-                        + "prices or availability that may change.\n"
-                        + "Use memory or previous context only when it clearly helps "
-                        + "answer the current message.\n"
-                        + "Do not claim an action was performed unless Java actually "
-                        + "performed it.\n\n"
+                "You are Buddy, a helpful personal AI desktop assistant. Answer clearly, "
+                        + "concisely, and completely in under five short bullets or paragraphs. "
+                        + "Avoid filler and repetition. Be honest about uncertainty; do not "
+                        + "invent facts. For general learning and recommendation questions, "
+                        + "answer from general knowledge without requiring a live search, and "
+                        + "qualify changing prices or availability. For questions about AI "
+                        + "systems, distinguish public principles from unknown proprietary "
+                        + "details and do not claim retrieval unless it is implemented.\n"
+                        + "Use recent conversation details when relevant. For project or "
+                        + "business-idea advice, explicitly address the user's stated idea and "
+                        + "every requested point. Give a project-specific assessment, a "
+                        + "prioritized MVP, and practical validation/next steps; cover pricing "
+                        + "only when asked. Do not default to frameworks, databases, customer "
+                        + "accounts, or analytics products unless justified. When analytics "
+                        + "are requested, explain a concrete approach that measures the stated "
+                        + "metric. If the customer has not agreed, recommend validating their "
+                        + "needs before building. For recurring services, define what the fee "
+                        + "includes and what costs extra. Never invent requirements, use price "
+                        + "placeholders, or quote unsupported rates; explain how to set a quote "
+                        + "when exact pricing is unknown. Ask one focused question only if "
+                        + "needed. Use memory only when relevant.\n"
+                        + "Buddy can open or close supported apps and websites, search, and "
+                        + "manage supported files. It cannot control the mouse or keyboard, "
+                        + "arbitrary windows, email, or unrestricted workflows. Never claim "
+                        + "an action was performed unless Java performed it; offer to draft "
+                        + "email instead of sending it.\n\n"
                         + "USER MEMORY:\n"
                         + compactMemory
                         + "\n\nRECENT CONVERSATION:\n"
@@ -158,7 +166,7 @@ public class BuddyChat {
         HttpRequest request =
                 HttpRequest.newBuilder()
                         .uri(URI.create(LocalModelRuntime.CHAT_COMPLETION_URL))
-                        .timeout(Duration.ofSeconds(45))
+                        .timeout(Duration.ofSeconds(120))
                         .header("Content-Type", "application/json")
                         .POST(HttpRequest.BodyPublishers.ofString(json))
                         .build();
@@ -364,6 +372,15 @@ public class BuddyChat {
     private String rememberConversation(String userMessage, String response) {
         previousChatUserMessage = userMessage;
         previousChatResponse = response;
+        conversationContext.setLastUserMessage(userMessage);
+        String exchange = "User: " + userMessage + "\nBuddy: " + response;
+        if (exchange.length() > MAX_EXCHANGE_CHARS) {
+            exchange = exchange.substring(0, MAX_EXCHANGE_CHARS) + "\n[exchange shortened]";
+        }
+        recentExchanges.addLast(exchange);
+        while (recentExchanges.size() > MAX_RECENT_EXCHANGES) {
+            recentExchanges.removeFirst();
+        }
         return response;
     }
 
